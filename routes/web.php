@@ -9,7 +9,7 @@ use App\Http\Controllers\Admin\AddDocumentsController;
 use App\Http\Controllers\Admin\LinkDocumentsController;
 use App\Http\Controllers\Admin\ReportsController;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\wards\BasicDetailsController;
+use App\Http\Controllers\wards\{BasicDetailsController,FamilyMemersDetailsController};
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -88,6 +88,13 @@ Route::post('/wards/create', [BasicDetailsController::class, 'create'])->name('w
 
 //end basic details routes
 
+
+
+// wards-family routes
+Route::get('/wards-family', [FamilyMemersDetailsController::class, 'wards_family_member'])->name('wards_family_member');
+Route::post('/wards-create', [FamilyMemersDetailsController::class, 'create'])->name('wards_family_member.create');
+
+//end wards-family routes
 
 Route::get('/wards-house', [UserController::class, 'wards_house_owner'])->name('wards_house_owner');
 Route::get('/wards-family', [UserController::class, 'wards_family_member'])->name('wards_family_member');
