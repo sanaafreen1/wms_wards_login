@@ -13,17 +13,17 @@
     <link rel="shortcut icon" href="assets/images/favicon.png">
 
     <!-- Layout config Js -->
-    <script src="{{asset('public/assets/js/layout.js')}}"></script>
+    <script src="{{asset('/assets/js/layout.js')}}"></script>
     <!-- Bootstrap Css -->
-    <link href="{{asset('public/assets/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{asset('/assets/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css" />
     <!-- Icons Css -->
-    <link href="{{asset('public/assets/css/icons.min.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{asset('/assets/css/icons.min.css')}}" rel="stylesheet" type="text/css" />
     <!-- App Css-->
-    <link href="{{asset('public/assets/css/app.min.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{asset('/assets/css/app.min.css')}}" rel="stylesheet" type="text/css" />
 
     <!-- custom Css-->
-    <link href="{{asset('public/assets/css/custom.min.css')}}" rel="stylesheet" type="text/css" />
-    <link href="{{asset('public/assets/css//custom1.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{asset('assets/css/custom.min.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{asset('assets/css//custom1.css')}}" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css"
         integrity="sha512-3pIirOrwegjM6erE5gPSwkUzO+3cTjpnV9lexlNZqvupR64iZBnOOTiiLPb9M36zpMScbmUNIcHUqKD47M719g=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />

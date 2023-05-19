@@ -23,34 +23,34 @@
 
     <!-- App favicon -->
 
-    <link rel="shortcut icon" href="{{ asset('public/assets/images/tslogo.pngg') }}">
+    <link rel="shortcut icon" href="{{ asset('/assets/images/tslogo.pngg') }}">
 
 
 
     <!-- Layout config Js -->
 
-    <script src="{{ asset('public/assets/js/layout.js') }}"></script>
+    <script src="{{ asset('/assets/js/layout.js') }}"></script>
 
     <!-- Bootstrap Css -->
 
-    <link href="{{ asset('public/assets/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('/assets/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
 
     <!-- Icons Css -->
 
-    <link href="{{ asset('public/assets/css/icons.min.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('/assets/css/icons.min.css') }}" rel="stylesheet" type="text/css" />
 
     <!-- App Css-->
 
-    <link href="{{ asset('public/assets/css///app.min.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('/assets/css///app.min.css') }}" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="https://unpkg.com/@icon/icofont/icofont.css">
     <!-- custom Css-->
 
-    <link href="{{ asset('public/assets/css/custom.min.css') }}" rel="stylesheet" type="text/css" />
-    <link href="{{ asset('public/assets/css/custom1.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('/assets/css/custom.min.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('/assets/css/custom1.css') }}" rel="stylesheet" type="text/css" />
 
 
-    <link href="{{ asset('public/assets/css/animation_check.css') }}" rel="stylesheet" type="text/css" />
-    <link href="{{ asset('public/assets/css/responsive.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('/assets/css/animation_check.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('/assets/css/responsive.css') }}" rel="stylesheet" type="text/css" />
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css"
         integrity="sha512-3pIirOrwegjM6erE5gPSwkUzO+3cTjpnV9lexlNZqvupR64iZBnOOTiiLPb9M36zpMScbmUNIcHUqKD47M719g=="
@@ -61,9 +61,9 @@
     <!--<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">-->
     <!--<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">-->
      <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
-     <!--<link href="{{ asset('public/assets/css/icofont.css') }}" rel="stylesheet" type="text/css" />-->
+     <!--<link href="{{ asset('/assets/css/icofont.css') }}" rel="stylesheet" type="text/css" />-->
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-     
+
 
 </head>
 
