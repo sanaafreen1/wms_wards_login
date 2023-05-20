@@ -63,19 +63,19 @@
                                                 <div class="col-md-4 mb-4 input-felds">
                                                     <div class="form-group">
                                                         <small class="mb-1"> Date of Birth / పుట్టిన తేది </small>
-                                                        <input type="date" name="date_of_birth" class="form-control" id="" placeholder="">
+                                                        <input type="date" id="date_of_birth" name="date_of_birth" class="form-control" id="" placeholder="">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-4 mb-4 input-felds">
                                                     <div class="form-group">
                                                         <small class="mb-1"> Mobile Number/మొబైల్ నంబర్ </small>
-                                                        <input type="text" name="mobile" class="form-control" id="" placeholder="">
+                                                        <input type="text" id="mobile" name="mobile" class="form-control" id="" placeholder="">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-4 mb-4 input-felds">
                                                     <div class="form-group">
                                                         <small class="mb-1"> Education / చదువు </small>
-                                                        <select class="form-select" name="education">
+                                                        <select class="form-select" id="education" name="education">
                                                             <option value="">-- Select --</option>
                                                             <option value="Illiterate"> Illiterate/నిరక్షరాస్యుడు </option>
                                                             <option value="Pursuing School"> Pursuing School / పాఠశాలను కొనసాగిస్తోంది </option>
@@ -90,7 +90,7 @@
                                                 <div class="col-md-4 mb-4 input-felds">
                                                     <div class="form-group">
                                                         <small class="mb-1"> Education Details / విద్య వివరాలు </small>
-                                                        <select class="form-select" name="education_details">
+                                                        <select class="form-select" id="education_details" name="education_details">
                                                             <option value="">-- Select --</option>
                                                             <option value="BBA"> BBA </option>
                                                             <option value="Bcom"> Bcom </option>
@@ -107,7 +107,7 @@
                                                 </div>
                                                 <div class="col-md-4 mb-4 input-felds">
                                                     <div class="form-check mt-3 pt-2">
-                                                        <input type="checkbox" class="form-check-input" name="staying_out_oftown" id="exampleCheck1">
+                                                        <input type="checkbox" class="form-check-input" id="staying_out_oftown" name="staying_out_oftown" id="exampleCheck1">
                                                         <label class="form-check-label" for="exampleCheck1"> Staying out of Town/టౌన్ వెలుపల ఉంటున్నారు </label>
 
                                                     </div>
@@ -115,7 +115,7 @@
                                                 <div class="col-md-4 mb-4 input-felds">
                                                     <div class="form-group">
                                                         <small class="mb-1"> Location of the Person / వ్యక్తి యొక్క స్థానం </small>
-                                                        <select class="form-select" name="location_ofthe_person">
+                                                        <select class="form-select" id="location_ofthe_person" name="location_ofthe_person">
                                                             <option>-- Select --</option>
                                                             <option value="Staying in the state"> Staying in the state / రాష్ట్రంలోనే ఉంటున్నారు </option>
                                                             <option value="Staying out of the state"> Staying out of the state / రాష్ట్రం వెలుపల ఉంటున్నారు </option>
@@ -127,13 +127,13 @@
                                                 <div class="col-md-4 mb-4 input-felds">
                                                     <div class="form-group ">
                                                         <small class="mb-1"> Enter the Details / వివరాలను నమోదు చేయండి </small>
-                                                        <input type="text" class="form-control" name="enter_the_details" id="" placeholder="">
+                                                        <input type="text" class="form-control" id="enter_the_details" name="enter_the_details" id="" placeholder="">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-4 mb-4 input-felds">
                                                     <div class="form-group">
                                                         <small class="mb-1"> Occupation/వృత్తి </small>
-                                                        <select class="form-select" name="occupation">
+                                                        <select class="form-select" id="occupation" name="occupation">
                                                             <option value="">-- Select --</option>
                                                             <option value="Lawyer"> Lawyer / న్యాయవాది </option>
                                                             <option value="Docter"> Docter / వైద్యుడు </option>
@@ -147,7 +147,7 @@
                                                 <div class="col-md-4 mb-4 input-felds">
                                                     <div class="form-group">
                                                         <small class="mb-1"> Gender/లింగం </small>
-                                                        <select class="form-select" name="gender">
+                                                        <select class="form-select" id="gender" name="gender">
                                                             <option value="">-- Select --</option>
                                                             <option value="Male"> Male / పురుషుడు</option>
                                                             <option value="Female"> Female / స్త్రీ </option>
@@ -160,7 +160,7 @@
                                                 <div class="col-md-4 mb-4 input-felds">
                                                     <div class="form-group">
                                                         <small class="mb-1"> Blood Group / రక్తపు గ్రూపు </small>
-                                                        <select class="form-select" name="blood_group">
+                                                        <select class="form-select" id="blood_group" name="blood_group">
                                                             <option value="">-- Select --</option>
                                                             <option value="A++"> A+</option>
                                                             <option value="A"> A- </option>
@@ -175,37 +175,42 @@
                                                     </div>
                                                 </div>
                                                 <div class="col-md-4 mb-4 input-felds">
+
                                                     <div class="form-check mt-4">
                                                         <input type="checkbox" class="form-check-input" name="b_p" >
                                                         <label class="form-check-label" for="exampleCheck2"> B.P / బి.పి </label>
+                                                        <span id="b_p"></span>
                                                     </div>
-                                                    <span id="b_p"></span>
+
+                                                </div>
+                                                <div class="col-md-4 mb-4 input-felds">
+                                                    <div class="form-check mt-2 pt-2">
+                                                        <input type="checkbox" class="form-check-input" name="sugar">
+                                                        <label class="form-check-label" for="exampleCheck3"> Sugar / షుగర్ </label>
+                                                    </div>
+                                                    <span  id="sugar" ></span>
                                                 </div>
 
                                                 <div class="col-md-4 mb-4 input-felds">
                                                     <div class="form-check mt-4">
-                                                        <input type="checkbox" class="form-check-input" name="sugar"id="exampleCheck3">
-                                                        <label class="form-check-label" for="exampleCheck3"> Sugar / షుగర్ </label>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-4 mb-4 input-felds">
-                                                    <div class="form-check mt-4">
-                                                        <input type="checkbox" class="form-check-input" name="covid_vaccine" id="exampleCheck4">
+                                                        <input type="checkbox" class="form-check-input" name="covid_vaccine">
                                                         <label class="form-check-label" for="exampleCheck4"> Covid Vaccine / కోవిడ్‌కి టీకా </label>
 
                                                     </div>
+                                                    <span id="covid_vaccine"></span>
                                                 </div>
                                                 <div class="col-md-4 mb-4 input-felds">
                                                     <div class="form-check mt-4">
-                                                        <input type="checkbox" class="form-check-input" name="pension"id="exampleCheck5">
+                                                        <input type="checkbox" class="form-check-input" name="pension">
                                                         <label class="form-check-label" for="exampleCheck5"> Pension / పెన్షన్ </label>
 
                                                     </div>
+                                                    <span id="pension"></span>
                                                 </div>
                                                 <div class="col-md-4 mb-4 input-felds">
                                                     <div class="form-group">
                                                         <small class="mb-1"> Type of Pension/పెన్షన్ రకం </small>
-                                                        <select class="form-select" name="type_of_pension">
+                                                        <select class="form-select" id="type_of_pension" name="type_of_pension">
                                                             <option value="">-- Select --</option>
                                                             <option value="Old Age Pension"> Old Age Pension/వృద్ధాప్య పెన్షన్</option>
                                                             <option value="Widow Pension"> Widow Pension/వితంతు పింఛను </option>
@@ -224,7 +229,7 @@
                                                 <div class="col-md-4 mb-4 input-felds">
                                                     <div class="form-group">
                                                         <small class="mb-1"> Upload Photo / ఫోటోను అప్‌లోడ్ చేయండి్ </small>
-                                                        <input type="file" class="form-control" name="upload_photo" id="" placeholder="">
+                                                        <input type="file" class="form-control" id="upload_photo" name="upload_photo" id="" placeholder="">
                                                     </div>
                                                 </div>
 
