@@ -43,7 +43,7 @@
                                                 </div>
                                                 <div class="col-md-4 mb-4 input-felds">
                                                     <div class="form-group">
-                                                        <small class="mb-1" id="housedetails" > House Details / ఇంటి వివరాలు </small>
+                                                        <small class="mb-1"  > House Details / ఇంటి వివరాలు </small>
                                                         <div class="d-flex align-items-center ">
                                                             <div class="radio-btnn p-2">
                                                                 <input type="radio" id=" " name="housedetails" value="owned">
@@ -54,6 +54,7 @@
                                                                 <label for="rent" class="ms-1">Rented/అద్దె</label>
                                                             </div>
                                                         </div>
+                                                        <span id="housedetails"></span>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-4 mb-4 input-felds">
@@ -101,7 +102,7 @@
                                                 </div>
                                                 <div class="col-md-4 mb-4 input-felds">
                                                     <div class="form-group">
-                                                        <small class="mb-1" id="rationcard"> Ration card / రేషన్ కార్డు</small>
+                                                        <small class="mb-1" > Ration card / రేషన్ కార్డు</small>
                                                         <div class="d-flex align-items-center ">
                                                             <div class="radio-btnn p-2">
                                                                 <input type="radio" id=" " name="rationcard" value="Yes">
@@ -112,6 +113,7 @@
                                                                 <label for="no" class="ms-1">No</label>
                                                             </div>
                                                         </div>
+                                                        <span id="rationcard"></span>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-4 mb-4 input-felds">

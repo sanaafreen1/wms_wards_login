@@ -32,10 +32,10 @@ $this->validate($request,[
 'housetypes'=>'required',
 'religion'=>'required',
 'caste'=>'required',
-'income'=>'required',
+'income'=>'required|numeric',
 'rationcard'=>'required',
 'typeofrationcard'=>'required',
-'rationcardnumber'=>'required',
+'rationcardnumber'=>'required|numeric',
 'address'=>'required',
 ]);
 
@@ -58,7 +58,6 @@ $store=$del->id;
  $data=session()->put('basicdetails_id', $store);
 
 // $getdata= session()->get('id');
-
   return response()->json(['status' => 'success']);
 
 
