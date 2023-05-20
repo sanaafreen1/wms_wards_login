@@ -30,9 +30,6 @@
                                 </ul>
                                 <div class="card mb-4">
 
-                                @if(session()->has('success'))
-                                <div class="alert alert-success">{{session()->get('success')}}</div>
-                                @endif
 
 
                                     <div class="card-body">
@@ -232,8 +229,8 @@
 
                                             </div>
                                             <div class="mt-2">
-                                                <button type="submit" class="btn btn-primary me-2 mb-2" id="btnsubmit">Save changes</button>
-                                                <a href="{{route('wards_family_member')}}" class="btn btn-outline-secondary mb-2">Add Family Member Details/కుటుంబ సభ్యుల వివరాలను జోడించండి </a>
+                                                <button type="submit" class="btn btn-primary me-2 mb-2"  >Save changes</button>
+                                                <a href="{{ route('wards_family_member')}}" class="btn btn-outline-secondary mb-2">Add Family Member Details/కుటుంబ సభ్యుల వివరాలను జోడించండి </a>
                                             </div>
                                         </form>
                                     </div>

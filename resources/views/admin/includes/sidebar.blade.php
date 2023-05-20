@@ -8,7 +8,7 @@
         left: 0;
         z-index: 0;
         width: 100vw;
-        height: 100vh; 
+        height: 100vh;
         background-color: var(--vz-backdrop-bg);
     }
     .navbar-brand-box {
@@ -27,19 +27,19 @@
         <!-- Dark Logo-->
         <a href="{{ route('home') }}" class="logo logo-dark">
             <span class="logo-sm">
-                <img src="{{url('public/assets/images/tslogo.png')}}" class="img-fluid" alt="" title="" style="width:70px; "/>
+                <img src="{{url('assets/images/tslogo.png')}}" class="img-fluid" alt="" title="" style="width:70px; "/>
             </span>
             <span class="logo-lg">
-                 <img src="{{url('public/assets/images/tslogo.png')}}" class="img-fluid" alt="" title="" style="width:70px; "/>
+                 <img src="{{url('assets/images/tslogo.png')}}" class="img-fluid" alt="" title="" style="width:70px; "/>
             </span>
         </a>
         <!-- Light Logo-->
         <a href="{{ route('home') }}" class="logo logo-light">
             <span class="logo-sm">
-                 <img src="{{url('public/assets/images/tslogo.png')}}" class="img-fluid" alt="" title="" style="width:70px; "/>
+                 <img src="{{url('assets/images/tslogo.png')}}" class="img-fluid" alt="" title="" style="width:70px; "/>
             </span>
             <span class="logo-lg">
-                <img src="{{url('public/assets/images/tslogo.png')}}" class="img-fluid" alt="" title="" style="width:70px; "/>
+                <img src="{{url('assets/images/tslogo.png')}}" class="img-fluid" alt="" title="" style="width:70px; "/>
             </span>
         </a>
         <button type="button" class="btn btn-sm p-0 fs-20 header-item float-end btn-vertical-sm-hover"

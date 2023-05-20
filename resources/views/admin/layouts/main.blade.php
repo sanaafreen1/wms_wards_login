@@ -220,33 +220,33 @@
 
     <!-- JAVASCRIPT -->
 
-    <script src="{{ asset('public/assets/libs/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('assets/libs/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 
-    <script src="{{ asset('public/assets/libs/simplebar/simplebar.min.js') }}"></script>
+    <script src="{{ asset('assets/libs/simplebar/simplebar.min.js') }}"></script>
 
-    <script src="{{ asset('public/assets/libs/node-waves/waves.min.js') }}"></script>
+    <script src="{{ asset('assets/libs/node-waves/waves.min.js') }}"></script>
 
-    <script src="{{ asset('public/assets/libs/feather-icons/feather.min.js') }}"></script>
+    <script src="{{ asset('assets/libs/feather-icons/feather.min.js') }}"></script>
 
-    <script src="{{ asset('public/assets/js/pages/plugins/lord-icon-2.1.0.js') }}"></script>
+    <script src="{{ asset('assets/js/pages/plugins/lord-icon-2.1.0.js') }}"></script>
 
-    <script src="{{ asset('public/assets/js/plugins.js') }}"></script>
+    <script src="{{ asset('assets/js/plugins.js') }}"></script>
 
 
 
     <!-- prismjs plugin -->
 
-    <script src="{{ asset('public/assets/libs/prismjs/prism.js') }}"></script>
+    <script src="{{ asset('assets/libs/prismjs/prism.js') }}"></script>
 
 
 
-    <script src="{{ asset('public/assets/js/app.js') }}"></script>
+    <script src="{{ asset('assets/js/app.js') }}"></script>
 
 
 
 
 
-    <script src="{{ asset('public/assets/js/pages/modal.init.js') }}"></script>
+    <script src="{{ asset('assets/js/pages/modal.init.js') }}"></script>
 
 
 

@@ -35,11 +35,11 @@
                                 <form action="" id="servicedetails" method="POST">
                                 <div class="form-group">
                                     <small>Select Service / సేవను ఎంచుకోండి</small>
-                                    <select class="form-select">
+                                    <select class="form-select" name="service" id="service">
                                         <option value="">Select Service / సేవను ఎంచుకోండి</option>
-                                        {{-- @foreach ($service as $store )
-                                        <option value="{{$store->id}}">{{$store->$service_name}}/option>
-                                        @endforeach --}}
+                                        @foreach ($service as $store )
+                                        <option value="{{$store->service_id}}">{{$store->service_name}}</option>
+                                        @endforeach
 
                                     </select>
                                 </div>
@@ -48,13 +48,11 @@
                             <div class="col-md-6 mb-3">
                                 <div class="form-group">
                                     <small>Select Sub Service/ఉప సేవను ఎంచుకోండి</small>
-                                    <select class="form-select">
+                                    <select class="form-select" name="subservice" id="subservice">
                                         <option value="">Select Sub Service / సేవను ఎంచుకోండి</option>
-                                        <option value="">Aadhar Card / సేవను ఎంచుకోండి</option>
-                                        <option value="">PAN Card / సేవను ఎంచుకోండి</option>
-                                        <option value="">Ration Card / సేవను ఎంచుకోండి</option>
-                                        <option value="">Power Bill / సేవను ఎంచుకోండి</option>
-                                        <option value="">Certigicate / సేవను ఎంచుకోండి</option>
+                                        @foreach ($sub_service as $store )
+                                        <option value="{{$store->sub_service_id}}">{{$store->sub_service_name}}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                             </div>
@@ -202,5 +200,29 @@
 
 @endsection
 @push('scripts')
+<script>
+    $('#service').on('change', function() {
+          var id = this.value;
+          // alert(company_id);
 
+          $("#subservice").html('');
+          $.ajax({
+          url:"{{route('getsubservice')}}",
+          type: "POST",
+          data: {
+          id: id,
+          _token: '{{csrf_token()}}'
+          },
+          dataType : 'json',
+          success: function(result){
+              //alert(result.model);
+          $('#subservice').html('<option value="">Select Sub Service / సేవను ఎంచుకోండి</option>');
+          $.each(result.subservice,function(key,value){
+          $("#subservice").append('<option value="'+value.sub_service_id+'">'+value.sub_service_name+'</option>');
+          //  alert(value.id);
+          });
+          }
+          });
+          });
+</script>
 @endpush

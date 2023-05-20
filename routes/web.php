@@ -82,38 +82,33 @@ Route::match(['GET','POST'],'/reports', [ReportsController::class, 'reports'])->
 Route::get('/wards-home', [UserController::class, 'wardshome'])->name('wardshome');
 
 // add basic details routes
-
 Route::get('/wards-addmember', [BasicDetailsController::class, 'wards_add_member'])->name('wards_add_member');
 Route::post('/wards/create', [BasicDetailsController::class, 'create'])->name('wards_add_member.create');
-
 //end basic details routes
 
-
+// owner house details routes
+Route::get('/wards-house', [HousedetailsController::class, 'wards_house_owner'])->name('wards_house_owner');
+Route::post('/wards_house_owner_insert', [HousedetailsController::class, 'wards_house_owner_insert'])->name('wards_house_owner.insert');
+// end owner house details routes
 
 // wards-family routes
 Route::get('/wards-family', [FamilyMemersDetailsController::class, 'wards_family_member'])->name('wards_family_member');
 Route::post('/wards-create', [FamilyMemersDetailsController::class, 'create'])->name('wards_family_member.create');
-
 //end wards-family routes
 
 
-// house details routes
-Route::get('/wards-house', [HousedetailsController::class, 'wards_house_owner'])->name('wards_house_owner');
-Route::post('/wards_house_owner_insert', [HousedetailsController::class, 'wards_house_owner_insert'])->name('wards_house_owner.insert');
-// end house details routes
 
 // enter service details routes
 Route::get('/wards-enter', [EnterServiceDetailsController::class, 'wards_enter_service'])->name('wards_enter_service');
 Route::post('/wards-create', [EnterServiceDetailsController::class, 'create'])->name('wards_enter_service');
+Route::post('/getsubservice', [EnterServiceDetailsController::class, 'getsubservice'])->name('getsubservice');
 
 
 //end service details routes
 
 
 
-// Route::get('/wards-house', [UserController::class, 'wards_house_owner'])->name('wards_house_owner');
-// // Route::get('/wards-family', [UserController::class, 'wards_family_member'])->name('wards_family_member');
-// Route::get('/wards-enter', [UserController::class, 'wards_enter_service'])->name('wards_enter_service');
+
 Route::get('/wards-reports', [UserController::class, 'wards_reports'])->name('wards_reports');
 
 // end ward routes
