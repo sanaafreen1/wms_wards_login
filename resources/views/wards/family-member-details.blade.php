@@ -38,7 +38,7 @@
                                                 <div class="col-md-4 mb-4 input-felds">
                                                     <div class="form-group">
                                                         <small class="mb-1"> Relation with House Owner / ఇంటి యజమానితో సంబంధం </small>
-                                                        <select class="form-select" name="relation_with_houseowner">
+                                                        <select class="form-select" id="relation_with_houseowner" name="relation_with_houseowner">
                                                             <option value="">-- Select --</option>
                                                             <option value="Wife"> Wife/భార్య </option>
                                                             <option value="Father"> Father/తండ్రి </option>
@@ -57,7 +57,7 @@
                                                 <div class="col-md-4 mb-4 input-felds">
                                                     <div class="form-group">
                                                         <small class="mb-1"> Member Name / సభ్యుని పేరు </small>
-                                                        <input type="text" name="member_name" class="form-control" id="" placeholder="">
+                                                        <input type="text" id="member_name" name="member_name" class="form-control" id="" placeholder="">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-4 mb-4 input-felds">
@@ -176,9 +176,10 @@
                                                 </div>
                                                 <div class="col-md-4 mb-4 input-felds">
                                                     <div class="form-check mt-4">
-                                                        <input type="checkbox" class="form-check-input" name="b_p" id="exampleCheck2">
+                                                        <input type="checkbox" class="form-check-input" name="b_p" >
                                                         <label class="form-check-label" for="exampleCheck2"> B.P / బి.పి </label>
                                                     </div>
+                                                    <span id="b_p"></span>
                                                 </div>
 
                                                 <div class="col-md-4 mb-4 input-felds">
