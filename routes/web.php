@@ -88,7 +88,7 @@ Route::post('/wards/create', [BasicDetailsController::class, 'create'])->name('w
 
 // owner house details routes
 Route::get('/wards-house', [HousedetailsController::class, 'wards_house_owner'])->name('wards_house_owner');
-Route::post('/wards_house_owner_insert', [HousedetailsController::class, 'wards_house_owner_insert'])->name('wards_house_owner.insert');
+Route::post('/wards_house_owner/create', [HousedetailsController::class, 'create'])->name('wards_house_owner.insert');
 // end owner house details routes
 
 // wards-family routes
@@ -100,7 +100,7 @@ Route::post('/wards-create', [FamilyMemersDetailsController::class, 'create'])->
 
 // enter service details routes
 Route::get('/wards-enter', [EnterServiceDetailsController::class, 'wards_enter_service'])->name('wards_enter_service');
-Route::post('/wards-create', [EnterServiceDetailsController::class, 'create'])->name('wards_enter_service.create');
+Route::post('/wards_enter_service/create', [EnterServiceDetailsController::class, 'create'])->name('wards_enter_service.create');
 Route::post('/getsubservice', [EnterServiceDetailsController::class, 'getsubservice'])->name('getsubservice');
 
 

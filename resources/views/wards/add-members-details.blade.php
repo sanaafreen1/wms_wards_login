@@ -38,7 +38,7 @@
                                                 <div class="col-md-4 mb-4 input-felds">
                                                     <div class="form-group">
                                                         <small class="mb-1">House No / ఇంటి నెం</small>
-                                                        <input type="text" class="form-control" id="housenumber" placeholder="" name="housenumber">
+                                                        <input type="text" class="form-control" id="housenumber" placeholder="" name="housenumber"  value="{{old('housenumber')}}">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-4 mb-4 input-felds">

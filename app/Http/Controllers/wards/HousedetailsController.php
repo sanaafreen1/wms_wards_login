@@ -19,7 +19,7 @@ class HousedetailsController extends Controller
     }
 
 
-    public function wards_house_owner_insert(Request $request)
+    public function create(Request $request)
     {
         // dd($request->all());
        $this->validate($request,[
