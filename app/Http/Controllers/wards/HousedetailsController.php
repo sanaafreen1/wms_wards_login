@@ -13,7 +13,7 @@ class HousedetailsController extends Controller
     {
        $data= House_owner_details::get();
 
-dd($data);
+// dd($data);
        return view('wards.house-owner-details',compact('data'));
 
     }

@@ -190,11 +190,13 @@
                                                 </div>
                                                 <div class="col-md-4 mb-4 input-felds">
                                                     <div class="form-check mt-4">
-                                                        <input type="checkbox" class="form-check-input" name="covid_vaccine" id="exampleCheck4">
+                                                        <input type="checkbox" class="form-check-input" name="covid_vaccine"  >
                                                         <label class="form-check-label" for="exampleCheck4"> Covid Vaccine / కోవిడ్‌కి టీకా </label>
 
                                                     </div>
+                                                    <span id="covid_vaccine"></span>
                                                 </div>
+
                                                 <div class="col-md-4 mb-4 input-felds">
                                                     <div class="form-check mt-4">
                                                         <input type="checkbox" class="form-check-input" name="pension"id="exampleCheck5">
@@ -238,7 +240,7 @@
 
                                             <div class="mt-2">
                                                 <button type="submit" class="btn btn-primary me-2">Save Changes</button>
-                                                <a href="enter-service-details.html" class="btn btn-outline-secondary">Add Service Details / సేవ వివరాలను జోడించండి </a>
+                                                <a href="{{route('wards_enter_service')}}" class="btn btn-outline-secondary">Add Service Details / సేవ వివరాలను జోడించండి </a>
                                             </div>
                                         </form>
                                     </div>

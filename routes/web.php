@@ -9,7 +9,7 @@ use App\Http\Controllers\Admin\AddDocumentsController;
 use App\Http\Controllers\Admin\LinkDocumentsController;
 use App\Http\Controllers\Admin\ReportsController;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\wards\{BasicDetailsController,FamilyMemersDetailsController,HousedetailsController};
+use App\Http\Controllers\wards\{BasicDetailsController,FamilyMemersDetailsController,HousedetailsController,EnterServiceDetailsController};
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -101,9 +101,19 @@ Route::post('/wards-create', [FamilyMemersDetailsController::class, 'create'])->
 Route::get('/wards-house', [HousedetailsController::class, 'wards_house_owner'])->name('wards_house_owner');
 Route::post('/wards_house_owner_insert', [HousedetailsController::class, 'wards_house_owner_insert'])->name('wards_house_owner.insert');
 // end house details routes
-Route::get('/wards-house', [UserController::class, 'wards_house_owner'])->name('wards_house_owner');
-Route::get('/wards-family', [UserController::class, 'wards_family_member'])->name('wards_family_member');
-Route::get('/wards-enter', [UserController::class, 'wards_enter_service'])->name('wards_enter_service');
+
+// enter service details routes
+Route::get('/wards-enter', [EnterServiceDetailsController::class, 'wards_enter_service'])->name('wards_enter_service');
+Route::post('/wards-create', [EnterServiceDetailsController::class, 'create'])->name('wards_enter_service');
+
+
+//end service details routes
+
+
+
+// Route::get('/wards-house', [UserController::class, 'wards_house_owner'])->name('wards_house_owner');
+// // Route::get('/wards-family', [UserController::class, 'wards_family_member'])->name('wards_family_member');
+// Route::get('/wards-enter', [UserController::class, 'wards_enter_service'])->name('wards_enter_service');
 Route::get('/wards-reports', [UserController::class, 'wards_reports'])->name('wards_reports');
 
 // end ward routes

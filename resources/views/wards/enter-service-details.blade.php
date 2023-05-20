@@ -32,15 +32,15 @@
                                     <div class="card-body">
                                         <div class="row mb-5">
                             <div class="col-md-6 mb-3">
+                                <form action="" id="servicedetails" method="POST">
                                 <div class="form-group">
                                     <small>Select Service / సేవను ఎంచుకోండి</small>
                                     <select class="form-select">
                                         <option value="">Select Service / సేవను ఎంచుకోండి</option>
-                                        <option value="">Aadhar Card / సేవను ఎంచుకోండి</option>
-                                        <option value="">PAN Card / సేవను ఎంచుకోండి</option>
-                                        <option value="">Ration Card / సేవను ఎంచుకోండి</option>
-                                        <option value="">Power Bill / సేవను ఎంచుకోండి</option>
-                                        <option value="">Certigicate / సేవను ఎంచుకోండి</option>
+                                        {{-- @foreach ($service as $store )
+                                        <option value="{{$store->id}}">{{$store->$service_name}}/option>
+                                        @endforeach --}}
+
                                     </select>
                                 </div>
                             </div>
@@ -169,6 +169,7 @@
                                 </div>
                             </div>
                         </div>
+                    </form>
                                     </div>
                                     <!-- /Account -->
                                 </div>
