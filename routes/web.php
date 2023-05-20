@@ -100,7 +100,7 @@ Route::post('/wards-create', [FamilyMemersDetailsController::class, 'create'])->
 
 // enter service details routes
 Route::get('/wards-enter', [EnterServiceDetailsController::class, 'wards_enter_service'])->name('wards_enter_service');
-Route::post('/wards-create', [EnterServiceDetailsController::class, 'create'])->name('wards_enter_service');
+Route::post('/wards-create', [EnterServiceDetailsController::class, 'create'])->name('wards_enter_service.create');
 Route::post('/getsubservice', [EnterServiceDetailsController::class, 'getsubservice'])->name('getsubservice');
 
 
