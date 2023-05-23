@@ -32,8 +32,9 @@
                                     <div class="card-body">
                                         <div class="row mb-5">
                             <div class="col-md-6 mb-3">
-                                <form action="" id="servicedetails" method="POST">
-                                <div class="form-group">
+                                <form action="" id="servicedetails" name="servicedetails" method="POST">
+                              @csrf
+                                    <div class="form-group">
                                     <small>Select Service / సేవను ఎంచుకోండి</small>
                                     <select class="form-select" name="service" id="service">
                                         <option value="">Select Service / సేవను ఎంచుకోండి</option>
@@ -60,94 +61,20 @@
                             <div class="col-md-12 mb-3">
                                 <div class="form-group">
                                     <small>Select Documents / పత్రాలను ఎంచుకోండి</small>
-                                    <ul class="m-0 p-0">
-                                        <li class="align-items-center d-flex me-3 float-start">
-                                            <span class="p-1"><input type="checkbox" class="largerCheckbox mt-1" value=""></span>
-                                            <span class="p-1">Aadhar</span>
+                                    <ul class="m-0 p-0 s-doc-mobile">
+
+                                        @foreach ($document as $val)
+                                        <li class="align-items-start d-flex me-3 float-start">
+                                            <span class="p-1"><input type="checkbox" class="largerCheckbox mt-1" name="document[]" id="document" value="{{$val->document_id}}"/></span>
+                                            <span class="p-1">{{$val->document_name}}</span>
                                         </li>
-                                        <li class="align-items-center d-flex me-3 float-start">
-                                            <span class="p-1"><input type="checkbox" class="largerCheckbox mt-1" value=""></span>
-                                            <span class="p-1">Pan card</span>
-                                        </li>
-                                        <li class="align-items-center d-flex me-3 float-start">
-                                            <span class="p-1"><input type="checkbox" class="largerCheckbox mt-1" value=""></span>
-                                            <span class="p-1">Ration card</span>
-                                        </li>
-                                        <li class="align-items-center d-flex me-3 float-start">
-                                            <span class="p-1"><input type="checkbox" class="largerCheckbox mt-1" value=""></span>
-                                            <span class="p-1">Labour card</span>
-                                        </li>
-                                        <li class="align-items-center d-flex me-3 float-start">
-                                            <span class="p-1"><input type="checkbox" class="largerCheckbox mt-1" value=""></span>
-                                            <span class="p-1">Pension</span>
-                                        </li>
-                                        <li class="align-items-center d-flex me-3 float-start">
-                                            <span class="p-1"><input type="checkbox" class="largerCheckbox mt-1" value=""></span>
-                                            <span class="p-1">birth certificate</span>
-                                        </li>
-                                        <li class="align-items-center d-flex me-3 float-start">
-                                            <span class="p-1"><input type="checkbox" class="largerCheckbox mt-1" value=""></span>
-                                            <span class="p-1">Loan</span>
-                                        </li>
-                                        <li class="align-items-center d-flex me-3 float-start">
-                                            <span class="p-1"><input type="checkbox" class="largerCheckbox mt-1" value=""></span>
-                                            <span class="p-1">Aadhar</span>
-                                        </li>
-                                        <li class="align-items-center d-flex me-3 float-start">
-                                            <span class="p-1"><input type="checkbox" class="largerCheckbox mt-1" value=""></span>
-                                            <span class="p-1">Pan card</span>
-                                        </li>
-                                        <li class="align-items-center d-flex me-3 float-start">
-                                            <span class="p-1"><input type="checkbox" class="largerCheckbox mt-1" value=""></span>
-                                            <span class="p-1">Ration card</span>
-                                        </li>
-                                        <li class="align-items-center d-flex me-3 float-start">
-                                            <span class="p-1"><input type="checkbox" class="largerCheckbox mt-1" value=""></span>
-                                            <span class="p-1">Labour card</span>
-                                        </li>
-                                        <li class="align-items-center d-flex me-3 float-start">
-                                            <span class="p-1"><input type="checkbox" class="largerCheckbox mt-1" value=""></span>
-                                            <span class="p-1">Pension</span>
-                                        </li>
-                                        <li class="align-items-center d-flex me-3 float-start">
-                                            <span class="p-1"><input type="checkbox" class="largerCheckbox mt-1" value=""></span>
-                                            <span class="p-1">birth certificate</span>
-                                        </li>
-                                        <li class="align-items-center d-flex me-3 float-start">
-                                            <span class="p-1"><input type="checkbox" class="largerCheckbox mt-1" value=""></span>
-                                            <span class="p-1">Loan</span>
-                                        </li>
-                                        <li class="align-items-center d-flex me-3 float-start">
-                                            <span class="p-1"><input type="checkbox" class="largerCheckbox mt-1" value=""></span>
-                                            <span class="p-1">Aadhar</span>
-                                        </li>
-                                        <li class="align-items-center d-flex me-3 float-start">
-                                            <span class="p-1"><input type="checkbox" class="largerCheckbox mt-1" value=""></span>
-                                            <span class="p-1">Pan card</span>
-                                        </li>
-                                        <li class="align-items-center d-flex me-3 float-start">
-                                            <span class="p-1"><input type="checkbox" class="largerCheckbox mt-1" value=""></span>
-                                            <span class="p-1">Ration card</span>
-                                        </li>
-                                        <li class="align-items-center d-flex me-3 float-start">
-                                            <span class="p-1"><input type="checkbox" class="largerCheckbox mt-1" value=""></span>
-                                            <span class="p-1">Labour card</span>
-                                        </li>
-                                        <li class="align-items-center d-flex me-3 float-start">
-                                            <span class="p-1"><input type="checkbox" class="largerCheckbox mt-1" value=""></span>
-                                            <span class="p-1">Pension</span>
-                                        </li>
-                                        <li class="align-items-center d-flex me-3 float-start">
-                                            <span class="p-1"><input type="checkbox" class="largerCheckbox mt-1" value=""></span>
-                                            <span class="p-1">birth certificate</span>
-                                        </li>
-                                        <li class="align-items-center d-flex me-3 float-start">
-                                            <span class="p-1"><input type="checkbox" class="largerCheckbox mt-1" value=""></span>
-                                            <span class="p-1">Loan</span>
-                                        </li>
+                                        @endforeach
+
                                     </ul>
                                 </div>
                             </div>
+
+
                             <div class="col-md-6">
                                 <small>Status /  పరిస్థితి </small>
                                     <select class="form-select">
@@ -163,7 +90,7 @@
                             <div class="col-md-2 mb-3 ms-auto">
                                 <div class="form-group text-end">
                                     <small>&nbsp;</small>
-                                    <input type="button" class="btn btn-primary" value="Save / సేవ్ చేయండి">
+                                    <input type="submit" class="btn btn-primary" value="Save / సేవ్ చేయండి">
                                 </div>
                             </div>
                         </div>
@@ -225,4 +152,54 @@
           });
           });
 </script>
+<script>
+    $(document).ready(function() {
+      $('#servicedetails').submit(function(e){
+          e.preventDefault();
+          // alert('hi');
+       var formData = new FormData($(this)[0]);
+       $.ajax({
+          url : ' {{ route('wards_enter_service.create') }} ',
+          type : 'POST',
+          data : formData,
+          cache : false,
+          async : false,
+          processData : false,
+          contentType : false,
+          success: function(response) {
+          // Check if operation was successful
+          if (response.status === 'success') {
+              // Show toastr message
+              toastr.success('Data inserted successfully!');
+           setTimeout(function(){
+          window.location.href = '{{ route('wards_enter_service') }}';}, 3000);
+          } else {
+              toastr.error('Error inserting data!');
+          }
+
+      },
+      error: function(jqXHR, textStatus, errorThrown) {
+    $('.input-error').remove();
+    $('input').removeClass('is-invalid');
+
+    if (jqXHR.status == 422) {
+        for (const [key, value] of Object.entries(jqXHR.responseJSON.errors)) {
+
+          toastr.error(value);
+
+            $('#'+key).addClass('is-invalid');
+            $('#'+key).after(
+                '<span class="text-danger input-error" role="alert">' + value +
+                '</span>');
+        }
+    } else {
+        alert('something went wrong! please try again..');
+     }
+  }
+       });
+      });
+  });
+
+
+  </script>
 @endpush

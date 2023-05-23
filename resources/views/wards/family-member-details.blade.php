@@ -282,7 +282,7 @@
           // alert('hi');
        var formData = new FormData($(this)[0]);
        $.ajax({
-          url : ' {{ route('wards_family_member.create') }} ',
+          url : ' {{ route('wards_family_member') }} ',
           type : 'POST',
           data : formData,
           cache : false,

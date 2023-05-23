@@ -4,7 +4,7 @@ namespace App\Http\Controllers\wards;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\{CitizenServiceMst,CitizenSubServiceMst};
+use App\Models\{CitizenServiceMst,CitizenSubServiceMst,DocumentMst};
 
 
 class EnterServiceDetailsController extends Controller
@@ -14,8 +14,9 @@ class EnterServiceDetailsController extends Controller
 
   $service = CitizenServiceMst::get();
  $sub_service= CitizenSubServiceMst::get();
+ $document=DocumentMst::get();
 // dd($service);
-    return view ('wards.enter-service-details',compact('service','sub_service'));
+    return view ('wards.enter-service-details',compact('service','sub_service','document'));
    }
    public function getsubservice(Request $request)
    {
@@ -27,7 +28,13 @@ class EnterServiceDetailsController extends Controller
    public function create(Request $request){
 
 
-    dd($request->all());
+    // dd($request->all());
+
+    $this->validate($request,[
+'service'=>'required',
+'subservice'=>'required',
+'document'=>'required',
+    ]);
    }
 }
 
