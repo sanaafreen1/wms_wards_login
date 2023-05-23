@@ -16,19 +16,19 @@
                             <div class="col-md-4 mb-4 input-felds">
                                 <div class="form-group">
                                     <small class="mb-1">Family owner name/కుటుంబ యజమాని పేరు</small>
-                                    <input type="text" class="form-control" id="" placeholder="">
+                                    <input type="text" class="form-control" id="" placeholder="" name="owner_name">
                                 </div>
                             </div>
                             <div class="col-md-4 mb-4 input-felds">
                                 <div class="form-group">
                                     <small class="mb-1">House No / ఇంటి నెం</small>
-                                    <input type="text" class="form-control" id="" placeholder="">
+                                    <input type="text" class="form-control" id="" placeholder="" name="house_no">
                                 </div>
                             </div>
                             <div class="col-md-4 mb-4 input-felds">
                                 <div class="form-group">
                                     <small class="mb-1">Mobile Number/మొబైల్ నంబర్</small>
-                                    <input type="text" class="form-control" id="" placeholder="">
+                                    <input type="text" class="form-control" id="" placeholder="" name="mobilenumber">
                                 </div>
                             </div>
                             <div class="col-md-4 mb-4 input-felds">
@@ -93,7 +93,7 @@
                                             <th>Family Owner Name / కుటుంబ యజమాని పేరు</th>
                                             <th>Mobile Number / మొబైల్ నంబర్</th>
                                             <th>No of People / వ్యక్తుల సంఖ్య</th>
-                                            <th>Edit / సవరించు</th>                                            
+                                            <th>Edit / సవరించు</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -134,5 +134,5 @@
 
 @endsection
 @push('scripts')
-    
+
 @endpush

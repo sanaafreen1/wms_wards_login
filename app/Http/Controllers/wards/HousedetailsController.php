@@ -4,7 +4,7 @@ namespace App\Http\Controllers\wards;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use  App\Models\{House_owner_details,Gender,Occupation};
+use  App\Models\{House_owner_details,EducationDetailsMst,EducationMst,OccupationMst};
 use Session;
 
 class HousedetailsController extends Controller
@@ -12,9 +12,11 @@ class HousedetailsController extends Controller
     public function wards_house_owner()
     {
        $data= House_owner_details::get();
+       $education=EducationMst::get();
+       $details=EducationDetailsMst::get();
+       $occupation=OccupationMst::get();
 
-// dd($data);
-       return view('wards.house-owner-details',compact('data'));
+       return view('wards.house-owner-details',compact('data','education','details','occupation'));
 
     }
 
@@ -23,9 +25,9 @@ class HousedetailsController extends Controller
     {
         // dd($request->all());
        $this->validate($request,[
-        'owner_name'=>'required',
+        'owner_name'=>'required|regex:/^[a-zA-Z\s]+$/',
         'date_of_birth'=>'required',
-        'mobilenumber'=>'required',
+        'mobilenumber'=>'required|digits:10',
         'education'=>'required',
         'education_details'=>'required',
         'staying_town'=>'required',
@@ -34,16 +36,19 @@ class HousedetailsController extends Controller
         'occupation'=>'required',
         'gender'=>'required',
         'blood_group'=>'required',
-        // 'type_pension'=>'required',
         'file'=>'required',
-        'bp'=>'required',
-        'sugar'=>'required',
-        'covidvaccine'=>'required',
-        'pension'=>'required',
+        'bp'=>'nullable',
+        'sugar'=>'nullable',
+        'covidvaccine'=>'nullable',
+        'pension'=>'required_with:type_pension',
+        'type_pension'=>'required_with:pension',
+       ],
 
+    [
+        'owner_name.regex' => 'The :owner name field can only contain letters.',
 
-       ]);
-
+    ]);
+       $basicdetails_id=session()->get('basic_details_id');
        $owner=$request->owner_name;
        $dob=$request->date_of_birth;
        $mobilenumber=$request->mobilenumber;
@@ -58,8 +63,6 @@ class HousedetailsController extends Controller
        $sugar=$request->sugar;
        $covid_vaccine=$request->covidvaccine;
        $pension=$request->pension;
-
-
        $blood_group=$request->blood_group;
     //    $type_pension=$request->type_pension;
 
@@ -72,6 +75,7 @@ class HousedetailsController extends Controller
 
 
   $data= House_owner_details::create([
+    'basic_details_id' =>$basicdetails_id,
         'owner_name'=>$owner,
         'date_of_birth'=>$dob,
         'mobilenumber'=>$mobilenumber,
@@ -95,7 +99,7 @@ class HousedetailsController extends Controller
      ]);
 
 // $item=$data->id;
-// $unique=$request->session()->put('id', 'basic_details_id');
+// $unique=$request->session()->get('id', 'basic_details_id');
 
 // dd($data);
 

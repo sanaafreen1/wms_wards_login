@@ -31,7 +31,6 @@
                                 <div class="card mb-4">
 
 
-
                                     <div class="card-body">
                                         <form  id="owner_details" name="owner_details" enctype="multipart/form-data" method="post">
                                             @csrf
@@ -64,14 +63,9 @@
                                                         <small class="mb-1"> Education / చదువు </small>
                                                         <select class="form-select" name="education"  id="education">
                                                             <option value="">-- Select --</option>
-                                                            <option value="Illiterate"> Illiterate/నిరక్షరాస్యుడు </option>
-                                                            <option value="Pursuing School"> Pursuing School / పాఠశాలను కొనసాగిస్తోంది </option>
-                                                            <option value="Completed Schooling"> Completed Schooling / పాఠశాల విద్య పూర్తి చేశారు</option>
-                                                            <option value="Pursuing Degree "> Pursuing Degree / డిగ్రీని అభ్యసిస్తున్నారు</option>
-                                                            <option value="Completed Degree "> Completed Degree / డిగ్రీ పూర్తి చేశారు </option>
-                                                            <option value="Pursuing PG "> Pursuing PG / పీజీ చదువుతున్నారు </option>
-                                                            <option value="Completed PG"> Completed PG / పీజీ పూర్తి చేశారు </option>
-
+                                                           @foreach ($education as $item)
+                                                           <option value="{{$item->id}}">{{$item->education}}\{{$item->telugu}}</option>
+                                                           @endforeach
                                                         </select>
                                                     </div>
                                                 </div>
@@ -80,19 +74,9 @@
                                                         <small class="mb-1"> Education Details / విద్య వివరాలు </small>
                                                         <select class="form-select" name="education_details" id="education_details">
                                                             <option value="">-- Select --</option>
-                                                            <option value="BBA"> BBA </option>
-                                                            <option value="Bcom"> Bcom </option>
-                                                            <option value="Btech"> Btech </option>
-                                                            <option value=" BSC "> BSC </option>
-                                                            <option value="BZC "> BZC </option>
-                                                            <option value="MSC"> MSC </option>
-                                                            <option value=" MBA"> MBA </option>
-                                                            <option value="MCA">MCA</option>
-                                                            <option value="Mtech">Mtech</option>
-                                                            <option value="Mcom">Mcom</option>
-                                                            <option value="Illiterate">Illiterate</option>
-                                                            <option value="SSC">SSC</option>
-
+                                                           @foreach ($details as $item)
+                                                           <option value="{{$item->id}}">{{$item->edu_details}}</option>
+                                                           @endforeach
                                                         </select>
                                                     </div>
                                                 </div>
@@ -128,14 +112,10 @@
                                                         <small class="mb-1"> Occupation/వృత్తి </small>
                                                         <select class="form-select"  name="occupation" id="occupation">
                                                             <option value="">-- Select --</option>
-                                                            <option value="Lawyer "> Lawyer / న్యాయవాది </option>
-                                                            <option value="Docter "> Docter / వైద్యుడు </option>
-                                                            <option value="Engineer"> Engineer/ ఇంజనీర్ </option>
-                                                            <option value="Private Employee "> Private Employee / ప్రైవేట్ ఉద్యోగి </option>
-                                                            <option value="Bank Employee "> Bank Employee / బ్యాంకు ఉద్యోగి</option>
-                                                            <option value="Business">Business/వ్యాపారం</option>
-                                                            <option value="Labour">Labour/కార్మికులు</option>
+                                                            @foreach ($occupation as $item)
+                                                            <option value="{{$item->id}}">{{$item->occupation}}/{{$item->telugu}}</option>
 
+                                                            @endforeach
                                                         </select>
                                                     </div>
                                                 </div>
