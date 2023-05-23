@@ -31,8 +31,7 @@
                                 <div class="card mb-4">
 
                                     <div class="card-body">
-                                            <form  method="post"  id="wardsForm" name="wardsForm">
-
+                                    <form  method="post"  id="wardsForm" name="wardsForm" enctype="multipart/form-data">
                                        @csrf
                                             <div class="row">
                                                 <div class="col-md-4 mb-4 input-felds">
@@ -40,17 +39,11 @@
                                                         <small class="mb-1"> Relation with House Owner / ఇంటి యజమానితో సంబంధం </small>
                                                         <select class="form-select" id="relation_with_houseowner" name="relation_with_houseowner">
                                                             <option value="">-- Select --</option>
-                                                            <option value="Wife"> Wife/భార్య </option>
-                                                            <option value="Father"> Father/తండ్రి </option>
-                                                            <option value="Mother"> Mother/తల్లి </option>
-                                                            <option value="Daughter"> Daughter/కూతురు </option>
-                                                            <option value="Son"> Son/కొడుకు</option>
-                                                            <option value="Brother"> Brother/సోదరుడు</option>
-                                                            <option value="Sister"> Sister/సోదరి</option>
-                                                            <option value="Son-In-Law"> Son-In-Law/అల్లుడు</option>
-                                                            <option value="Daughter"> Daughter-In-Law/కోడలు</option>
-                                                            <option value="Mother-In-Law"> Mother-In-Law/అత్తగారు</option>
-                                                            <option value="Father-In-Law"> Father-In-Law/మామగారు</option>
+                                                            @foreach ($relation as $item)
+                                                            <option value="{{$item->id}}"> {{$item->relation_name}}\{{$item->telugu}}</option>
+                                                            @endforeach
+
+
                                                         </select>
                                                     </div>
                                                 </div>
@@ -107,22 +100,25 @@
                                                 </div>
                                                 <div class="col-md-4 mb-4 input-felds">
                                                     <div class="form-check mt-3 pt-2">
-                                                        <input type="checkbox" class="form-check-input" id="staying_out_oftown" name="staying_out_oftown" id="exampleCheck1">
+                                                        <input type="checkbox" class="form-check-input" name="staying_out_oftown" >
                                                         <label class="form-check-label" for="exampleCheck1"> Staying out of Town/టౌన్ వెలుపల ఉంటున్నారు </label>
 
                                                     </div>
+                                                    <span id="staying_out_oftown"></span>
+
                                                 </div>
                                                 <div class="col-md-4 mb-4 input-felds">
                                                     <div class="form-group">
                                                         <small class="mb-1"> Location of the Person / వ్యక్తి యొక్క స్థానం </small>
-                                                        <select class="form-select" id="location_ofthe_person" name="location_ofthe_person">
-                                                            <option>-- Select --</option>
+                                                        <select class="form-select"  name="location_ofthe_person"  id="location_ofthe_person">
+                                                            <option value="">-- Select --</option>
                                                             <option value="Staying in the state"> Staying in the state / రాష్ట్రంలోనే ఉంటున్నారు </option>
                                                             <option value="Staying out of the state"> Staying out of the state / రాష్ట్రం వెలుపల ఉంటున్నారు </option>
                                                             <option value="Staying out of the country"> Staying out of the country / దేశం వెలుపల ఉంటున్నారు </option>
 
                                                         </select>
                                                     </div>
+
                                                 </div>
                                                 <div class="col-md-4 mb-4 input-felds">
                                                     <div class="form-group ">
@@ -193,23 +189,12 @@
 
                                                 <div class="col-md-4 mb-4 input-felds">
                                                     <div class="form-check mt-4">
-
-                                                        <input type="checkbox" class="form-check-input" name="sugar"id="exampleCheck3">
-                                                        <label class="form-check-label" for="exampleCheck3"> Sugar / షుగర్ </label>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-4 mb-4 input-felds">
-                                                    <div class="form-check mt-4">
-                                                        <input type="checkbox" class="form-check-input" name="covid_vaccine"  >
-
                                                         <input type="checkbox" class="form-check-input" name="covid_vaccine">
-
                                                         <label class="form-check-label" for="exampleCheck4"> Covid Vaccine / కోవిడ్‌కి టీకా </label>
 
                                                     </div>
                                                     <span id="covid_vaccine"></span>
                                                 </div>
-
                                                 <div class="col-md-4 mb-4 input-felds">
                                                     <div class="form-check mt-4">
                                                         <input type="checkbox" class="form-check-input" name="pension">
@@ -254,7 +239,7 @@
 
                                             <div class="mt-2">
                                                 <button type="submit" class="btn btn-primary me-2">Save Changes</button>
-                                                <a href="{{route('wards_enter_service')}}" class="btn btn-outline-secondary">Add Service Details / సేవ వివరాలను జోడించండి </a>
+                                                <a href="enter-service-details.html" class="btn btn-outline-secondary">Add Service Details / సేవ వివరాలను జోడించండి </a>
                                             </div>
                                         </form>
                                     </div>
