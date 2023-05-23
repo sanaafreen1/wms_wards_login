@@ -5,8 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class OccupationMst extends Model
+class EnterServiceDetails extends Model
 {
     use HasFactory;
-    protected $table = 'occupation_mst';
+    protected $table = 'enter_service_details';
+    protected $guarded = [];
 }

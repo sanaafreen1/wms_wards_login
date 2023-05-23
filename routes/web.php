@@ -93,7 +93,7 @@ Route::post('/wards_house_owner/create', [HousedetailsController::class, 'create
 
 // wards-family routes
 Route::get('/wards-family', [FamilyMemersDetailsController::class, 'wards_family_member'])->name('wards_family_member');
-Route::post('/wards-create', [FamilyMemersDetailsController::class, 'create'])->name('wards_family_member.create');
+Route::post('/wardsfamily-create', [FamilyMemersDetailsController::class, 'create'])->name('wards_family_member.create');
 //end wards-family routes
 
 

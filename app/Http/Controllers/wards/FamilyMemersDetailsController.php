@@ -4,14 +4,15 @@ namespace App\Http\Controllers\wards;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\FamilyMemberModel;
+use App\Models\{FamilyMemberModel,RelationMst};
 use Illuminate\Support\Facades\Session;
 
 class FamilyMemersDetailsController extends Controller
 {
     public function wards_family_member()
     {
-        return view('wards.family-member-details');
+        $relation=RelationMst::where('id','!=',"1")->get();
+        return view('wards.family-member-details',compact('relation'));
     }
 
     public function create(Request $request)
@@ -22,7 +23,7 @@ class FamilyMemersDetailsController extends Controller
                    'relation_with_houseowner'=>'required',
                    'member_name'=>'required',
                     'date_of_birth'=>'required',
-                    'mobile'=>'required',
+                    'mobile'=>'required|digits:10',
                     'education'=>'required',
                     'education_details'=>'required',
                     'staying_out_oftown'=>'required',
@@ -31,11 +32,27 @@ class FamilyMemersDetailsController extends Controller
                     'occupation'=>'required',
                     'gender'=>'required',
                     'blood_group'=>'required',
-                    'type_of_pension'=>'required',
-                    'upload_photo'=>'required',
+                    'pension' => 'required_with:type_of_pension',
+                    'type_of_pension'=>'required_with:pension',
+                    'upload_photo'=>'required|image|mimes:jpg,png,jpeg,gif,bmp',
 
 
                  ]);
+
+                 $image = $request->file('upload_photo');
+
+                 // Set the target size in bytes (15KB = 15 * 1024 bytes)
+                 $targetSize = 15 * 1024;
+
+                 // Generate a unique filename
+                 $filename = time() . '_' . $image->getClientOriginalName();
+
+                 // Move the uploaded file to the public/images directory
+                 $image->move(public_path('images'), $filename);
+
+                 // Compress the image
+                 $compressedFilename = $this->compressImage(public_path('images/' . $filename), $targetSize);
+
                $familyid=  FamilyMemberModel::insert([
                     'relation_with_houseowner'=>$request->relation_with_houseowner,
                     'member_name'=>$request->member_name,
@@ -49,7 +66,7 @@ class FamilyMemersDetailsController extends Controller
                     'gender'=>$request->gender,
                     'blood_group'=>$request->blood_group,
                     'type_of_pension'=>$request->type_of_pension,
-                    'upload_photo'=>$request->upload_photo,
+                    'upload_photo'=>$compressedFilename,
 
 
                  ]);
@@ -58,6 +75,53 @@ class FamilyMemersDetailsController extends Controller
             // dd($check);
                  return response()->json(['status'=>'success']);
            }
+
+           private function compressImage($filePath, $targetSize)
+           {
+               // Load the image
+               $image = imagecreatefromjpeg($filePath);
+
+               // Get the original image size
+               $originalSize = filesize($filePath);
+
+               // Calculate the compression ratio
+               $compressionRatio = $targetSize / $originalSize;
+
+               // Set the new image width and height based on the compression ratio
+               $newWidth = imagesx($image) * sqrt($compressionRatio);
+               $newHeight = imagesy($image) * sqrt($compressionRatio);
+
+               // Create a new image resource with the desired dimensions
+               $compressedImage = imagecreatetruecolor($newWidth, $newHeight);
+
+               // Copy and resize the original image to the new resource
+               imagecopyresampled(
+                   $compressedImage,
+                   $image,
+                   0,
+                   0,
+                   0,
+                   0,
+                   $newWidth,
+                   $newHeight,
+                   imagesx($image),
+                   imagesy($image)
+               );
+
+               // Save the compressed image with a new filename
+               $compressedFilename = 'compressed_' . basename($filePath);
+               imagejpeg($compressedImage, public_path('images/' . $compressedFilename), 75);
+
+               // Free up memory
+               imagedestroy($image);
+               imagedestroy($compressedImage);
+
+               // Delete the original image
+               File::delete($filePath);
+
+               return $compressedFilename;
+           }
+
 
 
 }

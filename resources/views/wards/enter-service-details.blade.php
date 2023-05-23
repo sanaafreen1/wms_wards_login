@@ -51,9 +51,7 @@
                                     <small>Select Sub Service/ఉప సేవను ఎంచుకోండి</small>
                                     <select class="form-select" name="subservice" id="subservice">
                                         <option value="">Select Sub Service / సేవను ఎంచుకోండి</option>
-                                        @foreach ($sub_service as $store )
-                                        <option value="{{$store->sub_service_id}}">{{$store->sub_service_name}}</option>
-                                        @endforeach
+                                     
                                     </select>
                                 </div>
                             </div>

@@ -4,7 +4,8 @@ namespace App\Http\Controllers\wards;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\{CitizenServiceMst,CitizenSubServiceMst,DocumentMst};
+use App\Models\{CitizenServiceMst,CitizenSubServiceMst,DocumentMst,EnterServiceDetails};
+use Illuminate\Support\Facades\Auth;
 
 
 class EnterServiceDetailsController extends Controller
@@ -30,11 +31,36 @@ class EnterServiceDetailsController extends Controller
 
     // dd($request->all());
 
-    $this->validate($request,[
-'service'=>'required',
-'subservice'=>'required',
-'document'=>'required',
+    $request->validate([
+        'service' => 'required',
+        'subservice' => 'required',
+        'document' => 'required|array',
     ]);
-   }
+
+      $cnt = count($request->document);
+     $service= $request->service;
+     $subservice = $request->subservice;
+      for($i = 0; $i < $cnt; $i++)
+      {
+        $document = $request->document[$i];
+        EnterServiceDetails::updateOrCreate([
+            'service_id' => $service,
+            'sub_service_id' => $subservice,
+            'document_id' => $document
+          ],
+        [
+            'service_id' => $service,
+            'sub_service_id' => $subservice,
+            'document_id' => $document,
+            'created_by' => Auth::id(),
+        ]);
+      }
+
+      return response()->json(['status' => 'success']);
+
+
+
+
 }
 
+}

@@ -55,7 +55,7 @@ $del= BasicDetailsModel::create([
 
 $store=$del->id;
 
- $data=session()->put('basicdetails_id', $store);
+ $data=session()->put('basic_details_id', $store);
 
 // $getdata= session()->get('id');
   return response()->json(['status' => 'success']);
