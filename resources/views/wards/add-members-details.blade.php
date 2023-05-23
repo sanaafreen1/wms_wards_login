@@ -60,7 +60,7 @@
                                                 <div class="col-md-4 mb-4 input-felds">
                                                     <div class="form-group">
                                                         <small class="mb-1"> Type of the House / ఇంటి రకం </small>
-                                                        <select class="form-select" name="housetypes" id="housetypes">
+                                                        <select class="form-select" name="housetypes" id="housetypes"  value="{{old('housetypes')}}">
                                                             <option value="">-- Select --</option>
                                                             <option value="Slab">Slab / స్లాబ్ </option>
                                                             <option value="Gunapenka"> Gunapenka / గూనపెంక </option>
@@ -71,7 +71,7 @@
                                                 <div class="col-md-4 mb-4 input-felds">
                                                     <div class="form-group">
                                                         <small class="mb-1"> Religion / మతం </small>
-                                                        <select class="form-select" name="religion" id="religion">
+                                                        <select class="form-select" name="religion" id="religion"  value="{{old('religion')}}">
                                                             <option value="">-- Select --</option>
                                                             <option value="Hindu"> Hindu / హిందూ </option>
                                                             <option value="Muslim"> Muslim / ముస్లిం</option>
@@ -85,7 +85,7 @@
                                                 <div class="col-md-4 mb-4 input-felds">
                                                     <div class="form-group">
                                                         <small class="mb-1"> Caste / కులము </small>
-                                                        <select class="form-select" name="caste" id="caste">
+                                                        <select class="form-select" name="caste" id="caste"  value="{{old('caste')}}">
                                                             <option value="">-- Select --</option>
                                                             <option value="BC"> BC / బీసీ</option>
                                                             <option value="OC"> OC / ఓసీ</option>
@@ -97,7 +97,7 @@
                                                 <div class="col-md-4 mb-4 input-felds">
                                                     <div class="form-group">
                                                         <small class="mb-1">Annual Income / సంవత్సర ఆదాయం</small>
-                                                        <input type="text" class="form-control" id="income" placeholder="" name="income">
+                                                        <input type="text" class="form-control" id="income" placeholder="" name="income"  value="{{old('income')}}">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-4 mb-4 input-felds">
@@ -119,7 +119,7 @@
                                                 <div class="col-md-4 mb-4 input-felds">
                                                     <div class="form-group">
                                                         <small class="mb-1"> Type of Ration card / రేషన్ కార్డు రకం </small>
-                                                        <select class="form-select" name="typeofrationcard" id="typeofrationcard">
+                                                        <select class="form-select" name="typeofrationcard" id="typeofrationcard"  value="{{old('typeofrationcard')}}">
                                                             <option value="">-- Select --</option>
                                                             <option value="Pink"> Pink / గులాబి</option>
                                                             <option value="White"> White / తెలుపు</option>
@@ -129,13 +129,13 @@
                                                 <div class="col-md-4 mb-4 input-felds">
                                                     <div class="form-group">
                                                         <small class="mb-1"> Enter Ration Card Number/రేషన్ కార్డ్ నంబర్&zwnj;ను నమోదు చేయండి </small>
-                                                        <input type="text" name="rationcardnumber" class="form-control" id="rationcardnumber" placeholder="">
+                                                        <input type="text" name="rationcardnumber" class="form-control" id="rationcardnumber" placeholder=""  value="{{old('rationcardnumber')}}">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-12 mb-2 input-felds">
                                                     <div class="form-group">
                                                         <small class="mb-1"> Address/Street /అడ్రస్ / వీధి </small>
-                                                        <textarea rows="5" name="address" id="address" class="form-control"></textarea>
+                                                        <textarea rows="5" name="address" id="address" class="form-control">{{old('address')}}</textarea>
                                                     </div>
                                                 </div>
 
