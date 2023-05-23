@@ -70,13 +70,9 @@
                                                         <small class="mb-1"> Education / చదువు </small>
                                                         <select class="form-select" id="education" name="education">
                                                             <option value="">-- Select --</option>
-                                                            <option value="Illiterate"> Illiterate/నిరక్షరాస్యుడు </option>
-                                                            <option value="Pursuing School"> Pursuing School / పాఠశాలను కొనసాగిస్తోంది </option>
-                                                            <option value="Completed Schooling"> Completed Schooling / పాఠశాల విద్య పూర్తి చేశారు</option>
-                                                            <option value="Pursuing Degree"> Pursuing Degree / డిగ్రీని అభ్యసిస్తున్నారు</option>
-                                                            <option value=" Completed Degree"> Completed Degree / డిగ్రీ పూర్తి చేశారు </option>
-                                                            <option value="Pursuing PG"> Pursuing PG / పీజీ చదువుతున్నారు </option>
-                                                            <option value="Completed PG"> Completed PG / పీజీ పూర్తి చేశారు </option>
+                                                            @foreach ($education as $edu)
+                                                            <option value="{{$edu->id}}"> {{$edu->education}}\{{$edu->telugu}}</option>
+                                                            @endforeach
                                                         </select>
                                                     </div>
                                                 </div>
@@ -85,16 +81,9 @@
                                                         <small class="mb-1"> Education Details / విద్య వివరాలు </small>
                                                         <select class="form-select" id="education_details" name="education_details">
                                                             <option value="">-- Select --</option>
-                                                            <option value="BBA"> BBA </option>
-                                                            <option value="Bcom"> Bcom </option>
-                                                            <option value="Btech"> Btech </option>
-                                                            <option value="BSC"> BSC </option>
-                                                            <option value="BZC"> BZC </option>
-                                                            <option value="MSC"> MSC </option>
-                                                            <option value="MBA"> MBA </option>
-                                                            <option value="MCA">MCA</option>
-                                                            <option value="Mtech">Mtech</option>
-                                                            <option value="Mcom">Mcom</option>
+                                                            @foreach ($educationdetails as $details)
+                                                            <option value="{{$details->id}}"> {{$details->edu_details}}</option>
+                                                            @endforeach
                                                         </select>
                                                     </div>
                                                 </div>
@@ -282,7 +271,7 @@
           // alert('hi');
        var formData = new FormData($(this)[0]);
        $.ajax({
-          url : ' {{ route('wards_family_member') }} ',
+          url : ' {{ route('wards_family_member.create') }} ',
           type : 'POST',
           data : formData,
           cache : false,

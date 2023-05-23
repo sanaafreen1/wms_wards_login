@@ -10,4 +10,5 @@ class RelationMst extends Model
     use HasFactory;
     protected $table = "relation_mst";
 
+
 }
