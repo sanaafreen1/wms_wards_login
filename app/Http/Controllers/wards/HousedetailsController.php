@@ -5,6 +5,7 @@ namespace App\Http\Controllers\wards;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use  App\Models\{House_owner_details,EducationDetailsMst,EducationMst,OccupationMst};
+ 
 use Session;
 
 class HousedetailsController extends Controller
