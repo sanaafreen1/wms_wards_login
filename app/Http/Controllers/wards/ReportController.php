@@ -12,11 +12,11 @@ class ReportController extends Controller
   public function wards_reports(Request $request ){
 
 
-        $occupation=OccupationMst::get();
-$education= EducationMst::get();
-$family=FamilyMemberModel::get();
+            $occupation=OccupationMst::get();
+            $education= EducationMst::get();
+            $family=FamilyMemberModel::get();
 
-$details=BasicDetailsModel::get();
+            $details=BasicDetailsModel::get();
     return view('wards.reports',compact('education', 'occupation','family','details'));
 }
 
