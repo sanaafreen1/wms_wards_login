@@ -62,7 +62,7 @@
                                                 <div class="col-md-4 mb-4 input-felds">
                                                     <div class="form-group">
                                                         <small class="mb-1"> Mobile Number/మొబైల్ నంబర్ </small>
-                                                        <input type="text" id="mobile" name="mobile" class="form-control" id="" placeholder="">
+                                                        <input type="number" id="mobile" name="mobile" class="form-control" id="" placeholder="">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-4 mb-4 input-felds">
@@ -120,12 +120,10 @@
                                                         <small class="mb-1"> Occupation/వృత్తి </small>
                                                         <select class="form-select" id="occupation" name="occupation">
                                                             <option value="">-- Select --</option>
-                                                            <option value="Lawyer"> Lawyer / న్యాయవాది </option>
-                                                            <option value="Docter"> Docter / వైద్యుడు </option>
-                                                            <option value="Engineer"> Engineer/ ఇంజనీర్ </option>
-                                                            <option value="Private Employee"> Private Employee / ప్రైవేట్ ఉద్యోగి </option>
-                                                            <option value="Bank Employee"> Bank Employee / బ్యాంకు ఉద్యోగి</option>
+                                                            @foreach ($occupation as $items)
+                                                            <option value="{{$items->id}}">{{$items->occupation}}/{{$items->telugu}}</option>
 
+                                                            @endforeach
                                                         </select>
                                                     </div>
                                                 </div>
