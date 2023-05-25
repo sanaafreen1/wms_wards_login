@@ -50,7 +50,7 @@
                                             <td>{{$store->gender}}</td>
                                             <td>{{$store->age}}</td>
                                             <td>{{$store->mobile}}</td>
-                                            <td><a href="{{route('')}}" class="btn btn-sm btn-primary" style="    color: white !important;">View More</a></td>
+                                            <td><a href=" " class="btn btn-sm btn-primary" style="    color: white !important;">View More</a></td>
                                         </tr>
                                         @endforeach
 
