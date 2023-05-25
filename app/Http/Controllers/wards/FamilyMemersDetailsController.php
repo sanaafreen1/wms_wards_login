@@ -15,6 +15,7 @@ class FamilyMemersDetailsController extends Controller
         $relation=RelationMst::where('id','!=',"1")->get();
         $education=EducationMst::get();
         $educationdetails=EducationDetailsMst::get();
+
         return view('wards.family-member-details',compact('relation','education','educationdetails'));
     }
 
@@ -44,6 +45,8 @@ class FamilyMemersDetailsController extends Controller
 
 
                  ]);
+                 $basicdetails_id=session()->get('basic_details_id');
+       $house_ownerdetails_id=session()->get('house_ownerdetails_id');
 
                  $image = $request->file('upload_photo');
 
@@ -60,6 +63,8 @@ class FamilyMemersDetailsController extends Controller
                  $compressedFilename = $this->compressImage(public_path('images/' . $filename), $targetSize);
 
                $familyid=  FamilyMemberModel::insert([
+                'basic_details_id' =>  $basicdetails_id,
+                'houseownerdetails_id'=>   $house_ownerdetails_id,
                     'relation_with_houseowner'=>$request->relation_with_houseowner,
                     'member_name'=>$request->member_name,
                     'date_of_birth'=>$request->date_of_birth,
@@ -79,9 +84,8 @@ class FamilyMemersDetailsController extends Controller
 
 
                  ]);
-                //  $data = ['id' => $familyid];
-                //  $check=Session::put($data);
-            // dd($check);
+
+
                  return response()->json(['status'=>'success']);
            }
 
@@ -119,7 +123,7 @@ class FamilyMemersDetailsController extends Controller
 
                // Save the compressed image with a new filename
                $compressedFilename = 'compressed_' . basename($filePath);
-               imagejpeg($compressedImage, public_path('images/' . $compressedFilename), 75);
+               imagejpeg($compressedImage, public_path('upload/' . $compressedFilename), 75);
 
                // Free up memory
                imagedestroy($image);
