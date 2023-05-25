@@ -137,14 +137,11 @@
                                                         <small class="mb-1"> Blood Group / రక్తపు గ్రూపు </small>
                                                         <select class="form-select"  name="blood_group" id="blood_group">
                                                             <option value="">-- Select --</option>
-                                                            <option value=" A+"> A+</option>
-                                                            <option value="A-"> A- </option>
-                                                            <option value="B+"> B+</option>
-                                                            <option value="B-"> B- </option>
-                                                            <option value="O+"> O+ </option>
-                                                            <option value="O-"> O- </option>
-                                                            <option value="AB+"> AB+ </option>
-                                                            <option value="AB-"> AB- </option>
+                                                            @foreach ($blood as $item)
+                                                            <option value="{{$item->id}}">{{$item->blood_group}}</option>
+
+                                                            @endforeach
+
 
                                                         </select>
                                                     </div>
