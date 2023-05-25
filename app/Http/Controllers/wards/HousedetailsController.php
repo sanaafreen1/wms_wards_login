@@ -4,8 +4,8 @@ namespace App\Http\Controllers\wards;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use  App\Models\{House_owner_details,EducationDetailsMst,EducationMst,OccupationMst};
- 
+use  App\Models\{House_owner_details,EducationDetailsMst,EducationMst,OccupationMst,FamilyMemberModel};
+
 use Session;
 
 class HousedetailsController extends Controller
@@ -50,6 +50,7 @@ class HousedetailsController extends Controller
 
     ]);
        $basicdetails_id=session()->get('basic_details_id');
+
        $owner=$request->owner_name;
        $dob=$request->date_of_birth;
        $mobilenumber=$request->mobilenumber;
@@ -65,7 +66,7 @@ class HousedetailsController extends Controller
        $covid_vaccine=$request->covidvaccine;
        $pension=$request->pension;
        $blood_group=$request->blood_group;
-    //    $type_pension=$request->type_pension;
+       $type_pension=$request->type_pension;
 
 
     $file=$request->file('file');
@@ -94,15 +95,40 @@ class HousedetailsController extends Controller
        'sugar'=>$sugar,
        'pension'=>$pension,
         'blood_group'=>$blood_group,
-        // 'type_of_pension'=>$type_pension,
+        'type_of_pension'=>$type_pension,
         'upload_photo'=>$filename,
 
+
+    ]);
+
+     FamilyMemberModel::create([
+        'basic_details_id' =>$basicdetails_id,
+        'houseownerdetails_id'=>$data->id,
+        'relation_with_houseowner'=>1,
+        'member_name'=>$owner,
+        'date_of_birth'=>$dob,
+        'mobile'=>$mobilenumber,
+        'education'=>$education,
+        'education_details'=>$education_details,
+       'enter_the_details'=>$details,
+       'gender'=>$gender,
+       'blood_group'=>$blood_group,
+        'occupation'=>$occupation,
+        'b_p'=>$bp,
+        'sugar'=>$sugar,
+        'covid_vaccine'=>$covid_vaccine,
+        'pension'=>$pension,
+      'type_of_pension'=>$type_pension,
+      'upload_photo'=>$filename,
      ]);
 
-// $item=$data->id;
-// //    $unique =session()->put('id', $item);
 
-// // dd($unique);
+
+
+$item=$data->id;
+$unique =session()->put('house_ownerdetails_id', $item);
+
+// dd($unique);
 
 
 
