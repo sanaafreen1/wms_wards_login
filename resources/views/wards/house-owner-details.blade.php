@@ -34,7 +34,7 @@
                                     <div class="card-body">
                                         <form  id="owner_details" name="owner_details" enctype="multipart/form-data" method="post">
                                             @csrf
-                                            <input type="hidden" name="basic_details_id" id="basic_details_id" value= >
+                                            <input type="hidden" name="basic_details_id" id="basic_details_id" value="session()->($item)" >
                                             <div class="row">
                                                 <div class="col-md-4 mb-4 input-felds">
                                                     <div class="form-group">
@@ -267,7 +267,7 @@
               // Show toastr message
               toastr.success('Data inserted successfully!');
            setTimeout(function(){
-          window.location.href = '{{ route('wards_house_owner') }}';}, 3000);
+          window.location.href = '{{ route('wards_family_member') }}';}, 3000);
           } else {
               toastr.error('Error inserting data!');
 
