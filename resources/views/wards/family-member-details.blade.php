@@ -228,7 +228,7 @@
 
                                             <div class="mt-2">
                                                 <button type="submit" class="btn btn-primary me-2">Save Changes</button>
-                                                <a href="enter-service-details.html" class="btn btn-outline-secondary">Add Service Details / సేవ వివరాలను జోడించండి </a>
+                                                <a href="{{route('wards_enter_service')}}" class="btn btn-outline-secondary">Add Service Details / సేవ వివరాలను జోడించండి </a>
                                             </div>
                                         </form>
                                     </div>
