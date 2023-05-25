@@ -97,9 +97,7 @@
                                     </thead>
                                     <tbody>
                                         <tr>
-@foreach ( as )
-
-@endforeach
+ 
                                             <td>1</td>
                                             <td>3-2-58</td>
                                             <td>Gummakonda Colony</td>
