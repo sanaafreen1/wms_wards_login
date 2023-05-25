@@ -10,27 +10,13 @@ class ReportController extends Controller
 {
 
   public function wards_reports(Request $request ){
-// dd($request->all());
-    // $query = FamilyMemberModel::query();
+dd($request->all());
 
 
-    // if ($request->filled('owner_name')) {
-    //     $query->where('owner_name', 'like', '%' . $request->input('owner_name') . '%');
-    // }
 
-    // if ($request->filled('house_no')) {
-    //     $query->where('house_no', $request->input('house_no'));
-    // }
-
-    // if ($request->filled('mobilenumber')) {
-    //     $query->where('mobilenumber', $request->input('mobilenumber'));
-    // }
-
-
-    // // $report = $query->get();
 
         $occupation=OccupationMst::get();
-$education= EducationMst::get();
+        $education= EducationMst::get();
 
     return view('wards.reports',compact('education', 'occupation'));
 }
@@ -38,4 +24,3 @@ $education= EducationMst::get();
 
   }
 
-  
