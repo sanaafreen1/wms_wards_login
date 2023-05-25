@@ -106,7 +106,7 @@
                                             <td>{{$data->address}}</td>
                                             <td>{{$data->owner_name}}</td>
                                             <td>{{$data->number}}</td>
-                                            <td><a href="{{ route('wards_family_report')}}">5</a></td>
+                                            <td><a href="{{ route('wards_family_report')}}">{{count($family)}}</a></td>
                                             <td><a href=""></a><i class="bx bx-edit"></i></td>
                                         </tr>
                                         @endforeach

@@ -38,7 +38,7 @@
                             </div>
                         </div>
 
-
+                   <input type="hidden" name="id" id="id" value="{{$family->id}}">
 
                         <div class="card">
                             <div class="card-body table-responsive">
@@ -58,7 +58,7 @@
                                                 <p><b>{{$family->date_of_birth}}</b></p>
                                             </td>
                                             <td rowspan="3">
-                                                <center><img src="../assets/img/avatars/1.png" alt="" class="img-fluid"></center>
+                                                <center><img style="height:100px ; width:100px;" src="{{url('/upload').'/'.$family->upload_photo}}"></center>
                                             </td>
                                         </tr>
                                         <tr>
