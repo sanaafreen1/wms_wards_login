@@ -195,15 +195,10 @@
                                                         <small class="mb-1"> Type of Pension/పెన్షన్ రకం </small>
                                                         <select class="form-select" id="type_of_pension" name="type_of_pension">
                                                             <option value="">-- Select --</option>
-                                                            <option value="Old Age Pension"> Old Age Pension/వృద్ధాప్య పెన్షన్</option>
-                                                            <option value="Widow Pension"> Widow Pension/వితంతు పింఛను </option>
-                                                            <option value="Disabled Pension">Disabled Pension/వికలాంగుల పెన్షన్</option>
-                                                            <option value="Beedi Workers Pension"> Beedi Workers Pension/బీడీ కార్మికుల పెన్షన్ </option>
-                                                            <option value="Single Women Pension"> Single Women Pension/ఒంటరి మహిళల పెన్షన్ </option>
-                                                            <option value="Persons with HIV-AIDS Pension/HIV-AIDS"> Persons with HIV-AIDS Pension/HIV-AIDS పెన్షన్ ఉన్న వ్యక్తులు</option>
-                                                            <option value="Weavers Pension"> Weavers Pension/నేత కార్మికుల పెన్షన్ </option>
-                                                            <option value="Filaria Patient Pension"> Filaria Patient Pension/ఫైలేరియా పేషెంట్ పెన్షన్ </option>
-                                                            <option value="Toddy Tappers Pension"> Toddy Tappers Pension/టాడీ ట్యాపర్స్ పెన్షన్ </option>
+                                                           @foreach ($typofpension as $datas)
+                                                           <option value="{{$datas->id}}">{{$datas->type_of_pension}}/{{$datas->telugu}}</option>
+
+                                                           @endforeach
 
 
                                                         </select>
