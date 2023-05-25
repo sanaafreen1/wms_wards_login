@@ -15,7 +15,7 @@
                                 </h4>
                             </div>
                             <div class="col-md-2">
-                                <p class="py-3 mb-4"><a href="#">Back to Reports</a></p>
+                                <p class="py-3 mb-4"><a href="{{route('wards_reports')}}">Back to Reports</a></p>
                             </div>
                         </div>
 
@@ -36,51 +36,25 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        @php
+                                            $i = 1;
+                                        @endphp
                                         <tr>
-                                            <td>1</td>
-                                            <td>Sriramula Mahesh</td>
-                                            <td>Owner</td>
-                                            <td>Male</td>
-                                            <td>38</td>
-                                            <td>9440229402</td>
-                                            <td><a href="member-full-details.html" class="btn btn-sm btn-primary" style="    color: white !important;">View More</a></td>
+                                            @foreach ($family as $store )
+
+
+
+                                            <td>{{$i++}}</td>
+                                            <td>{{$store->member_name}}</td>
+                                            <td>{{$store->relation_with_houseowner}}</td>
+                                            <td>{{$store->gender}}</td>
+                                            <td>{{$store->age}}</td>
+                                            <td>{{$store->mobile}}</td>
+                                            <td><a href="{{route('')}}" class="btn btn-sm btn-primary" style="    color: white !important;">View More</a></td>
                                         </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td>Sriramula Indu</td>
-                                            <td>Wife</td>
-                                            <td>Female</td>
-                                            <td>36</td>
-                                            <td>9440229402</td>
-                                            <td><a href="member-full-details.html" class="btn btn-sm btn-primary" style="    color: white !important;">View More</a></td>
-                                        </tr>
-                                        <tr>
-                                            <td>3</td>
-                                            <td>Sriramula Rashmitha</td>
-                                            <td>Daugther</td>
-                                            <td>Female</td>
-                                            <td>15</td>
-                                            <td>9440229402</td>
-                                            <td><a href="member-full-details.html" class="btn btn-sm btn-primary" style="    color: white !important;">View More</a></td>
-                                        </tr>
-                                        <tr>
-                                            <td>4</td>
-                                            <td>Sriramula Manvitha</td>
-                                            <td>Daughter</td>
-                                            <td>Female</td>
-                                            <td>12</td>
-                                            <td>9440229402</td>
-                                            <td><a href="member-full-details.html" class="btn btn-sm btn-primary" style="    color: white !important;">View More</a></td>
-                                        </tr>
-                                        <tr>
-                                            <td>5</td>
-                                            <td>Sriramula Neehansh</td>
-                                            <td>Son</td>
-                                            <td>Male</td>
-                                            <td>3</td>
-                                            <td>9440229402</td>
-                                            <td><a href="member-full-details.html" class="btn btn-sm btn-primary" style="    color: white !important;">View More</a></td>
-                                        </tr>
+                                        @endforeach
+
+
                                     </tbody>
                                 </table>
                             </div>
@@ -108,5 +82,5 @@
                 </div>
 @endsection
 @push('scripts')
-    
+
 @endpush
