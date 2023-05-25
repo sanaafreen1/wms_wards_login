@@ -96,16 +96,20 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        @php
+                                            $i=1;
+                                        @endphp
                                         <tr>
- 
-                                            <td>1</td>
-                                            <td>3-2-58</td>
-                                            <td>Gummakonda Colony</td>
-                                            <td>Sriramula Maheshj</td>
-                                            <td>9440229402</td>
-                                            <td><a href="family-report.html">5</a></td>
-                                            <td><i class="bx bx-edit"></i></td>
+                                        @foreach ($details as $data )
+                                            <td>{{$i++}}</td>
+                                            <td>{{$data->house_no}}</td>
+                                            <td>{{$data->address}}</td>
+                                            <td>{{$data->owner_name}}</td>
+                                            <td>{{$data->number}}</td>
+                                            <td><a href="{{ route('wards_family_report')}}">5</a></td>
+                                            <td><a href=""></a><i class="bx bx-edit"></i></td>
                                         </tr>
+                                        @endforeach
                                     </tbody>
                                 </table>
                             </div>

@@ -108,6 +108,9 @@ Route::post('/getsubservice', [EnterServiceDetailsController::class, 'getsubserv
 // enter reports routes
 Route::match(['GET','POST'],'/wards-reports', [ReportController::class, 'wards_reports'])->name('wards_reports');
 
+Route::get('/wards/family/report', [ReportController::class, 'wards_family_report'])->name('wards_family_report');
+
+
 // end reports routes
 // Route::get('/wards-reports', [UserController::class, 'wards_reports'])->name('wards_reports');
 

@@ -5,7 +5,7 @@ namespace App\Http\Controllers\wards;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use File;
-use App\Models\{FamilyMemberModel,RelationMst,EducationMst,EducationDetailsMst};
+use App\Models\{FamilyMemberModel,RelationMst,EducationMst,EducationDetailsMst,OccupationMst,TypeOfPensionMst};
 use Illuminate\Support\Facades\Session;
 
 class FamilyMemersDetailsController extends Controller
@@ -15,8 +15,10 @@ class FamilyMemersDetailsController extends Controller
         $relation=RelationMst::where('id','!=',"1")->get();
         $education=EducationMst::get();
         $educationdetails=EducationDetailsMst::get();
+        $occupation=OccupationMst::get();
+        $typofpension=TypeOfPensionMst::get();
 
-        return view('wards.family-member-details',compact('relation','education','educationdetails'));
+        return view('wards.family-member-details',compact('relation','education','educationdetails','occupation','typofpension'));
     }
 
     public function create(Request $request)
