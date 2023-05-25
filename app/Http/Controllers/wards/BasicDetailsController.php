@@ -19,7 +19,6 @@ public function wards_add_member()
 
 
 public function create(Request $request){
-
 // dd($request->all());
 $this->validate($request,[
 'housenumber'=>'required',
@@ -49,10 +48,8 @@ $basic_details= BasicDetailsModel::create([
 ]);
 
 $store=$basic_details->id;
+$data=session()->put('basic_details_id', $store);
 
- $data=session()->put('basic_details_id', $store);
-
-// $getdata= session()->get('id');
   return response()->json(['status' => 'success']);
 
 

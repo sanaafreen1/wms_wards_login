@@ -11,7 +11,4 @@ class BasicDetailsModel extends Model
 
     protected $table = 'wards_basic_details';
     protected $guarded = [];
-
-
-
 }
