@@ -34,7 +34,7 @@
                                 </h4>
                             </div>
                             <div class="col-md-2">
-                                <p class="py-3 mb-4"><a href="#">Back to Family Reports</a></p>
+                                <p class="py-3 mb-4"><a href="{{route('wards_family_report')}}">Back to Family Reports</a></p>
                             </div>
                         </div>
 
@@ -47,15 +47,15 @@
                                         <tr>
                                             <td>
                                                 <small>Member Name / సభ్యుని పేరు </small>
-                                                <p><b>XXXXXXXXXXX</b></p>
+                                                <p><b>{{$family->member_name}}</b></p>
                                             </td>
                                             <td>
                                                 <small>Family owner name / కుటుంబ యజమాని పేరు</small>
-                                                <p><b>XXXXXXXXXXX</b></p>
+                                                <p><b>xxxxx</b></p>
                                             </td>
                                             <td>
                                                 <small>Date of Birth / పుట్టిన తేది</small>
-                                                <p><b>XXXXXXXXXXX</b></p>
+                                                <p><b>{{$family->date_of_birth}}</b></p>
                                             </td>
                                             <td rowspan="3">
                                                 <center><img src="../assets/img/avatars/1.png" alt="" class="img-fluid"></center>
@@ -64,76 +64,76 @@
                                         <tr>
                                             <td>
                                                 <small>Mobile Number / మొబైల్ నంబర్</small>
-                                                <p><b>XXXXXXXXXXX</b></p>
+                                                <p><b>{{$family->mobile}}</b></p>
                                             </td>
                                             <td>
                                                 <small>Education / చదువు </small>
-                                                <p><b>XXXXXXXXXXX</b></p>
+                                                <p><b>{{$family->education}}</b></p>
                                             </td>
                                             <td>
                                                 <small>Education Details / విద్య వివరాలు </small>
-                                                <p><b>XXXXXXXXXXX</b></p>
+                                                <p><b>{{$family->education_details}}</b></p>
                                             </td>
-                                            
+
                                         </tr>
                                         <tr>
                                             <td>
                                                 <small>Staying out of Town / టౌన్ వెలుపల ఉంటున్నారు  </small>
-                                                <p><b>XXXXXXXXXXX</b></p>
+                                                <p><b>{{$family->staying_out_oftown}}</b></p>
                                             </td>
                                             <td>
                                                 <small>Location of the Person / వ్యక్తి యొక్క స్థానం  </small>
-                                                <p><b>XXXXXXXXXXX</b></p>
+                                                <p><b>{{$family->location_ofthe_person}}</b></p>
                                             </td>
                                             <td>
                                                 <small>View the Details / వివరాలను నమోదు చేయండి </small>
-                                                <p><b>XXXXXXXXXXX</b></p>
+                                                <p><b>{{$family->enter_the_details}}</b></p>
                                             </td>
                                         </tr>
-                                        
+
                                         <tr>
                                             <td>
                                                 <small>Occupation / వృత్తి </small>
-                                                <p><b>XXXXXXXXXXX</b></p>
+                                                <p><b>{{$family->occupation}}</b></p>
                                             </td>
                                             <td>
                                                 <small>Gender / లింగం   </small>
-                                                <p><b>XXXXXXXXXXX</b></p>
+                                                <p><b>{{$family->gender}}</b></p>
                                             </td>
                                             <td>
                                                 <small>Blood Group / రక్తపు గ్రూపు </small>
-                                                <p><b>XXXXXXXXXXX</b></p>
+                                                <p><b>{{$family->blood_group}}</b></p>
                                             </td>
                                             <td>
                                                 <small>B.P / బి.పి  </small>
-                                                <p><b>XXXXXXXXXXX</b></p>
+                                                <p><b>{{$family->b_p}}</b></p>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>
                                                 <small>Sugar / షుగర్  </small>
-                                                <p><b>XXXXXXXXXXX</b></p>
+                                                <p><b>{{$family->sugar}}</b></p>
                                             </td>
                                             <td>
                                                 <small>Covid Vaccine / కోవిడ్&zwnj;కి టీకా </small>
-                                                <p><b>XXXXXXXXXXX</b></p>
+                                                <p><b>{{$family->covid_vaccine}}</b></p>
                                             </td>
                                             <td>
                                                 <small>Pension / పెన్షన్  </small>
-                                                <p><b>XXXXXXXXXXX</b></p>
+                                                <p><b>{{$family->pension}}</b></p>
                                             </td>
                                             <td>
                                                 <small>Type of Pension / పెన్షన్ రకం  </small>
-                                                <p><b>XXXXXXXXXXX</b></p>
+                                                <p><b>{{$family->type_of_pension}}</b></p>
                                             </td>
                                         </tr>
-                                        
+
                                     </tbody>
                                 </table>
-                                
+
                                 <div class="col-md-12">
                                     <button class="btn btn-warning float-end mb-2" onclick="window.print()">Print this page</button>
-                                    <a href="add-member-details.html" class="btn btn-primary float-end me-3 mb-2">Edit</a>
+                                    <a href="{{route('wards_add_member')}}" class="btn btn-primary float-end me-3 mb-2">Edit</a>
                                 </div>
                             </div>
                         </div>
@@ -161,5 +161,5 @@
 
 @endsection
 @push('scripts')
-    
+
 @endpush
