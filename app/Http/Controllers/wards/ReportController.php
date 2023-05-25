@@ -21,7 +21,6 @@ class ReportController extends Controller
             $details=BasicDetailsModel::when($house_no,function ($query) use($house_no) {
                 return $query->where('house_no', 'LIKE', '%'.$house_no.'%');
               })->get();
-
             $details=BasicDetailsModel::get();
 
     return view('wards.reports',compact('education', 'occupation','family','details'));
