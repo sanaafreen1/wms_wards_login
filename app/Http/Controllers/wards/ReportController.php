@@ -16,10 +16,14 @@ class ReportController extends Controller
             $occupation=OccupationMst::get();
             $education= EducationMst::get();
             $family=FamilyMemberModel::get();
- 
+
+
             $details=BasicDetailsModel::when($house_no,function ($query) use($house_no) {
                 return $query->where('house_no', 'LIKE', '%'.$house_no.'%');
               })->get();
+
+            $details=BasicDetailsModel::get();
+
     return view('wards.reports',compact('education', 'occupation','family','details'));
 }
 
@@ -31,9 +35,9 @@ public function wards_family_report()
 return view('wards.family-report',compact('family'));
 }
 
-public function member_full_details()
+public function member_full_details($id)
 {
-    $family=FamilyMemberModel::first();
+    $family=FamilyMemberModel::find($id);
 
     return view('wards.member-full-details',compact('family'));
 }
