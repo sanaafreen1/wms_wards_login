@@ -36,6 +36,9 @@ class EnterServiceDetailsController extends Controller
         'subservice' => 'required',
         'document' => 'required|array',
     ]);
+    $basicdetails_id=session()->get('basic_details_id');
+    $house_ownerdetails_id=session()->get('house_ownerdetails_id');
+
 
       $cnt = count($request->document);
      $service= $request->service;
@@ -44,11 +47,14 @@ class EnterServiceDetailsController extends Controller
       {
         $document = $request->document[$i];
         EnterServiceDetails::updateOrCreate([
+    'basic_details_id' =>$basicdetails_id,
+      'house_owner_id'=>$house_ownerdetails_id,
             'service_id' => $service,
             'sub_service_id' => $subservice,
             'document_id' => $document
           ],
-        [
+        [ 'basic_details_id' =>$basicdetails_id,
+        'house_owner_id'=>$house_ownerdetails_id,
             'service_id' => $service,
             'sub_service_id' => $subservice,
             'document_id' => $document,
