@@ -9,7 +9,7 @@ use App\Http\Controllers\Admin\AddDocumentsController;
 use App\Http\Controllers\Admin\LinkDocumentsController;
 use App\Http\Controllers\Admin\ReportsController;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\wards\{BasicDetailsController,FamilyMemersDetailsController,HousedetailsController,EnterServiceDetailsController};
+use App\Http\Controllers\wards\{BasicDetailsController,FamilyMemersDetailsController,HousedetailsController,EnterServiceDetailsController,ReportController};
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -105,11 +105,11 @@ Route::post('/getsubservice', [EnterServiceDetailsController::class, 'getsubserv
 
 
 //end service details routes
+// enter reports routes
+Route::match(['GET','POST'],'/wards-reports', [ReportController::class, 'wards_reports'])->name('wards_reports');
 
-
-
-
-Route::get('/wards-reports', [UserController::class, 'wards_reports'])->name('wards_reports');
+// end reports routes
+// Route::get('/wards-reports', [UserController::class, 'wards_reports'])->name('wards_reports');
 
 // end ward routes
 });
