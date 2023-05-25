@@ -35,9 +35,9 @@ public function wards_family_report()
 return view('wards.family-report',compact('family'));
 }
 
-public function member_full_details($id)
+public function member_full_details()
 {
-    $family=FamilyMemberModel::find($id);
+    $family=FamilyMemberModel::first();
 
     return view('wards.member-full-details',compact('family'));
 }
