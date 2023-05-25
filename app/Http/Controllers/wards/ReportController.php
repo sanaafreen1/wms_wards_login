@@ -4,7 +4,7 @@ namespace App\Http\Controllers\wards;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\{FamilyMemberModel,OccupationMst,EducationMst};
+use App\Models\{FamilyMemberModel,OccupationMst,EducationMst,BasicDetailsModel};
 
 class ReportController extends Controller
 {
@@ -31,11 +31,15 @@ class ReportController extends Controller
 
         $occupation=OccupationMst::get();
 $education= EducationMst::get();
+$family=FamilyMemberModel::get();
 
-    return view('wards.reports',compact('education', 'occupation'));
+$details=BasicDetailsModel::get();
+    return view('wards.reports',compact('education', 'occupation','family','details'));
 }
 
-
+public function wards_family_report()
+{
+return view('wards.family-report');
+}
   }
 
-  

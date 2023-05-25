@@ -10,4 +10,7 @@ class House_owner_details extends Model
     use HasFactory;
     protected $table='house_owner_details';
     protected $guarded=[];
+
+
+
 }

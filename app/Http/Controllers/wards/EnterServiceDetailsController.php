@@ -47,13 +47,13 @@ class EnterServiceDetailsController extends Controller
       {
         $document = $request->document[$i];
         EnterServiceDetails::updateOrCreate([
-    'basic_details_id' =>$basicdetails_id,
-      'house_owner_id'=>$house_ownerdetails_id,
+
             'service_id' => $service,
             'sub_service_id' => $subservice,
             'document_id' => $document
           ],
-        [ 'basic_details_id' =>$basicdetails_id,
+        [
+            'basic_details_id' =>$basicdetails_id,
         'house_owner_id'=>$house_ownerdetails_id,
             'service_id' => $service,
             'sub_service_id' => $subservice,
