@@ -11,36 +11,40 @@
                         <h4 class="fw-bold mb-4" style="    padding-top: 4rem !important;">
                             <span class="text-muted fw-light">Reports</span>
                         </h4>
-
+                        <form action="" method="post">
+                            @csrf
                         <div class="row mb-4">
                             <div class="col-md-4 mb-4 input-felds">
                                 <div class="form-group">
                                     <small class="mb-1">Family owner name/కుటుంబ యజమాని పేరు</small>
-                                    <input type="text" class="form-control" id="" placeholder="" name="owner_name">
+                                    <input type="text" class="form-control" id="owner_name" placeholder="" name="owner_name">
                                 </div>
                             </div>
                             <div class="col-md-4 mb-4 input-felds">
                                 <div class="form-group">
                                     <small class="mb-1">House No / ఇంటి నెం</small>
-                                    <input type="text" class="form-control" id="" placeholder="" name="house_no">
+                                    <input type="text" class="form-control" id="house_no" placeholder="" name="house_no">
                                 </div>
                             </div>
                             <div class="col-md-4 mb-4 input-felds">
                                 <div class="form-group">
                                     <small class="mb-1">Mobile Number/మొబైల్ నంబర్</small>
-                                    <input type="text" class="form-control" id="" placeholder="" name="mobilenumber">
+                                    <input type="text" class="form-control" id="mobilenumber" placeholder="" name="mobilenumber">
                                 </div>
                             </div>
                             <div class="col-md-4 mb-4 input-felds">
                                 <div class="form-group">
                                     <small class="mb-1">Occupation/వృత్తి</small>
-                                    <select class="form-select">
-                                        <option>-- Select --</option>
-                                        <option> Lawyer / న్యాయవాది </option>
-                                        <option> Docter / వైద్యుడు </option>
-                                        <option> Engineer/ ఇంజనీర్ </option>
-                                        <option> Private Employee / ప్రైవేట్ ఉద్యోగి </option>
-                                        <option> Bank Employee / బ్యాంకు ఉద్యోగి</option>
+                                    <select class="form-select" name="occupation" id="occupation">
+                                        <option value="">-- Select --</option>
+
+
+                                        @foreach ($occupation as $store)
+
+                                        <option value="{{$store->id}}">{{$store->occupation}}/{{$store->telugu}}</option>
+
+                                        @endforeach
+
 
                                     </select>
                                 </div>
@@ -48,7 +52,7 @@
                             <div class="col-md-4 mb-4 input-felds">
                                 <div class="form-group">
                                     <small class="mb-1">Gender/లింగం</small>
-                                    <select class="form-select">
+                                    <select class="form-select" name="gender" id="gender">
                                         <option>-- Select --</option>
                                         <option> Male / పురుషుడు</option>
                                         <option> Female / స్త్రీ </option>
@@ -60,18 +64,13 @@
                             <div class="col-md-4 mb-4 input-felds">
                                 <div class="form-group">
                                     <small class="mb-1">Education Details/విద్య వివరాలు </small>
-                                    <select class="form-select">
+                                    <select class="form-select" name="education" id="education">
                                         <option>-- Select --</option>
-                                        <option> BBA </option>
-                                        <option> Bcom </option>
-                                        <option> Btech </option>
-                                        <option> BSC </option>
-                                        <option> BZC </option>
-                                        <option> MSC </option>
-                                        <option> MBA </option>
-                                        <option>MCA</option>
-                                        <option>Mtech</option>
-                                        <option>Mcom</option>
+                                        @foreach ($education as $value )
+                                        <option value="{{$value->id}}">{{$value->education}}/{{$value->telugu}}</option>
+
+                                        @endforeach
+
                                     </select>
                                 </div>
                             </div>
@@ -81,7 +80,7 @@
                             </div>
 
                         </div>
-
+                    </form>
                         <div class="card">
                             <div class="card-body table-responsive">
                                 <table class="table table-bordered">
@@ -98,6 +97,9 @@
                                     </thead>
                                     <tbody>
                                         <tr>
+@foreach ( as )
+
+@endforeach
                                             <td>1</td>
                                             <td>3-2-58</td>
                                             <td>Gummakonda Colony</td>
