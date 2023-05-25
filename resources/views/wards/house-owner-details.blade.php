@@ -34,7 +34,7 @@
                                     <div class="card-body">
                                         <form  id="owner_details" name="owner_details" enctype="multipart/form-data" method="post">
                                             @csrf
-                                            <input type="hidden" name="id" id="id" value="" >
+                                            <input type="hidden" name="basic_details_id" id="basic_details_id" value= >
                                             <div class="row">
                                                 <div class="col-md-4 mb-4 input-felds">
                                                     <div class="form-group">

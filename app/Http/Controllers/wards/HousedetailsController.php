@@ -99,9 +99,11 @@ class HousedetailsController extends Controller
      ]);
 
 // $item=$data->id;
-// $unique=$request->session()->get('id', 'basic_details_id');
+// //    $unique =session()->put('id', $item);
 
-// dd($data);
+// // dd($unique);
+
+
 
 return response()->json(['status' => 'success']);
 
