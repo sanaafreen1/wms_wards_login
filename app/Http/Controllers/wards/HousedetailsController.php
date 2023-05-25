@@ -4,7 +4,7 @@ namespace App\Http\Controllers\wards;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use  App\Models\{House_owner_details,EducationDetailsMst,EducationMst,OccupationMst,FamilyMemberModel};
+use  App\Models\{House_owner_details,EducationDetailsMst,EducationMst,OccupationMst,FamilyMemberModel,Bloodgroup};
 
 use Session;
 
@@ -16,8 +16,10 @@ class HousedetailsController extends Controller
        $education=EducationMst::get();
        $details=EducationDetailsMst::get();
        $occupation=OccupationMst::get();
+       $blood=Bloodgroup::get();
 
-       return view('wards.house-owner-details',compact('data','education','details','occupation'));
+
+       return view('wards.house-owner-details',compact('data','education','details','occupation','blood'));
 
     }
 
