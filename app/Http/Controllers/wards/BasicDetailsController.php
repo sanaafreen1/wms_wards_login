@@ -14,11 +14,6 @@ class BasicDetailsController extends Controller
 
 public function wards_add_member()
 {
-
-//   $basicdel=  BasicDetailsModel::get();
-
-//   $del=  session()->put('id', $basicdel );
-//   dd($del);
    return view('wards.add-members-details');
 }
 
@@ -39,7 +34,7 @@ $this->validate($request,[
 'address'=>'required',
 ]);
 
-$del= BasicDetailsModel::create([
+$basic_details= BasicDetailsModel::create([
     'house_no' => $request->housenumber,
     'house_details' => $request->housedetails,
     'type_of_house' => $request->housetypes,
@@ -53,7 +48,7 @@ $del= BasicDetailsModel::create([
     'created_by'=>Auth::id(),
 ]);
 
-$store=$del->id;
+$store=$basic_details->id;
 
  $data=session()->put('basic_details_id', $store);
 
