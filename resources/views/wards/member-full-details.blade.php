@@ -34,7 +34,7 @@
                                 </h4>
                             </div>
                             <div class="col-md-2">
-                                <p class="py-3 mb-4"><a href="{{route('wards_family_report')}}">Back to Family Reports</a></p>
+                                <p class="py-3 mb-4"><a href="{{url('wards_family_report')}}">Back to Family Reports</a></p>
                             </div>
                         </div>
 
@@ -51,7 +51,7 @@
                                             </td>
                                             <td>
                                                 <small>Family owner name / కుటుంబ యజమాని పేరు</small>
-                                                <p><b>xxxxx</b></p>
+                                                <p><b>{{$family->owners->owner_name}}</b></p>
                                             </td>
                                             <td>
                                                 <small>Date of Birth / పుట్టిన తేది</small>
@@ -133,7 +133,7 @@
 
                                 <div class="col-md-12">
                                     <button class="btn btn-warning float-end mb-2" onclick="window.print()">Print this page</button>
-                                    <a href="{{route('wards_add_member')}}" class="btn btn-primary float-end me-3 mb-2">Edit</a>
+                                    <a href="{{url('wards_add_member')}}" class="btn btn-primary float-end me-3 mb-2">Edit</a>
                                 </div>
                             </div>
                         </div>

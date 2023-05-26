@@ -104,9 +104,9 @@
                                             <td>{{$i++}}</td>
                                             <td>{{$data->house_no}}</td>
                                             <td>{{$data->address}}</td>
-                                            <td>{{$data->owner_name}}</td>
-                                            <td>{{$data->number}}</td>
-                                            <td><a href="{{ route('wards_family_report')}}">5</a></td>
+                                            <td>{{@$data->ownerdetails->owner_name}}</td>
+                                            <td>{{@$data->ownerdetails->mobilenumber}}</td>
+                                            <td><a href="{{ url('wards_family_report')}}/{{@$data->id}}">{{@$data->ownerdetails->familymembers_count}}</a></td>
                                             <td><a href=""></a><i class="bx bx-edit"></i></td>
                                         </tr>
                                         @endforeach

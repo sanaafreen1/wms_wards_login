@@ -11,4 +11,9 @@ class BasicDetailsModel extends Model
 
     protected $table = 'wards_basic_details';
     protected $guarded = [];
+
+    public function ownerdetails()
+    {
+        return $this->hasOne(House_owner_details::class,'basic_details_id','id')->withcount('familymembers');
+    }
 }

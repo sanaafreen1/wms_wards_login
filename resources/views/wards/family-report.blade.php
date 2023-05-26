@@ -50,7 +50,7 @@
                                             <td>{{$store->gender}}</td>
                                             <td>{{$store->age}}</td>
                                             <td>{{$store->mobile}}</td>
-                                            <td><a href="{{route('member_full_details')}}" class="btn btn-sm btn-primary" style="    color: white !important;">View More</a></td>
+                                            <td><a href="{{url('member_full_details')}}/{{$store->id}}" class="btn btn-sm btn-primary" style="    color: white !important;">View More</a></td>
                                         </tr>
                                         @endforeach
 

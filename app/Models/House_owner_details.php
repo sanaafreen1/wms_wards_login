@@ -10,4 +10,9 @@ class House_owner_details extends Model
     use HasFactory;
     protected $table='house_owner_details';
     protected $guarded=[];
+
+    public function familymembers()
+    {
+        return $this->hasMany(FamilyMemberModel::class,'houseownerdetails_id','id');
+    }
 }

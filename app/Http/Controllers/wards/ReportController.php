@@ -11,32 +11,32 @@ class ReportController extends Controller
 
   public function wards_reports(Request $request ){
 
-
+   $owner_name=$request->owner_name;
    $house_no=$request->house_no;
+   $mobilenumber=$request->mobilenumber;
+
             $occupation=OccupationMst::get();
             $education= EducationMst::get();
-            $family=FamilyMemberModel::get();
 
+            $details=BasicDetailsModel::with('ownerdetails')->get();
 
-            $details=BasicDetailsModel::when($house_no,function ($query) use($house_no) {
-                return $query->where('house_no', 'LIKE', '%'.$house_no.'%');
-              })->get();
-            $details=BasicDetailsModel::get();
+            // dd($details);
 
-    return view('wards.reports',compact('education', 'occupation','family','details'));
+    return view('wards.reports',compact('education', 'occupation','details'));
 }
 
 
 
-public function wards_family_report()
+public function wards_family_report($id)
 {
-    $family=FamilyMemberModel::get();
+    $family=FamilyMemberModel::where('houseownerdetails_id',$id)->get();
 return view('wards.family-report',compact('family'));
 }
 
-public function member_full_details()
+public function member_full_details($id)
 {
-    $family=FamilyMemberModel::first();
+    $family=FamilyMemberModel::with('owners')->find($id);
+    // dd($family);
 
     return view('wards.member-full-details',compact('family'));
 }

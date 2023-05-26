@@ -12,4 +12,9 @@ class FamilyMemberModel extends Model
     protected $table = "family_members_details";
     protected $guarded=[];
 
+    public function owners()
+    {
+        return $this->belongsTo(House_owner_details::class,'houseownerdetails_id','id');
+    }
+
 }
