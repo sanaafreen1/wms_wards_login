@@ -4,7 +4,7 @@ namespace App\Http\Controllers\wards;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\{FamilyMemberModel,OccupationMst,EducationMst,BasicDetailsModel};
+use App\Models\{FamilyMemberModel,OccupationMst,EducationMst,BasicDetailsModel,House_owner_details};
 
 class ReportController extends Controller
 {
@@ -18,9 +18,21 @@ class ReportController extends Controller
             $occupation=OccupationMst::get();
             $education= EducationMst::get();
 
-            $details=BasicDetailsModel::with('ownerdetails')->get();
+            $details=BasicDetailsModel::
+            when($house_no,function ($query) use($house_no) {
+                return $query->where('house_no','LIKE', '%'.$house_no.'%');
+              })
+              ->whereHas('ownerdetails', function ($query) use ($owner_name) {
+                $query->where('owner_name', 'LIKE', '%'.$owner_name.'%');
+            })->whereHas('ownerdetails', function ($query) use ($mobilenumber) {
+                $query->where('mobilenumber', 'LIKE', '%'.$mobilenumber.'%');
+            })->
+             with('ownerdetails')->
+             get();
 
             // dd($details);
+
+
 
     return view('wards.reports',compact('education', 'occupation','details'));
 }
