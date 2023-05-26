@@ -200,7 +200,7 @@
                                                 <div class="col-md-4 mb-2 input-felds">
                                                     <div class="form-group">
                                                         <small class="mb-1"> Upload Photo / ఫోటోను అప్‌లోడ్ చేయండి్ </small>
-                                                        <input type="file" class="form-control"  placeholder=""  name="file" id="file">
+                                                        <input type="file" class="form-control"  placeholder=""  name="upload_photo" id="upload_photo">
                                                     </div>
                                                 </div>
 
