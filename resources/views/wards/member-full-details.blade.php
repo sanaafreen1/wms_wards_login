@@ -34,7 +34,7 @@
                                 </h4>
                             </div>
                             <div class="col-md-2">
-                                <p class="py-3 mb-4"><a href="{{url('wards_family_report')}}">Back to Family Reports</a></p>
+                                <p class="py-3 mb-4"><a href="{{route('wards_family_report',['id' => $family->id])}}">Back to Family Reports</a></p>
                             </div>
                         </div>
 
@@ -124,7 +124,7 @@
                                             </td>
                                             <td>
                                                 <small>Type of Pension / పెన్షన్ రకం  </small>
-                                                <p><b>{{$family->type_of_pension}}</b></p>
+                                                <p><b>{{@$family->pensions->type_of_pension}}</b></p>
                                             </td>
                                         </tr>
 

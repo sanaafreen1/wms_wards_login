@@ -31,7 +31,11 @@ class FamilyMemberModel extends Model
     }
     public function pensions()
     {
-        return $this->belongsTo(TypeOfPensionMst::class,'occupation','id');
+        return $this->belongsTo(TypeOfPensionMst::class,'type_of_pension','id');
+    }
+    public function relations()
+    {
+        return $this->belongsTo(RelationMst::class,'relation_with_houseowner','id');
     }
 
 }

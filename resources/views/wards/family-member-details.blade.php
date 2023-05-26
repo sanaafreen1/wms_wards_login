@@ -89,7 +89,7 @@
                                                 </div>
                                                 <div class="col-md-4 mb-4 input-felds">
                                                     <div class="form-check mt-3 pt-2">
-                                                        <input type="checkbox" class="form-check-input" name="staying_out_oftown" >
+                                                        <input type="checkbox" class="form-check-input" name="staying_out_oftown"  value="yes">
                                                         <label class="form-check-label" for="exampleCheck1"> Staying out of Town/టౌన్ వెలుపల ఉంటున్నారు </label>
 
                                                     </div>
