@@ -35,7 +35,7 @@ return view('wards.family-report',compact('family'));
 
 public function member_full_details($id)
 {
-    $family=FamilyMemberModel::with('owners')->find($id);
+    $family=FamilyMemberModel::with('owners','educations','educationsdetails','occupations','pensions')->find($id);
     // dd($family);
 
     return view('wards.member-full-details',compact('family'));
