@@ -58,7 +58,7 @@
                                                 <p><b>{{$family->date_of_birth}}</b></p>
                                             </td>
                                             <td rowspan="3">
-                                                <center><img src="../assets/img/avatars/1.png" alt="" class="img-fluid"></center>
+                                                <center><img style="height:100px ; width:100px;" src="{{url('/image').'/'.$family->file}}"></center>
                                             </td>
                                         </tr>
                                         <tr>
