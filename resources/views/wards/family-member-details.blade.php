@@ -277,7 +277,7 @@
               // Show toastr message
               toastr.success('Data inserted successfully!');
            setTimeout(function(){
-          window.location.href = '{{ route('wards_family_member') }}';}, 3000);
+          window.location.href = '{{ route('wards_enter_service') }}';}, 3000);
           } else {
               toastr.error('Error inserting data!');
           }
