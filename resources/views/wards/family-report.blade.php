@@ -46,7 +46,7 @@
 
                                             <td>{{$i++}}</td>
                                             <td>{{$store->member_name}}</td>
-                                            <td>{{$store->relation_with_houseowner}}</td>
+                                            <td>{{$store->relations->relation_name}}</td>
                                             <td>{{$store->gender}}</td>
                                             <td>{{$store->age}}</td>
                                             <td>{{$store->mobile}}</td>

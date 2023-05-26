@@ -29,7 +29,8 @@ class ReportController extends Controller
 
 public function wards_family_report($id)
 {
-    $family=FamilyMemberModel::where('houseownerdetails_id',$id)->get();
+    $family=FamilyMemberModel::where('houseownerdetails_id',$id)->with('relations')->get();
+    // $family=FamilyMemberModel::with('relation')->get($id);
 return view('wards.family-report',compact('family'));
 }
 
