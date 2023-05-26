@@ -4,6 +4,8 @@ namespace App\Http\Controllers\wards;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
+use Image;
 use  App\Models\{House_owner_details,EducationDetailsMst,EducationMst,OccupationMst,FamilyMemberModel,Bloodgroup};
 
 use Session;
@@ -39,7 +41,7 @@ class HousedetailsController extends Controller
         'occupation'=>'required',
         'gender'=>'required',
         'blood_group'=>'required',
-        'file'=>'required',
+        'upload_photo'=>'required|image|mimes:jpg,png,jpeg,gif,bmp',
         'bp'=>'nullable',
         'sugar'=>'nullable',
         'covidvaccine'=>'nullable',
@@ -71,11 +73,27 @@ class HousedetailsController extends Controller
        $type_pension=$request->type_pension;
 
 
-    $file=$request->file('file');
-    $extension=$file->getClientOriginalName();
-    $filename=time().'.'.$extension;
-    //dd($filename);
-    $file->move(base_path('/public/images'),$filename);
+    // $file=$request->file('file');
+    // $extension=$file->getClientOriginalName();
+    // $filename=time().'.'.$extension;
+    // //dd($filename);
+    // $file->move(base_path('/public/asset/images'),$filename);
+
+
+    $image = $request->file('upload_photo');
+
+    // Set the target size in bytes (15KB = 15 * 1024 bytes)
+    $targetSize = 15 * 1024;
+
+    // Generate a unique filename
+    $filename = time() . '_' . $image->getClientOriginalName();
+
+    // Move the uploaded file to the public/images directory
+    $image->move(public_path('images'), $filename);
+
+    // Compress the image
+    $compressedFilename = $this->compressImage(public_path('images/' . $filename), $targetSize);
+
 
 
   $data= House_owner_details::create([
@@ -91,14 +109,13 @@ class HousedetailsController extends Controller
         'occupation'=>$occupation,
         'gender'=>$gender,
         'blood_group'=>$blood_group,
-
 'covid_vaccine'=>$covid_vaccine,
         'bp'=>$bp,
        'sugar'=>$sugar,
        'pension'=>$pension,
         'blood_group'=>$blood_group,
         'type_of_pension'=>$type_pension,
-        'upload_photo'=>$filename,
+        'upload_photo'=>$compressedFilename,
 
 
     ]);
@@ -121,7 +138,7 @@ class HousedetailsController extends Controller
         'covid_vaccine'=>$covid_vaccine,
         'pension'=>$pension,
       'type_of_pension'=>$type_pension,
-      'upload_photo'=>$filename,
+      'upload_photo'=>$compressedFilename,
      ]);
 
 
@@ -132,10 +149,57 @@ $unique =session()->put('house_ownerdetails_id', $item);
 
 // dd($unique);
 
-
-
 return response()->json(['status' => 'success']);
 
     }
+
+
+
+    private function compressImage($filePath, $targetSize)
+    {
+        // Load the image
+        $image = imagecreatefromjpeg($filePath);
+
+        // Get the original image size
+        $originalSize = filesize($filePath);
+
+        // Calculate the compression ratio
+        $compressionRatio = $targetSize / $originalSize;
+
+        // Set the new image width and height based on the compression ratio
+        $newWidth = imagesx($image) * sqrt($compressionRatio);
+        $newHeight = imagesy($image) * sqrt($compressionRatio);
+
+        // Create a new image resource with the desired dimensions
+        $compressedImage = imagecreatetruecolor($newWidth, $newHeight);
+
+        // Copy and resize the original image to the new resource
+        imagecopyresampled(
+            $compressedImage,
+            $image,
+            0,
+            0,
+            0,
+            0,
+            $newWidth,
+            $newHeight,
+            imagesx($image),
+            imagesy($image)
+        );
+
+        // Save the compressed image with a new filename
+        $compressedFilename = 'compressed_' . basename($filePath);
+        imagejpeg($compressedImage, public_path('upload/' . $compressedFilename), 75);
+
+        // Free up memory
+        imagedestroy($image);
+        imagedestroy($compressedImage);
+
+        // Delete the original image
+        File::delete($filePath);
+
+        return $compressedFilename;
+    }
+
 
 }

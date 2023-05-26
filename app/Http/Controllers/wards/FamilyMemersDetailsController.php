@@ -4,7 +4,7 @@ namespace App\Http\Controllers\wards;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use File;
+use Illuminate\Support\Facades\File;
 use App\Models\{FamilyMemberModel,RelationMst,EducationMst,EducationDetailsMst,OccupationMst,TypeOfPensionMst};
 use Illuminate\Support\Facades\Session;
 
@@ -62,7 +62,7 @@ class FamilyMemersDetailsController extends Controller
 
                  // Compress the image
                  $compressedFilename = $this->compressImage(public_path('images/' . $filename), $targetSize);
-
+              
                $familyid=  FamilyMemberModel::insert([
                 'basic_details_id' =>  $basicdetails_id,
                 'houseownerdetails_id'=>   $house_ownerdetails_id,
