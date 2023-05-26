@@ -58,7 +58,7 @@
                                                 <p><b>{{$family->date_of_birth}}</b></p>
                                             </td>
                                             <td rowspan="3">
-                                                <center><img style="height:100px ; width:100px;" src="{{url('/image').'/'.$family->file}}"></center>
+                                                <center><img style="height:100px ; width:100px;" src="{{url('/image').'/'.$family->upload_photo}}"></center>
                                             </td>
                                         </tr>
                                         <tr>
@@ -68,11 +68,11 @@
                                             </td>
                                             <td>
                                                 <small>Education / చదువు </small>
-                                                <p><b>{{$family->education}}</b></p>
+                                                <p><b>{{$family->educations->education}}</b></p>
                                             </td>
                                             <td>
                                                 <small>Education Details / విద్య వివరాలు </small>
-                                                <p><b>{{$family->education_details}}</b></p>
+                                                <p><b>{{$family->educationsdetails->edu_details }}</b></p>
                                             </td>
 
                                         </tr>
@@ -94,7 +94,7 @@
                                         <tr>
                                             <td>
                                                 <small>Occupation / వృత్తి </small>
-                                                <p><b>{{$family->occupation}}</b></p>
+                                                <p><b>{{$family->occupations->occupation}}</b></p>
                                             </td>
                                             <td>
                                                 <small>Gender / లింగం   </small>

@@ -24,23 +24,22 @@ class FamilyMemersDetailsController extends Controller
     public function create(Request $request)
     {
         // dd($request->all());
-       $this->validate(
-                 $request,[
+       $this->validate($request,[
                    'relation_with_houseowner'=>'required',
                    'member_name'=>'required',
                     'date_of_birth'=>'required',
                     'mobile'=>'required|digits:10',
                     'education'=>'required',
                     'education_details'=>'required',
-                    'staying_out_oftown'=>'required',
+                    'staying_out_oftown'=>'nullable',
                     'location_ofthe_person'=>'required',
                     'enter_the_details'=>'required',
                     'occupation'=>'required',
                     'gender'=>'required',
                     'blood_group'=>'required',
                     'b_p'=>'nullable',
-                    'sugar'=>'nulable',
-                    'covid_vaccine'=>'nulable',
+                    'sugar'=>'nullable',
+                    'covid_vaccine'=>'nullable',
                     'pension' => 'required_with:type_of_pension',
                     'type_of_pension'=>'required_with:pension',
                     'upload_photo'=>'required|image|mimes:jpg,png,jpeg,gif,bmp',
@@ -71,6 +70,7 @@ class FamilyMemersDetailsController extends Controller
                     'member_name'=>$request->member_name,
                     'date_of_birth'=>$request->date_of_birth,
                     'education'=>$request->education,
+                    'mobile'=>$request->mobile,
                     'education_details'=>$request->education_details,
                     'staying_out_oftown'=>$request->staying_out_oftown,
                     'location_ofthe_person'=>$request->location_ofthe_person,

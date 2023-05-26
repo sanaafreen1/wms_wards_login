@@ -16,5 +16,22 @@ class FamilyMemberModel extends Model
     {
         return $this->belongsTo(House_owner_details::class,'houseownerdetails_id','id');
     }
+    public function educations()
+    {
+        return $this->belongsTo(EducationMst::class,'education','id');
+    }
+
+    public function educationsdetails()
+    {
+        return $this->belongsTo(EducationDetailsMst::class,'education_details','id');
+    }
+    public function occupations()
+    {
+        return $this->belongsTo(OccupationMst::class,'occupation','id');
+    }
+    public function pensions()
+    {
+        return $this->belongsTo(TypeOfPensionMst::class,'occupation','id');
+    }
 
 }
