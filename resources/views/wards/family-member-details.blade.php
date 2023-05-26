@@ -160,7 +160,7 @@
                                                 <div class="col-md-4 mb-4 input-felds">
 
                                                     <div class="form-check mt-4">
-                                                        <input type="checkbox" class="form-check-input" name="b_p" >
+                                                        <input type="checkbox" class="form-check-input" name="b_p" value="yes">
                                                         <label class="form-check-label" for="exampleCheck2"> B.P / బి.పి </label>
                                                         <span id="b_p"></span>
                                                     </div>
@@ -168,7 +168,7 @@
                                                 </div>
                                                 <div class="col-md-4 mb-4 input-felds">
                                                     <div class="form-check mt-2 pt-2">
-                                                        <input type="checkbox" class="form-check-input" name="sugar">
+                                                        <input type="checkbox" class="form-check-input" name="sugar" value="yes">
                                                         <label class="form-check-label" for="exampleCheck3"> Sugar / షుగర్ </label>
                                                     </div>
                                                     <span  id="sugar" ></span>
@@ -176,7 +176,7 @@
 
                                                 <div class="col-md-4 mb-4 input-felds">
                                                     <div class="form-check mt-4">
-                                                        <input type="checkbox" class="form-check-input" name="covid_vaccine">
+                                                        <input type="checkbox" class="form-check-input" name="covid_vaccine" value="yes">
                                                         <label class="form-check-label" for="exampleCheck4"> Covid Vaccine / కోవిడ్‌కి టీకా </label>
 
                                                     </div>
@@ -184,7 +184,7 @@
                                                 </div>
                                                 <div class="col-md-4 mb-4 input-felds">
                                                     <div class="form-check mt-4">
-                                                        <input type="checkbox" class="form-check-input" name="pension">
+                                                        <input type="checkbox" class="form-check-input" name="pension" value="yes">
                                                         <label class="form-check-label" for="exampleCheck5"> Pension / పెన్షన్ </label>
 
                                                     </div>
