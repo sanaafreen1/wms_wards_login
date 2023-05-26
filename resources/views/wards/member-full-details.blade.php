@@ -102,7 +102,7 @@
                                             </td>
                                             <td>
                                                 <small>Blood Group / రక్తపు గ్రూపు </small>
-                                                <p><b>{{$family->blood_group}}</b></p>
+                                                <p><b>{{$family->bloodgroup->blood_group}}</b></p>
                                             </td>
                                             <td>
                                                 <small>B.P / బి.పి  </small>
@@ -133,7 +133,7 @@
 
                                 <div class="col-md-12">
                                     <button class="btn btn-warning float-end mb-2" onclick="window.print()">Print this page</button>
-                                    <a href="{{url('wards_add_member')}}" class="btn btn-primary float-end me-3 mb-2">Edit</a>
+                                    <a href="{{route('wards_family_member',['id' => $family->id])}}" class="btn btn-primary float-end me-3 mb-2">Edit</a>
                                 </div>
                             </div>
                         </div>

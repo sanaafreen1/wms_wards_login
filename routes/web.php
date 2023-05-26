@@ -83,6 +83,7 @@ Route::get('/wards-home', [UserController::class, 'wardshome'])->name('wardshome
 
 // add basic details routes
 Route::get('/wards-addmember', [BasicDetailsController::class, 'wards_add_member'])->name('wards_add_member');
+Route::get('/wards-addmember', [BasicDetailsController::class, 'wards_add_member'])->name('wards_add_member');
 Route::post('/wards/create', [BasicDetailsController::class, 'create'])->name('wards_add_member.create');
 //end basic details routes
 
@@ -116,4 +117,6 @@ Route::get('member_full_details/{id}', [ReportController::class, 'member_full_de
 // Route::get('/wards-reports', [UserController::class, 'wards_reports'])->name('wards_reports');
 
 // end ward routes
+Route::get('/wards-addmember/{id}', [ReportController::class, 'wards_add_members'])->name('wards_add_members');
+
 });

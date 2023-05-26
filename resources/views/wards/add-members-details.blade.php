@@ -16,7 +16,7 @@
                             <div class="col-md-12">
                                 <ul class="nav nav-pills flex-column flex-md-row mb-3">
                                     <li class="nav-item">
-                                        <a class="nav-link active" href="{{route('wards_add_member')}}"><i class="bx bx-user me-1"></i> Basic Detials</a>
+                                        <a class="nav-link active" href="{{route('wards_add_member')}}"><i class="bx bx-user me-1"></i> Basic Details</a>
                                         </li>
                                     <li class="nav-item">
                                         <a class="nav-link" href="{{route('wards_house_owner')}}"><i class="bx bx-home me-1"></i> House Owner Details</a>

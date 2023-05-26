@@ -37,5 +37,9 @@ class FamilyMemberModel extends Model
     {
         return $this->belongsTo(RelationMst::class,'relation_with_houseowner','id');
     }
+    public function bloodgroup()
+    {
+        return $this->belongsTo(Bloodgroup::class,'blood_group','id');
+    }
 
 }
