@@ -110,12 +110,13 @@
                                             <td><a href="{{ url('wards_family_report')}}/{{@$data->id}}">{{@$data->ownerdetails->familymembers_count}}</a></td>
 
 
-                                            {{-- <td><a href="{{url('wards_add_member_edit')}}/{{@$data->id}}"><i class="bx bx-edit"></i></a> --}}
-                                                <a class="btn btn-success btn-sm" href="{{url('wards_house_edit')}}/{{@$data->ownerdetails->id}}">house_owner</a>
+                                             <td>
+                                              {{--  <a href="{{url('wards_add_member_edit')}}/{{@$data->id}}"><i class="bx bx-edit"></i></a> --}}
+                                                <a class="btn btn-success btn-sm mb-1" href="{{url('wards_house_edit')}}/{{@$data->ownerdetails->id}}">house_owner</a><br>
 
-                                                <a class="btn btn-success btn-sm" href="{{ url('enter_service_edit')}}/{{@$data->id }}">enter_service</a>
+                                                <a class="btn btn-success btn-sm mb-1" href="{{ url('enter_service_edit')}}/{{@$data->id }}">enter_service</a><br>
 
-                                                <a class="btn btn-success btn-sm" href="{{ url('wards_basic_edit')}}/{{@$data->id}}">basic_details</a>
+                                                <a class="btn btn-success btn-sm mb-1" href="{{ url('wards_basic_edit')}}/{{@$data->id}}">basic_details</a>
 
                                             </td>
 
