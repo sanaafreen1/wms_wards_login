@@ -54,9 +54,9 @@ public function member_full_details($id)
     return view('wards.member-full-details',compact('family'));
 }
 
-public function ReportController()
-{
-    return view('wards.add_members_details');
-}
+// public function ReportController()
+// {
+//     return view('wards.add_members_details');
+// }
   }
 
