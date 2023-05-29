@@ -144,7 +144,7 @@
                                                     <div class="form-group">
                                                         <small class="mb-1"> Blood Group / రక్తపు గ్రూపు </small>
                                                         <select class="form-select" id="blood_group" name="blood_group">
-                                                            <option value="">-- Select --</option>
+                                                            <option value="">-- Select --</option> 
                                                             @foreach ($blood as $item)
                                                             <option value="{{$item->id}}">{{$item->blood_group}}</option>
 
