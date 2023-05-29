@@ -85,13 +85,15 @@ Route::get('/wards-home', [UserController::class, 'wardshome'])->name('wardshome
 Route::get('/wards-addmember', [BasicDetailsController::class, 'wards_add_member'])->name('wards_add_member');
 Route::get('/wards-addmember', [BasicDetailsController::class, 'wards_add_member'])->name('wards_add_member');
 Route::post('/wards/create', [BasicDetailsController::class, 'create'])->name('wards_add_member.create');
-// Route::get('/wards_add_member/edit/{id}', [BasicDetailsController::class, 'edit'])->name('wards_add_member.edit');
+
 
 //end basic details routes
 
 // owner house details routes
 Route::get('/wards-house', [HousedetailsController::class, 'wards_house_owner'])->name('wards_house_owner');
 Route::post('/wards_house_owner/create', [HousedetailsController::class, 'create'])->name('wards_house_owner.insert');
+Route::get('/wards_house_edit/{id}', [HousedetailsController::class, 'wards_house_edit'])->name('wards_house_edit');
+Route::post('/wards_house/update', [FamilyMemersDetailsController::class, 'update'])->name('wards_house.update');
 // end owner house details routes
 
 // wards-family routes
@@ -116,6 +118,7 @@ Route::match(['GET','POST'],'/wards-reports', [ReportController::class, 'wards_r
 
 Route::get('wards_family_report/{id}', [ReportController::class, 'wards_family_report'])->name('wards_family_report');
 Route::get('member_full_details/{id}', [ReportController::class, 'member_full_details']);
+Route::get('/wards_add_member/edit/{id}', [ReportController::class, 'edit']);
 
 
 // end reports routes

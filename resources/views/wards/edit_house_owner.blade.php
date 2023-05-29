@@ -1,127 +1,117 @@
+
 @extends('admin.layouts.main')
 @section('content')
 
-  <div class="content-wrapper">
+ <div class="content-wrapper">
 
                     <!-- Content -->
 
                     <div class="container-xxl flex-grow-1 container-p-y">
 
 
-                        <h4 class="fw-bold mb-4"  style="    padding-top: 4rem !important;">
+                        <h4 class="fw-bold  mb-4"  style="    padding-top: 4rem !important;">
                             <span class="text-muted fw-light">39 వ వార్డు కుటుంబ సభ్యుల జాబితా</span>
                         </h4>
 
                         <div class="row">
                             <div class="col-md-12">
                                 <ul class="nav nav-pills flex-column flex-md-row mb-3">
+
                                     <li class="nav-item">
-                                        <a class="nav-link" href="{{route('wards_add_member')}}"><i class="bx bx-user me-1"></i> Basic Details</a>
+                                        <a class="nav-link active" href="{{route('wards_house_owner')}}"><i class="bx bx-home me-1"></i> House Owner Details</a>
                                         </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="{{route('wards_house_owner')}}"><i class="bx bx-home me-1"></i> House Owner Details</a>
-                                        </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link active" href="{{route('wards_family_member')}}"><i class="bx bx-group me-1"></i> Family Members Details</a>
-                                        </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="{{route('wards_enter_service')}}"><i class="bx bx-file me-1"></i> Enter Service Details</a>
-                                        </li>
-                                </ul>
+
+
                                 <div class="card mb-4">
 
+
                                     <div class="card-body">
-                                    <form  method="post"  id="wardsForm" name="wardsForm" enctype="multipart/form-data">
-                                       @csrf
+                                        <form  id="housedetails" name="housedetails" enctype="multipart/form-data" method="post">
+                                            @csrf
+                                            <input type="hidden" name="basic_details_id" id="basic_details_id" value="session()->($item)" >
                                             <div class="row">
                                                 <div class="col-md-4 mb-4 input-felds">
                                                     <div class="form-group">
-                                                        <small class="mb-1"> Relation with House Owner / ఇంటి యజమానితో సంబంధం </small>
-                                                        <select class="form-select" id="relation_with_houseowner" name="relation_with_houseowner">
-                                                            <option value="">-- Select --</option>
-                                                            @foreach ($relation as $item)
-                                                            <option value="{{$item->id}}"> {{$item->relation_name}}\{{$item->telugu}}</option>
-                                                            @endforeach
+                                                        <small class="mb-1"> Family owner name / కుటుంబ యజమాని పేరు </small>
+                                                        <input type="text" class="form-control"   placeholder="" name="owner_name" id="owner_name" value="{{$house->owner_name}}">
+                                                    </div>
+
+                                                </div>
 
 
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-4 mb-4 input-felds">
-                                                    <div class="form-group">
-                                                        <small class="mb-1"> Member Name / సభ్యుని పేరు </small>
-                                                        <input type="text" id="member_name" name="member_name" class="form-control" id="" placeholder="">
-                                                    </div>
-                                                </div>
+
                                                 <div class="col-md-4 mb-4 input-felds">
                                                     <div class="form-group">
                                                         <small class="mb-1"> Date of Birth / పుట్టిన తేది </small>
-                                                        <input type="date" id="date_of_birth" name="date_of_birth" class="form-control" id="" placeholder="">
+                                                        <input type="date" class="form-control" id="date_of_birth" placeholder="" name="date_of_birth" value="{{$house->date_of_birth}}">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-4 mb-4 input-felds">
                                                     <div class="form-group">
                                                         <small class="mb-1"> Mobile Number/మొబైల్ నంబర్ </small>
-                                                        <input type="number" id="mobile" name="mobile" class="form-control" id="" placeholder="">
+                                                        <input type="text" class="form-control" id="mobilenumber" placeholder="" name="mobilenumber" value="{{$house->mobilenumber}}">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-4 mb-4 input-felds">
                                                     <div class="form-group">
                                                         <small class="mb-1"> Education / చదువు </small>
-                                                        <select class="form-select" id="education" name="education">
+                                                        <select class="form-select" name="education"  id="education">
                                                             <option value="">-- Select --</option>
-                                                            @foreach ($education as $edu)
-                                                            <option value="{{$edu->id}}"> {{$edu->education}}\{{$edu->telugu}}</option>
-                                                            @endforeach
+                                                           @foreach ($education as $item)
+                                                           <option value="{{$item->id}}" {{$house->education==$item->id ? "selected" :""}}>{{$item->education}}\{{$item->telugu}}</option>
+                                                           @endforeach
                                                         </select>
                                                     </div>
+
                                                 </div>
                                                 <div class="col-md-4 mb-4 input-felds">
                                                     <div class="form-group">
                                                         <small class="mb-1"> Education Details / విద్య వివరాలు </small>
-                                                        <select class="form-select" id="education_details" name="education_details">
+                                                        <select class="form-select" name="education_details" id="education_details">
                                                             <option value="">-- Select --</option>
-                                                            @foreach ($educationdetails as $details)
-                                                            <option value="{{$details->id}}"> {{$details->edu_details}}</option>
-                                                            @endforeach
+                                                           @foreach ($details as $item)
+                                                           <option value="{{$item->id}}" {{$house->education_details==$item->id ? "selected" :""}}>{{$item->edu_details}}</option>
+                                                           @endforeach
                                                         </select>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-4 mb-4 input-felds">
-                                                    <div class="form-check mt-3 pt-2">
-                                                        <input type="checkbox" class="form-check-input" name="staying_out_oftown"  value="yes">
-                                                        <label class="form-check-label" for="exampleCheck1"> Staying out of Town/టౌన్ వెలుపల ఉంటున్నారు </label>
+                                                    <div class="form-check mt-4 pt-2">
+
+
+                                                        <input type="checkbox" class="form-check-input"   name="staying_town" value="1" @if($house->staying_of_the_town == 1) checked @endif>
+                                                        <small class="form-check-small" for="exampleCheck1"> Staying out of Town/టౌన్ వెలుపల ఉంటున్నారు </small>
 
                                                     </div>
-                                                    <span id="staying_out_oftown"></span>
-
+                                                    <span id="staying_town"></span>
                                                 </div>
+
                                                 <div class="col-md-4 mb-4 input-felds">
                                                     <div class="form-group">
                                                         <small class="mb-1"> Location of the Person / వ్యక్తి యొక్క స్థానం </small>
-                                                        <select class="form-select"  name="location_ofthe_person"  id="location_ofthe_person">
+                                                        <select class="form-select" name="location_of_person" id="location_of_person"
                                                             <option value="">-- Select --</option>
-                                                            <option value="Staying in the state"> Staying in the state / రాష్ట్రంలోనే ఉంటున్నారు </option>
-                                                            <option value="Staying out of the state"> Staying out of the state / రాష్ట్రం వెలుపల ఉంటున్నారు </option>
-                                                            <option value="Staying out of the country"> Staying out of the country / దేశం వెలుపల ఉంటున్నారు </option>
 
+
+                                                            <option value="Staying in the state" {{ old('location_of_person') == 'Staying in the state' ? 'selected' : '' }}>Staying in the state / రాష్ట్రంలోనే ఉంటున్నారు</option>
+                                                            <option value="Staying out of the state" {{ old('location_of_person') == 'Staying out of the state' ? 'selected' : '' }}>Staying out of the state / రాష్ట్రం వెలుపల ఉంటున్నారు</option>
+                                                            <option value="Staying out of the country" {{ old('location_of_person') == 'Staying out of the country' ? 'selected' : '' }}>Staying out of the country / దేశం వెలుపల ఉంటున్నారు</option>
                                                         </select>
                                                     </div>
-
                                                 </div>
                                                 <div class="col-md-4 mb-4 input-felds">
-                                                    <div class="form-group ">
+                                                    <div class="form-group">
                                                         <small class="mb-1"> Enter the Details / వివరాలను నమోదు చేయండి </small>
-                                                        <input type="text" class="form-control" id="enter_the_details" name="enter_the_details" id="" placeholder="">
+                                                        <input type="text" class="form-control"   placeholder=""  name="details" id="details" value="{{$house->details}}">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-4 mb-4 input-felds">
                                                     <div class="form-group">
                                                         <small class="mb-1"> Occupation/వృత్తి </small>
-                                                        <select class="form-select" id="occupation" name="occupation">
+                                                        <select class="form-select"  name="occupation" id="occupation">
                                                             <option value="">-- Select --</option>
-                                                            @foreach ($occupation as $items)
-                                                            <option value="{{$items->id}}">{{$items->occupation}}/{{$items->telugu}}</option>
+                                                            @foreach ($occupation as $item)
+                                                            <option value="{{$item->id}}" {{$house->occupation==$item->id ? "selected" :""}}>{{$item->occupation}}/{{$item->telugu}}</option>
 
                                                             @endforeach
                                                         </select>
@@ -130,11 +120,10 @@
                                                 <div class="col-md-4 mb-4 input-felds">
                                                     <div class="form-group">
                                                         <small class="mb-1"> Gender/లింగం </small>
-                                                        <select class="form-select" id="gender" name="gender">
-                                                            <option value="">-- Select --</option>
-                                                            <option value="Male"> Male / పురుషుడు</option>
-                                                            <option value="Female"> Female / స్త్రీ </option>
-                                                            <option value="Others"> Others / ఇతరులు</option>
+                                                        <select class="form-select"  name="gender" id="gender">
+                                  <option value="Male" {{ old('gender') == 'Male' ? 'selected' : '' }}>Male / పురుషుడు</option>
+                                  <option value="Female" {{ old('gender') == 'Female' ? 'selected' : '' }}>Female / స్త్రీ</option>
+                                  <option value="Others" {{ old('gender') == 'Others' ? 'selected' : '' }}>Others / ఇతరులు</option>
 
                                                         </select>
                                                     </div>
@@ -143,80 +132,72 @@
                                                 <div class="col-md-4 mb-4 input-felds">
                                                     <div class="form-group">
                                                         <small class="mb-1"> Blood Group / రక్తపు గ్రూపు </small>
-                                                        <select class="form-select" id="blood_group" name="blood_group">
+                                                        <select class="form-select"  name="blood_group" id="blood_group">
                                                             <option value="">-- Select --</option>
                                                             @foreach ($blood as $item)
-                                                            <option value="{{$item->id}}">{{$item->blood_group}}</option>
+                                                            <option value="{{$item->id}}"{{$house->blood_group==$item->id ? "selected" :""}}>{{$item->blood_group}}</option>
+
+                                                            @endforeach
+
+
+                                                        </select>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-4 mb-4 input-felds">
+                                                    <div class="form-check mt-4 pt-2">
+                                                        <input type="checkbox" class="form-check-input" name="bp" value="1"{{ $house->bp ? 'checked' : '' }}>
+                                                        <label class="form-check-label" for="exampleCheck2"> B.P / బి.పి </label>
+                                                    </div>
+                                                    <span id="bp" ></span>
+                                                </div>
+
+                                                <div class="col-md-4 mb-4 input-felds">
+                                                    <div class="form-check mt-2 pt-2">
+                                                        <input type="checkbox" class="form-check-input" name="sugar" value="1"{{ $house->sugar ? 'checked' : '' }}>
+                                                        <label class="form-check-label" for="exampleCheck3"> Sugar / షుగర్ </label>
+                                                    </div>
+                                                    <span  id="sugar" ></span>
+                                                </div>
+                                                <div class="col-md-4 mb-4 input-felds">
+                                                    <div class="form-check mt-2 pt-2">
+                                                        <input type="checkbox" class="form-check-input"name="covidvaccine" value="1"{{  $house->covid_vaccine ? 'checked' : '' }}>
+                                                        <label class="form-check-label" for="exampleCheck4"> Covid Vaccine / కోవిడ్‌కి టీకా </label>
+
+                                                    </div>
+                                                    <span  id="covidvaccine" ></span>
+                                                </div>
+                                                <div class="col-md-4 mb-4 input-felds">
+                                                    <div class="form-check mt-2 pt-2">
+                                                        <input type="checkbox" class="form-check-input"  name="pension" value="1"{{ $house->pension ? 'checked' : '' }}>
+                                                        <label class="form-check-label" for="exampleCheck5"> Pension / పెన్షన్ </label>
+
+                                                    </div>
+                                                    <span  id="pension"></span>
+                                                </div>
+                                                <div class="col-md-4 mb-4 input-felds">
+                                                    <div class="form-group">
+                                                        <small class="mb-1"> Type of Pension/పెన్షన్ రకం </small>
+                                                        <select class="form-select"  name="type_pension" id="type_pension">
+                                                            @foreach ($typ_of_pension as $datas)
+                                                            <option value="{{$datas->id}}">{{$datas->type_of_pension}}/{{$datas->telugu}}</option>
                                                             @endforeach
 
                                                         </select>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-4 mb-4 input-felds">
-
-                                                    <div class="form-check mt-4">
-                                                        <input type="checkbox" class="form-check-input" name="b_p" value="yes">
-                                                        <label class="form-check-label" for="exampleCheck2"> B.P / బి.పి </label>
-                                                        <span id="b_p"></span>
-                                                    </div>
-
-                                                </div>
-                                                <div class="col-md-4 mb-4 input-felds">
-                                                    <div class="form-check mt-2 pt-2">
-                                                        <input type="checkbox" class="form-check-input" name="sugar" value="yes">
-                                                        <label class="form-check-label" for="exampleCheck3"> Sugar / షుగర్ </label>
-                                                    </div>
-                                                    <span  id="sugar" ></span>
-                                                </div>
-
-                                                <div class="col-md-4 mb-4 input-felds">
-                                                    <div class="form-check mt-4">
-                                                        <input type="checkbox" class="form-check-input" name="covid_vaccine" value="yes">
-                                                        <label class="form-check-label" for="exampleCheck4"> Covid Vaccine / కోవిడ్‌కి టీకా </label>
-
-                                                    </div>
-                                                    <span id="covid_vaccine"></span>
-                                                </div>
-                                                <div class="col-md-4 mb-4 input-felds">
-                                                    <div class="form-check mt-4">
-                                                        <input type="checkbox" class="form-check-input" name="pension" value="yes">
-                                                        <label class="form-check-label" for="exampleCheck5"> Pension / పెన్షన్ </label>
-
-                                                    </div>
-                                                    <span id="pension"></span>
-                                                </div>
-                                                <div class="col-md-4 mb-4 input-felds">
-                                                    <div class="form-group">
-                                                        <small class="mb-1"> Type of Pension/పెన్షన్ రకం </small>
-                                                        <select class="form-select" id="type_of_pension" name="type_of_pension">
-                                                            <option value="">-- Select --</option>
-                                                           @foreach ($typofpension as $datas)
-                                                           <option value="{{$datas->id}}">{{$datas->type_of_pension}}/{{$datas->telugu}}</option>
-
-                                                           @endforeach
-
-
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-4 mb-4 input-felds">
+                                                <div class="col-md-4 mb-2 input-felds">
                                                     <div class="form-group">
                                                         <small class="mb-1"> Upload Photo / ఫోటోను అప్‌లోడ్ చేయండి్ </small>
-                                                        <input type="file" class="form-control" id="upload_photo" name="upload_photo" id="" placeholder="">
+                                                        <input type="file" class="form-control"  placeholder=""  name="upload_photo" id="upload_photo" value="{{$house->upload_photo}}">
+                                                        <img src="{{asset('/images/' . $house->upload_photo)}}" class="img-thumbnail" height="50px" width="50px" >
                                                     </div>
                                                 </div>
 
-<!--
-                                                <div class="col-md-12 col-12 m-auto text-center">
-                                                    <button class="btn btn-primary ">
-                                                        <i class="fa-solid fa-plus fa-beat-fade" style="color: #fff; margin-right:5px;"></i> Add Pending Problems Details / పెండింగ్‌లో ఉన్న సమస్యల వివరాలను జోడించండి </button>
-                                                </div>
--->
                                             </div>
-
                                             <div class="mt-2">
-                                                <button type="submit" class="btn btn-primary me-2">Save Changes</button>
-                                                <a href="{{route('wards_enter_service')}}" class="btn btn-outline-secondary">Add Service Details / సేవ వివరాలను జోడించండి </a>
+                                                <button type="submit" class="btn btn-primary me-2 mb-2"  >Save changes</button>
+                                                <a href="{{ route('wards_family_member')}}" class="btn btn-outline-secondary mb-2">Add Family Member Details/కుటుంబ సభ్యుల వివరాలను జోడించండి </a>
                                             </div>
                                         </form>
                                     </div>
@@ -224,7 +205,6 @@
                                 </div>
 
                             </div>
-
                         </div>
 
 
@@ -252,14 +232,16 @@
 
 @endsection
 @push('scripts')
+
 <script>
- $(document).ready(function() {
-      $('#wardsForm').submit(function(e){
+    $(document).ready(function() {
+      $('#housedetails').submit(function(e){
           e.preventDefault();
           // alert('hi');
+
        var formData = new FormData($(this)[0]);
        $.ajax({
-          url : ' {{ route('wards_family_member.create') }} ',
+          url : ' {{ route('wards_house_owner.insert') }} ',
           type : 'POST',
           data : formData,
           cache : false,
@@ -270,11 +252,12 @@
           // Check if operation was successful
           if (response.status === 'success') {
               // Show toastr message
-              toastr.success('Data inserted successfully!');
+              toastr.success('Data updated successfully!');
            setTimeout(function(){
-          window.location.href = '{{ route('wards_enter_service') }}';}, 3000);
+          window.location.href = '{{ route('wards_family_member') }}';}, 3000);
           } else {
               toastr.error('Error inserting data!');
+
           }
 
       },
@@ -294,15 +277,11 @@
         }
     } else {
         alert('something went wrong! please try again..');
+
      }
   }
        });
       });
   });
-
-
-
-
 </script>
-
 @endpush

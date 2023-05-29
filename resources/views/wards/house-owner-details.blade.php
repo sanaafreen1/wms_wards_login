@@ -82,7 +82,7 @@
                                                 </div>
                                                 <div class="col-md-4 mb-4 input-felds">
                                                     <div class="form-check mt-4 pt-2">
-                                                        <input type="checkbox" class="form-check-input"   name="staying_town" >
+                                                        <input type="checkbox" class="form-check-input"   name="staying_town" value="1">
                                                         <small class="form-check-small" for="exampleCheck1"> Staying out of Town/టౌన్ వెలుపల ఉంటున్నారు </small>
 
                                                     </div>
@@ -149,7 +149,7 @@
 
                                                 <div class="col-md-4 mb-4 input-felds">
                                                     <div class="form-check mt-4 pt-2">
-                                                        <input type="checkbox" class="form-check-input" name="bp" value="yes">
+                                                        <input type="checkbox" class="form-check-input" name="bp" value="1">
                                                         <label class="form-check-label" for="exampleCheck2"> B.P / బి.పి </label>
                                                     </div>
                                                     <span id="bp" ></span>
@@ -157,14 +157,14 @@
 
                                                 <div class="col-md-4 mb-4 input-felds">
                                                     <div class="form-check mt-2 pt-2">
-                                                        <input type="checkbox" class="form-check-input" name="sugar" value="yes">
+                                                        <input type="checkbox" class="form-check-input" name="sugar" value="1">
                                                         <label class="form-check-label" for="exampleCheck3"> Sugar / షుగర్ </label>
                                                     </div>
                                                     <span  id="sugar" ></span>
                                                 </div>
                                                 <div class="col-md-4 mb-4 input-felds">
                                                     <div class="form-check mt-2 pt-2">
-                                                        <input type="checkbox" class="form-check-input"name="covidvaccine" value="yes">
+                                                        <input type="checkbox" class="form-check-input"name="covidvaccine" value="1">
                                                         <label class="form-check-label" for="exampleCheck4"> Covid Vaccine / కోవిడ్‌కి టీకా </label>
 
                                                     </div>
@@ -172,7 +172,7 @@
                                                 </div>
                                                 <div class="col-md-4 mb-4 input-felds">
                                                     <div class="form-check mt-2 pt-2">
-                                                        <input type="checkbox" class="form-check-input"  name="pension" value="yes">
+                                                        <input type="checkbox" class="form-check-input"  name="pension" value="1">
                                                         <label class="form-check-label" for="exampleCheck5"> Pension / పెన్షన్ </label>
 
                                                     </div>
