@@ -6,8 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use Image;
-use  App\Models\{House_owner_details,EducationDetailsMst,EducationMst,OccupationMst,FamilyMemberModel,Bloodgroup};
-
+use  App\Models\{House_owner_details,EducationDetailsMst,EducationMst,OccupationMst,FamilyMemberModel,Bloodgroup,TypeOfPensionMst};
 use Session;
 
 class HousedetailsController extends Controller
@@ -201,5 +200,86 @@ return response()->json(['status' => 'success']);
         return $compressedFilename;
     }
 
+    public function wards_house_edit(Request $request)
+    {
+$id=$request->id;
+        $education=EducationMst::get();
+    $details=EducationDetailsMst::get();
+    $occupation=OccupationMst::get();
+    $typ_of_pension=TypeOfPensionMst::get();
+    $blood=Bloodgroup::get();
+    // $stayingTown = $request->has('staying_town');
+    $house= House_owner_details::where('id','=',$id)->first();
+    // dd($house);
+     return view('wards.edit_house_owner',compact('house','education', 'details','occupation', 'typ_of_pension','blood'));
+    }
+
+
+    public function update(Request $request)
+{
+    $basicdetails_id=session()->get('basic_details_id');
+
+    $owner=$request->owner_name;
+    $dob=$request->date_of_birth;
+    $mobilenumber=$request->mobilenumber;
+    $education=$request->education;
+    $education_details=$request->education_details;
+    $staying_town=$request->staying_town;
+    $location=$request->location_of_person;
+    $details=$request->details;
+    $occupation=$request->occupation;
+    $gender=$request->gender;
+    $bp=$request->bp;
+    $sugar=$request->sugar;
+    $covid_vaccine=$request->covidvaccine;
+    $pension=$request->pension;
+    $blood_group=$request->blood_group;
+    $type_pension=$request->type_pension;
+
+
+
+ $image = $request->file('upload_photo');
+
+ // Set the target size in bytes (15KB = 15 * 1024 bytes)
+ $targetSize = 15 * 1024;
+
+ // Generate a unique filename
+ $filename = time() . '_' . $image->getClientOriginalName();
+
+ // Move the uploaded file to the public/images directory
+ $image->move(public_path('images'), $filename);
+
+ // Compress the image
+ $compressedFilename = $this->compressImage(public_path('images/' . $filename), $targetSize);
+
+    $data= House_owner_details::updateOrCreate([
+        'basic_details_id' =>$basicdetails_id,
+            'owner_name'=>$owner,
+            'date_of_birth'=>$dob,
+            'mobilenumber'=>$mobilenumber,
+            'education'=>$education,
+            'education_details'=>$education_details,
+           'staying_of_the_town'=>$staying_town,
+            'location_of_the_person'=>$location,
+            'details'=>$details,
+            'occupation'=>$occupation,
+            'gender'=>$gender,
+            'blood_group'=>$blood_group,
+    'covid_vaccine'=>$covid_vaccine,
+            'bp'=>$bp,
+           'sugar'=>$sugar,
+           'pension'=>$pension,
+            'blood_group'=>$blood_group,
+            'type_of_pension'=>$type_pension,
+            'upload_photo'=>$compressedFilename,
+
+
+        ]);
+
+        
+
+                 return response()->json(['status'=>'success']);
+
+}
 
 }
