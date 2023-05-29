@@ -62,7 +62,7 @@ class FamilyMemersDetailsController extends Controller
 
                  // Compress the image
                  $compressedFilename = $this->compressImage(public_path('images/' . $filename), $targetSize);
-              
+
                $familyid=  FamilyMemberModel::insert([
                 'basic_details_id' =>  $basicdetails_id,
                 'houseownerdetails_id'=>   $house_ownerdetails_id,
@@ -125,7 +125,7 @@ class FamilyMemersDetailsController extends Controller
 
                // Save the compressed image with a new filename
                $compressedFilename = 'compressed_' . basename($filePath);
-               imagejpeg($compressedImage, public_path('upload/' . $compressedFilename), 75);
+               imagejpeg($compressedImage, public_path('images/' . $compressedFilename), 75);
 
                // Free up memory
                imagedestroy($image);
