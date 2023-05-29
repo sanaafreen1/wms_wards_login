@@ -4,8 +4,13 @@ namespace App\Http\Controllers\wards;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+
 use Illuminate\Support\Facades\File;
-use App\Models\{FamilyMemberModel,RelationMst,EducationMst,EducationDetailsMst,OccupationMst,TypeOfPensionMst};
+use Illuminate\Support\Facades\Auth;
+
+
+use App\Models\{FamilyMemberModel,RelationMst,EducationMst,EducationDetailsMst,OccupationMst,TypeOfPensionMst,Bloodgroup};
+
 use Illuminate\Support\Facades\Session;
 
 class FamilyMemersDetailsController extends Controller
@@ -17,8 +22,10 @@ class FamilyMemersDetailsController extends Controller
         $educationdetails=EducationDetailsMst::get();
         $occupation=OccupationMst::get();
         $typofpension=TypeOfPensionMst::get();
+        $blood=Bloodgroup::get();
 
-        return view('wards.family-member-details',compact('relation','education','educationdetails','occupation','typofpension'));
+        return view('wards.family-member-details',compact('relation','education','educationdetails','occupation','typofpension','blood'));
+
     }
 
     public function create(Request $request)
@@ -137,6 +144,52 @@ class FamilyMemersDetailsController extends Controller
                return $compressedFilename;
            }
 
+public function edit($id)
+{
+    $relation=RelationMst::where('id','!=',"1")->get();
+    $education=EducationMst::get();
+    $education_details=EducationDetailsMst::get();
+    $occupation=OccupationMst::get();
+    $typ_of_pension=TypeOfPensionMst::get();
+    $blood_group=Bloodgroup::get();
+   $family= FamilyMemberModel::where('id','=',$id)->first();
+//    dd($family);
+    return view('wards.edit_family_member',compact('family','relation','education','education_details','occupation','typ_of_pension','blood_group'));
 
+}
+public function update(Request $request)
+{
+    $basicdetails_id=session()->get('basic_details_id');
+    $house_ownerdetails_id=session()->get('house_ownerdetails_id');
+
+$data=([
+
+
+'relation_with_houseowner'=>$request->relation_with_houseowner,
+'member_name'=>$request->member_name,
+'date_of_birth'=>$request->date_of_birth,
+'education'=>$request->education,
+'mobile'=>$request->mobile,
+'education_details'=>$request->education_details,
+'staying_out_oftown'=>$request->staying_out_oftown,
+'location_ofthe_person'=>$request->location_ofthe_person,
+'enter_the_details'=>$request->enter_the_details,
+'occupation'=>$request->occupation,
+'gender'=>$request->gender,
+'blood_group'=>$request->blood_group,
+'b_p'=>$request->b_p,
+'sugar'=>$request->sugar,
+'covid_vaccine'=>$request->covid_vaccine,
+'type_of_pension'=>$request->type_of_pension,
+]);
+
+           $sub_service = FamilyMemberModel::find($request->id)
+           ->update($data);
+
+
+               
+                 return response()->json(['status'=>'success']);
+
+}
 
 }

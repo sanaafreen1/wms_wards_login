@@ -189,7 +189,7 @@ return response()->json(['status' => 'success']);
 
         // Save the compressed image with a new filename
         $compressedFilename = 'compressed_' . basename($filePath);
-        imagejpeg($compressedImage, public_path('upload/' . $compressedFilename), 75);
+        imagejpeg($compressedImage, public_path('images/' . $compressedFilename), 75);
 
         // Free up memory
         imagedestroy($image);

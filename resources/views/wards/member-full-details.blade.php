@@ -133,7 +133,7 @@
 
                                 <div class="col-md-12">
                                     <button class="btn btn-warning float-end mb-2" onclick="window.print()">Print this page</button>
-                                    <a href="{{route('wards_family_member',['id' => $family->id])}}" class="btn btn-primary float-end me-3 mb-2">Edit</a>
+                                    <a href="{{route('wards_family_member.edit',['id' => $family->id])}}" class="btn btn-primary float-end me-3 mb-2">Edit</a>
                                 </div>
                             </div>
                         </div>
