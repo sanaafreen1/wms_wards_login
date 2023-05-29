@@ -25,6 +25,7 @@ class FamilyMemersDetailsController extends Controller
         $blood=Bloodgroup::get();
 
         return view('wards.family-member-details',compact('relation','education','educationdetails','occupation','typofpension','blood'));
+
     }
 
     public function create(Request $request)
@@ -131,7 +132,7 @@ class FamilyMemersDetailsController extends Controller
 
                // Save the compressed image with a new filename
                $compressedFilename = 'compressed_' . basename($filePath);
-               imagejpeg($compressedImage, public_path('upload/' . $compressedFilename), 75);
+               imagejpeg($compressedImage, public_path('images/' . $compressedFilename), 75);
 
                // Free up memory
                imagedestroy($image);
@@ -143,6 +144,18 @@ class FamilyMemersDetailsController extends Controller
                return $compressedFilename;
            }
 
+public function edit($id)
+{
+    $relation=RelationMst::where('id','!=',"1")->get();
+    $education=EducationMst::get();
+    $education_details=EducationDetailsMst::get();
+    $occupation=OccupationMst::get();
+    $typ_of_pension=TypeOfPensionMst::get();
+    $blood_group=Bloodgroup::get();
+   $family= FamilyMemberModel::where('id','=',$id)->first();
+//    dd($family);
+    return view('wards.edit_family_member',compact('family','relation','education','education_details','occupation','typ_of_pension','blood_group'));
 
+}
 
 }

@@ -100,7 +100,7 @@
                                                 <div class="col-md-4 mb-4 input-felds">
                                                     <div class="form-group">
                                                         <small class="mb-1"> Location of the Person / వ్యక్తి యొక్క స్థానం </small>
-                                                        <select class="form-select"  name="location_ofthe_person"  id="location_ofthe_person" >
+                                                        <select class="form-select"  name="location_ofthe_person"  id="location_ofthe_person" value="{{$family->location_ofthe_person}}">
                                                             <option value="">-- Select --</option>
                                                             <option value="Staying in the state"> Staying in the state / రాష్ట్రంలోనే ఉంటున్నారు </option>
                                                             <option value="Staying out of the state"> Staying out of the state / రాష్ట్రం వెలుపల ఉంటున్నారు </option>
