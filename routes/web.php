@@ -85,6 +85,8 @@ Route::get('/wards-home', [UserController::class, 'wardshome'])->name('wardshome
 Route::get('/wards-addmember', [BasicDetailsController::class, 'wards_add_member'])->name('wards_add_member');
 Route::get('/wards-addmember', [BasicDetailsController::class, 'wards_add_member'])->name('wards_add_member');
 Route::post('/wards/create', [BasicDetailsController::class, 'create'])->name('wards_add_member.create');
+Route::get('/wards_basic_edit/{id}', [BasicDetailsController::class, 'basic_edit'])->name('wards_basic_edit.edit');
+Route::post('/basic_details_update', [BasicDetailsController::class, 'update']);
 
 
 

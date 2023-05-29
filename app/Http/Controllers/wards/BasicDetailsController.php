@@ -4,10 +4,9 @@ namespace App\Http\Controllers\wards;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\BasicDetailsModel;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Auth;
-
+use App\Models\BasicDetailsModel;
 
 class BasicDetailsController extends Controller
 {
@@ -54,14 +53,69 @@ $data=session()->put('basic_details_id', $store);
 
 
 }
-public function reports_edit(Request $request)
+public function basic_edit(Request $request)
 {
 
-$id=$request->id;
+    $id=$request->id;
 
    $basic= BasicDetailsModel::where('id','=',$id)->first();
 
-   return view('wards.reports-edit',compact('basic'));
+   return view('wards.basic-edit',compact('basic'));
 
 }
+public function update(Request $request)
+{
+    // dd($request->all());
+
+
+
+    $housenumber=$request->housenumber;
+    $housedetails=$request->housedetails;
+    $housetypes=$request->housetypes;
+    $religion=$request->religion;
+    $income=$request->income;
+    $rationcard=$request->rationcard;
+    $typeofrationcard=$request->typeofrationcard;
+    $rationcardnumber=$request->rationcardnumber;
+    $address=$request->address;
+
+
+
+
+//  $image = $request->file('upload_photo');
+
+//  // Set the target size in bytes (15KB = 15 * 1024 bytes)
+//  $targetSize = 15 * 1024;
+
+//  // Generate a unique filename
+//  $filename = time() . '_' . $image->getClientOriginalName();
+
+//  // Move the uploaded file to the public/images directory
+//  $image->move(public_path('images'), $filename);
+
+//  // Compress the image
+//  $compressedFilename = $this->compressImage(public_path('images/' . $filename), $targetSize);
+
+    $data= BasicDetailsModel::where('id',$request->basic_id)->update([
+            'house_no'=>$housenumber,
+            'house_details'=>$housedetails,
+            'type_of_house'=>$housetypes,
+            'religion'=>$religion,
+            'annual_income'=>$income,
+            'religion'=>$religion,
+            'ration_card'=>$rationcard,
+            'type_of_ration_card'=>$typeofrationcard,
+            'ration_card_no'=>$rationcardnumber,
+            'address'=>$address,
+
+
+        ]);
+
+
+
+                echo 1;
+
+}
+
+
 }

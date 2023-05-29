@@ -105,7 +105,7 @@
                                                         <small class="mb-1" > Ration card / రేషన్ కార్డు</small>
                                                         <div class="d-flex align-items-center ">
                                                             <div class="radio-btnn p-2">
-                                                                <input type="radio" id=" " name="rationcard" value="Yes">
+                                                                <input type="radio" id=" " name="rationcard" value="Yes" >
                                                                 <label for="Yes" class="ms-1">Yes</label>
                                                             </div>
                                                             <div class="radio-btnn p-2">
