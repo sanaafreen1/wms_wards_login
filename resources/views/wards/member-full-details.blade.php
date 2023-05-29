@@ -58,7 +58,7 @@
                                                 <p><b>{{$family->date_of_birth}}</b></p>
                                             </td>
                                             <td rowspan="3">
-                                                <center><img style="height:100px ; width:100px;" src="{{url('/image').'/'.$family->upload_photo}}"></center>
+                                                <center><img style="height:100px ; width:100px;" src="{{url('/images').'/'.$family->upload_photo}}"></center>
                                             </td>
                                         </tr>
                                         <tr>
