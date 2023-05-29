@@ -62,6 +62,5 @@ public function member_full_details($id)
 
 
 
-
   }
 
