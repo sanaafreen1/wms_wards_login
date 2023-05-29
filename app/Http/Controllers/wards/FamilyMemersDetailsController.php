@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\File;
-
+use Illuminate\Support\Facades\Auth;
 
 
 use App\Models\{FamilyMemberModel,RelationMst,EducationMst,EducationDetailsMst,OccupationMst,TypeOfPensionMst,Bloodgroup};
@@ -155,6 +155,40 @@ public function edit($id)
    $family= FamilyMemberModel::where('id','=',$id)->first();
 //    dd($family);
     return view('wards.edit_family_member',compact('family','relation','education','education_details','occupation','typ_of_pension','blood_group'));
+
+}
+public function update(Request $request)
+{
+    $basicdetails_id=session()->get('basic_details_id');
+    $house_ownerdetails_id=session()->get('house_ownerdetails_id');
+
+$data=([
+
+
+'relation_with_houseowner'=>$request->relation_with_houseowner,
+'member_name'=>$request->member_name,
+'date_of_birth'=>$request->date_of_birth,
+'education'=>$request->education,
+'mobile'=>$request->mobile,
+'education_details'=>$request->education_details,
+'staying_out_oftown'=>$request->staying_out_oftown,
+'location_ofthe_person'=>$request->location_ofthe_person,
+'enter_the_details'=>$request->enter_the_details,
+'occupation'=>$request->occupation,
+'gender'=>$request->gender,
+'blood_group'=>$request->blood_group,
+'b_p'=>$request->b_p,
+'sugar'=>$request->sugar,
+'covid_vaccine'=>$request->covid_vaccine,
+'type_of_pension'=>$request->type_of_pension,
+]);
+
+           $sub_service = FamilyMemberModel::find($request->id)
+           ->update($data);
+
+
+               
+                 return response()->json(['status'=>'success']);
 
 }
 

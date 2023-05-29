@@ -31,7 +31,7 @@
                                 <div class="card mb-4">
 
                                     <div class="card-body">
-                                    <form  method="post"  id="wardsForm" name="wardsForm" enctype="multipart/form-data">
+                                    <form  method="post"  id="familyForm" name="familyForm" enctype="multipart/form-data">
                                        @csrf
                                        <input type="hidden" name="id" id="id" value="{{$family->id}}">
                                             <div class="row">
@@ -41,7 +41,7 @@
                                                         <select class="form-select" id="relation_with_houseowner" name="relation_with_houseowner">
                                                             <option value="">-- Select --</option>
                                                             @foreach ($relation as $relations)
-                                                            <option value="{{$relations->id}}" {{$family->relation_with_houseowner==$relations->id ? "selected" :""}} > {{$relations->relation_name}}\{{$relations->telugu}}</option>
+                                                            <option value="{{$relations->id}}" {{$family->relation_with_houseowner==$relations->id ? "selected" :""}}> {{$relations->relation_name}}\{{$relations->telugu}}</option>
                                                             @endforeach
 
 
@@ -113,7 +113,7 @@
                                                 <div class="col-md-4 mb-4 input-felds">
                                                     <div class="form-group ">
                                                         <small class="mb-1"> Enter the Details / వివరాలను నమోదు చేయండి </small>
-                                                        <input type="text" class="form-control" id="enter_the_details" name="enter_the_details" id="" placeholder="" value="{{$family->member_name}}">
+                                                        <input type="text" class="form-control" id="enter_the_details" name="enter_the_details" id="" placeholder="" value="{{$family->enter_the_details}}">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-4 mb-4 input-felds">
@@ -256,12 +256,12 @@
 @push('scripts')
 <script>
  $(document).ready(function() {
-      $('#wardsForm').submit(function(e){
+      $('#familyForm').submit(function(e){
           e.preventDefault();
           // alert('hi');
        var formData = new FormData($(this)[0]);
        $.ajax({
-          url : ' {{ route('wards_family_member.create') }} ',
+          url : ' {{ route('wards_family_member.update') }} ',
           type : 'POST',
           data : formData,
           cache : false,
@@ -272,9 +272,9 @@
           // Check if operation was successful
           if (response.status === 'success') {
               // Show toastr message
-              toastr.success('Data inserted successfully!');
+              toastr.success('Data updated successfully!');
            setTimeout(function(){
-          window.location.href = '{{ route('wards_enter_service') }}';}, 3000);
+          window.location.href = '{{ route('wards_family_member') }}';}, 3000);
           } else {
               toastr.error('Error inserting data!');
           }

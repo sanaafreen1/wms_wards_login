@@ -96,6 +96,7 @@ Route::post('/wards_house_owner/create', [HousedetailsController::class, 'create
 Route::get('/wards-family', [FamilyMemersDetailsController::class, 'wards_family_member'])->name('wards_family_member');
 Route::post('/wardsfamily/create', [FamilyMemersDetailsController::class, 'create'])->name('wards_family_member.create');
 Route::get('/wards-family/edit/{id}', [FamilyMemersDetailsController::class, 'edit'])->name('wards_family_member.edit');
+Route::post('/wards-family/update', [FamilyMemersDetailsController::class, 'update'])->name('wards_family_member.update');
 
 //end wards-family routes
 
