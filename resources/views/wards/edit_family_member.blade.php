@@ -33,7 +33,7 @@
                                     <div class="card-body">
                                     <form  method="post"  id="wardsForm" name="wardsForm" enctype="multipart/form-data">
                                        @csrf
-                                       <input type="text" name="id" id="id" value="{{$family->id}}">
+                                       <input type="hidden" name="id" id="id" value="{{$family->id}}">
                                             <div class="row">
                                                 <div class="col-md-4 mb-4 input-felds">
                                                     <div class="form-group">
@@ -131,7 +131,7 @@
                                                 <div class="col-md-4 mb-4 input-felds">
                                                     <div class="form-group">
                                                         <small class="mb-1"> Gender/లింగం </small>
-                                                        <select class="form-select" id="gender" name="gender" value="{{$family->gender}}">
+                                                        <select class="form-select" id="gender" name="gender"  >
                                                             <option value="">-- Select --</option>
                                                             <option value="Male"> Male / పురుషుడు</option>
                                                             <option value="Female"> Female / స్త్రీ </option>
@@ -204,7 +204,7 @@
                                                 <div class="col-md-4 mb-4 input-felds">
                                                     <div class="form-group">
                                                         <small class="mb-1"> Upload Photo / ఫోటోను అప్‌లోడ్ చేయండి్ </small>
-                                                        <input type="file" class="form-control" id="upload_photo" name="upload_photo" id="" placeholder="">
+                                                        <input type="file" class="form-control" id="upload_photo" name="upload_photo" id="" placeholder="" value="">
                                                     </div>
                                                 </div>
 
