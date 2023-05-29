@@ -159,12 +159,14 @@ public function edit($id)
 }
 public function update(Request $request)
 {
+
+
     $basicdetails_id=session()->get('basic_details_id');
     $house_ownerdetails_id=session()->get('house_ownerdetails_id');
 
 $data=([
 
-
+    'basic_details_id' =>  $basicdetails_id,
 'relation_with_houseowner'=>$request->relation_with_houseowner,
 'member_name'=>$request->member_name,
 'date_of_birth'=>$request->date_of_birth,
@@ -187,7 +189,7 @@ $data=([
            ->update($data);
 
 
-               
+
                  return response()->json(['status'=>'success']);
 
 }
