@@ -58,8 +58,8 @@
                                      $ageInMonths = $dob->diffInMonths($now);
                                    $currentAge = $dob->age;
                                       @endphp
-                                 
-                                             <td>{{$currentAge}}</td>
+
+                                            <td>{{$currentAge}}</td>
                                             <td>{{$store->mobile}}</td>
                                             <td><a href="{{url('member_full_details')}}/{{$store->id}}" class="btn btn-sm btn-primary" style="    color: white !important;">View More</a></td>
                                         </tr>
