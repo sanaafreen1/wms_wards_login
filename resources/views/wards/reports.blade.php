@@ -16,6 +16,7 @@
                         <div class="row mb-4">
                             <div class="col-md-4 mb-4 input-felds">
                                 <div class="form-group">
+
                                     <small class="mb-1">Family owner name/కుటుంబ యజమాని పేరు</small>
                                     <input type="text" class="form-control" id="owner_name" placeholder="" name="owner_name">
                                 </div>
@@ -107,7 +108,7 @@
                                             <td>{{@$data->ownerdetails->owner_name}}</td>
                                             <td>{{@$data->ownerdetails->mobilenumber}}</td>
                                             <td><a href="{{ url('wards_family_report')}}/{{@$data->id}}">{{@$data->ownerdetails->familymembers_count}}</a></td>
-                                            <td><a href=""></a><i class="bx bx-edit"></i></td>
+                                            <td><a href="{{url('wards_add_member_edit')}}/{{@$data->id}}""><i class="bx bx-edit"></i></a></td>
                                         </tr>
                                         @endforeach
                                     </tbody>
