@@ -87,6 +87,10 @@ Route::get('/wards-addmember', [BasicDetailsController::class, 'wards_add_member
 Route::post('/wards/create', [BasicDetailsController::class, 'create'])->name('wards_add_member.create');
 
 
+
+Route::get('wards_reports_edit', [BasicDetailsController::class, 'reports_edit'])->name('wards_reports_edit.edit');
+
+
 //end basic details routes
 
 // owner house details routes
@@ -110,7 +114,8 @@ Route::post('/wards-family/update', [FamilyMemersDetailsController::class, 'upda
 Route::get('/wards-enter', [EnterServiceDetailsController::class, 'wards_enter_service'])->name('wards_enter_service');
 Route::post('/wards_enter_service/create', [EnterServiceDetailsController::class, 'create'])->name('wards_enter_service.create');
 Route::post('/getsubservice', [EnterServiceDetailsController::class, 'getsubservice'])->name('getsubservice');
-
+Route::get('/enter_service_edit/{id}', [EnterServiceDetailsController::class, 'edit'])->name('enter_service_edit');
+Route::get('/enter_service/update', [EnterServiceDetailsController::class, 'update'])->name('enter_service.update');
 
 //end service details routes
 // enter reports routes
@@ -119,9 +124,10 @@ Route::match(['GET','POST'],'/wards-reports', [ReportController::class, 'wards_r
 Route::get('wards_family_report/{id}', [ReportController::class, 'wards_family_report'])->name('wards_family_report');
 Route::get('member_full_details/{id}', [ReportController::class, 'member_full_details']);
 
-Route::get('/wards_add_member/edit/{id}', [ReportController::class, 'edit']);
 
+Route::get('/wards_add_member/edit/{id}', [ReportController::class, 'edit']);
 Route::get('wards_reports_edit', [ReportController::class, 'reports_edit'])->name('wards_reports_edit.edit');
+
 
 
 
