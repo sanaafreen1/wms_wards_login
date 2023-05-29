@@ -4,8 +4,13 @@ namespace App\Http\Controllers\wards;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+<<<<<<< Updated upstream
 use Illuminate\Support\Facades\File;
 use App\Models\{FamilyMemberModel,RelationMst,EducationMst,EducationDetailsMst,OccupationMst,TypeOfPensionMst};
+=======
+use File;
+use App\Models\{FamilyMemberModel,RelationMst,EducationMst,EducationDetailsMst,OccupationMst,TypeOfPensionMst,Bloodgroup};
+>>>>>>> Stashed changes
 use Illuminate\Support\Facades\Session;
 
 class FamilyMemersDetailsController extends Controller
@@ -17,8 +22,9 @@ class FamilyMemersDetailsController extends Controller
         $educationdetails=EducationDetailsMst::get();
         $occupation=OccupationMst::get();
         $typofpension=TypeOfPensionMst::get();
+        $blood=Bloodgroup::get();
 
-        return view('wards.family-member-details',compact('relation','education','educationdetails','occupation','typofpension'));
+        return view('wards.family-member-details',compact('relation','education','educationdetails','occupation','typofpension','blood'));
     }
 
     public function create(Request $request)
