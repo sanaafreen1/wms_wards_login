@@ -1,7 +1,9 @@
 @extends('admin.layouts.main')
 
 @section('content')
-
+@php
+                use Carbon\Carbon;
+@endphp
 <div class="content-wrapper">
 
                     <!-- Content -->
@@ -42,13 +44,22 @@
                                         <tr>
                                             @foreach ($family as $store )
 
-
-
                                             <td>{{$i++}}</td>
                                             <td>{{$store->member_name}}</td>
                                             <td>{{$store->relations->relation_name}}</td>
                                             <td>{{$store->gender}}</td>
-                                            <td>{{$store->age}}</td>
+
+                                                @php
+                                                    $dob1=$store->date_of_birth;
+                                                    $dob = Carbon::parse($dob1);
+                                                    $now = Carbon::now();
+
+                                        $ageInYears = $dob->diffInYears($now);
+                                     $ageInMonths = $dob->diffInMonths($now);
+                                   $currentAge = $dob->age;
+                                      @endphp
+                                 
+                                             <td>{{$currentAge}}</td>
                                             <td>{{$store->mobile}}</td>
                                             <td><a href="{{url('member_full_details')}}/{{$store->id}}" class="btn btn-sm btn-primary" style="    color: white !important;">View More</a></td>
                                         </tr>
