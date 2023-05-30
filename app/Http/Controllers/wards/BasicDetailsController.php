@@ -54,4 +54,14 @@ $data=session()->put('basic_details_id', $store);
 
 
 }
+public function reports_edit(Request $request)
+{
+
+$id=$request->id;
+
+   $basic= BasicDetailsModel::where('id','=',$id)->first();
+
+   return view('wards.reports-edit',compact('basic'));
+
+}
 }
