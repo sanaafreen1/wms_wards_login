@@ -114,6 +114,7 @@ Route::match(['GET','POST'],'/wards-reports', [ReportController::class, 'wards_r
 
 Route::get('wards_family_report/{id}', [ReportController::class, 'wards_family_report'])->name('wards_family_report');
 Route::get('member_full_details/{id}', [ReportController::class, 'member_full_details']);
+Route::get('wards_reports_edit', [ReportController::class, 'reports_edit'])->name('wards_reports_edit.edit');
 
 
 // end reports routes

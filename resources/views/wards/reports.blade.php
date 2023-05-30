@@ -107,7 +107,7 @@
                                             <td>{{@$data->ownerdetails->owner_name}}</td>
                                             <td>{{@$data->ownerdetails->mobilenumber}}</td>
                                             <td><a href="{{ url('wards_family_report')}}/{{@$data->id}}">{{@$data->ownerdetails->familymembers_count}}</a></td>
-                                            <td><a href=""></a><i class="bx bx-edit"></i></td>
+                                            <td><a href="{{ url('wards_reports_edit')}}"><i class="bx bx-edit"></i></a></td>
                                         </tr>
                                         @endforeach
                                     </tbody>

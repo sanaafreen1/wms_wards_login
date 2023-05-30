@@ -58,5 +58,9 @@ public function member_full_details($id)
 // {
 //     return view('wards.add_members_details');
 // }
+public function reports_edit()
+{
+   return view('wards.reports-edit');
+}
   }
 
