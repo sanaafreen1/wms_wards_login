@@ -4,10 +4,9 @@ namespace App\Http\Controllers\wards;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\BasicDetailsModel;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Auth;
-
+use App\Models\BasicDetailsModel;
 
 class BasicDetailsController extends Controller
 {
@@ -57,55 +56,47 @@ $data=session()->put('basic_details_id', $store);
 public function basic_edit(Request $request)
 {
 
-$id=$request->id;
-
+    $id=$request->id;
 
    $basic= BasicDetailsModel::where('id','=',$id)->first();
-   $housetypes=BasicDetailsModel::get();
-   $religion=BasicDetailsModel::get();
-   $caste=BasicDetailsModel::get();
-   $typeofrationcard=BasicDetailsModel::get();
 
-//    $rationcard=BasicDetailsModel::get();
-
-//    dd($basic);
-
-   return view('wards.basic-edit',compact('basic','housetypes','religion','caste','typeofrationcard'));
+   return view('wards.basic-edit',compact('basic'));
 
 }
 public function update(Request $request)
 {
+    // dd($request->all());
 
-    $housenumber=$request->house_no;
-    $housedetails=$request->house_details;
-    $housetypes=$request->type_of_house;
+
+
+    $housenumber=$request->housenumber;
+    $housedetails=$request->housedetails;
+    $housetypes=$request->housetypes;
     $religion=$request->religion;
-    $income=$request->annual_income;
-    $rationcard=$request->ration_card;
-    $typeofrationcard=$request->type_of_ration_card;
-    $rationcardnumber=$request->ration_card_no;
+    $income=$request->income;
+    $rationcard=$request->rationcard;
+    $typeofrationcard=$request->typeofrationcard;
+    $rationcardnumber=$request->rationcardnumber;
     $address=$request->address;
 
 
 
 
- $image = $request->file('upload_photo');
+//  $image = $request->file('upload_photo');
 
- // Set the target size in bytes (15KB = 15 * 1024 bytes)
- $targetSize = 15 * 1024;
+//  // Set the target size in bytes (15KB = 15 * 1024 bytes)
+//  $targetSize = 15 * 1024;
 
- // Generate a unique filename
- $filename = time() . '_' . $image->getClientOriginalName();
+//  // Generate a unique filename
+//  $filename = time() . '_' . $image->getClientOriginalName();
 
- // Move the uploaded file to the public/images directory
- $image->move(public_path('images'), $filename);
+//  // Move the uploaded file to the public/images directory
+//  $image->move(public_path('images'), $filename);
 
- // Compress the image
- $compressedFilename = $this->compressImage(public_path('images/' . $filename), $targetSize);
+//  // Compress the image
+//  $compressedFilename = $this->compressImage(public_path('images/' . $filename), $targetSize);
 
-    $data= House_owner_details::updateOrCreate([
-        'id'=>$request->basic_id,
-    ],[
+    $data= BasicDetailsModel::where('id',$request->basic_id)->update([
             'house_no'=>$housenumber,
             'house_details'=>$housedetails,
             'type_of_house'=>$housetypes,
@@ -122,7 +113,7 @@ public function update(Request $request)
 
 
 
-                 return response()->json(['status'=>'success']);
+                echo 1;
 
 }
 

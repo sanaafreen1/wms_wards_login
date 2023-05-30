@@ -39,6 +39,7 @@
                                                         <small class="mb-1"  > House Details / ఇంటి వివరాలు </small>
                                                         <div class="d-flex align-items-center ">
                                                             <div class="radio-btnn p-2">
+
                                                                 <input type="radio" id="housedetails " name="housedetails" value="owned" {{ $basic->house_details == "owned" ? 'checked' : '' }}>
                                                                 <label for="owned" class="ms-1">Owned/స్వంతం</label>
 
@@ -55,12 +56,10 @@
                                                     <div class="form-group">
                                                         <small class="mb-1"> Type of the House / ఇంటి రకం </small>
                                                         <select class="form-select" name="housetypes" id="housetypes"  >
-
-                                                            @foreach ($housetypes as $datas)
-                                                            <option value="{{$datas->id}}"{{$basic->housetypes==$datas->id ? "selected" :""}}>{{$datas->type_of_house}}</option>
-
-                                                            @endforeach
-
+                                                            <option value="">-- Select --</option>
+                                                            <option value="Slab" @if($basic->type_of_house == "Slab") selected @endif>Slab / స్లాబ్ </option>
+                                                            <option value="Gunapenka" @if($basic->type_of_house == "Gunapenka") selected @endif> Gunapenka / గూనపెంక </option>
+                                                            <option value="Flakes" @if($basic->type_of_house == "Flakes") selected @endif>Flakes / రేకులు </option>
                                                         </select>
                                                     </div>
                                                 </div>
@@ -68,10 +67,12 @@
                                                     <div class="form-group">
                                                         <small class="mb-1"> Religion / మతం </small>
                                                         <select class="form-select" name="religion" id="religion"  value="{{old('religion')}}">
-                                                            @foreach ($religion as $datas)
-                                                            <option value="{{$datas->id}}"{{$basic->religion==$datas->id ? "selected" :""}}>{{$datas->religion}}</option>
-
-                                                            @endforeach
+                                                            <option value="">-- Select --</option>
+                                                            <option value="Hindu" @if($basic->religion == "Hindu") selected @endif> Hindu / హిందూ </option>
+                                                            <option value="Muslim"  @if($basic->religion == "Muslim") selected @endif> Muslim / ముస్లిం</option>
+                                                            <option value="Christianity"  @if($basic->religion == "Christianity") selected @endif> Christianity / క్రైస్తవ </option>
+                                                            <option value="Sikhism"  @if($basic->religion == "Sikhism") selected @endif>Sikhism / సిక్కు</option>
+                                                            <option value="Jainism"  @if($basic->religion == "Jainism") selected @endif> Jainism / జైన </option>
                                                         </select>
                                                     </div>
                                                 </div>
@@ -80,10 +81,11 @@
                                                     <div class="form-group">
                                                         <small class="mb-1"> Caste / కులము </small>
                                                         <select class="form-select" name="caste" id="caste"  value="{{old('caste')}}">
-                                                            @foreach ($caste as $datas)
-                                                            <option value="{{$datas->id}}"{{$basic->caste==$datas->id ? "selected" :""}}>{{$datas->caste}}</option>
-
-                                                            @endforeach
+                                                            <option value="">-- Select --</option>
+                                                            <option value="BC"  @if($basic->caste == "BC") selected @endif> BC / బీసీ</option>
+                                                            <option value="OC"  @if($basic->caste == "OC") selected @endif> OC / ఓసీ</option>
+                                                            <option value="SC"  @if($basic->caste == "SC") selected @endif> SC / ఎస్సీ </option>
+                                                            <option value="ST"  @if($basic->caste == "ST") selected @endif> ST/ఎస్సీ </option>
                                                         </select>
                                                     </div>
                                                 </div>
@@ -114,11 +116,10 @@
                                                 <div class="col-md-4 mb-4 input-felds">
                                                     <div class="form-group">
                                                         <small class="mb-1"> Type of Ration card / రేషన్ కార్డు రకం </small>
-                                                        <select class="form-select" name="typeofrationcard" id="typeofrationcard"  value="{{old('typeofrationcard')}}">
-                                                            @foreach ($typeofrationcard as $datas)
-                                                            <option value="{{$datas->id}}"{{$basic->typeofrationcard==$datas->id ? "selected" :""}}>{{$datas->type_of_ration_card}}</option>
-
-                                                            @endforeach
+                                                        <select class="form-select" name="typeofrationcard" id="typeofrationcard"  >
+                                                            <option value="">-- Select --</option>
+                                                            <option value="Pink" @if($basic->type_of_ration_card == "Pink") selected @endif> Pink / గులాబి</option>
+                                                            <option value="White" @if($basic->type_of_ration_card == "White") selected @endif> White / తెలుపు</option>
                                                         </select>
                                                     </div>
                                                 </div>
@@ -178,8 +179,9 @@
           e.preventDefault();
           // alert('hi');
        var formData = new FormData($(this)[0]);
+       console.log(formData);
        $.ajax({
-          url : ' {{ route('wards_add_member.create') }} ',
+          url : ' {{ url('basic_details_update') }} ',
           type : 'POST',
           data : formData,
           cache : false,
@@ -187,13 +189,15 @@
           processData : false,
           contentType : false,
           success: function(response) {
+            console.log(response)
           // Check if operation was successful
-          if (response.status === 'success') {
+          if (response == 1) {
               // Show toastr message
               toastr.success('Data inserted successfully!');
-           setTimeout(function(){
-          window.location.href = '{{ route('wards_house_owner') }}';}, 3000);
-          } else {
+              setTimeout(function() {
+                location.reload();
+              }, 2000);
+          }else {
               toastr.error('Error inserting data!');
           }
 
