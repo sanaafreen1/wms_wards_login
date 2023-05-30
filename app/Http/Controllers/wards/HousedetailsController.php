@@ -276,7 +276,7 @@ $id=$request->id;
 
         ]);
 
-        
+
 
                  return response()->json(['status'=>'success']);
 

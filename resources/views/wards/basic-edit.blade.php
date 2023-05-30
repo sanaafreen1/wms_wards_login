@@ -24,13 +24,14 @@
                                 <div class="card mb-4">
 
                                     <div class="card-body">
-                                        <form  id="addmemberform" method="POST" name="addmemberform">
+                                        <form  id="addmemberform" method="POST" name="addmemberform" enctype="multipart/form-data">
                                             @csrf
+                                    <input type="hidden" name="basic_id" value="{{$basic->id}}">
                                             <div class="row align-items-end">
                                                 <div class="col-md-4 mb-4 input-felds">
                                                     <div class="form-group">
                                                         <small class="mb-1">House No / ఇంటి నెం</small>
-                                                        <input type="text" class="form-control" id="housenumber" placeholder="" name="housenumber"  value="{{ $basic->housenumber}}">
+                                                        <input type="text" class="form-control" id="housenumber" placeholder="" name="housenumber"  value="{{$basic->house_no}}">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-4 mb-4 input-felds">
@@ -38,11 +39,12 @@
                                                         <small class="mb-1"  > House Details / ఇంటి వివరాలు </small>
                                                         <div class="d-flex align-items-center ">
                                                             <div class="radio-btnn p-2">
-                                                                <input type="radio" id=" " name="housedetails" value="owned">
+                                                                <input type="radio" id="housedetails " name="housedetails" value="owned" {{ $basic->house_details == "owned" ? 'checked' : '' }}>
                                                                 <label for="owned" class="ms-1">Owned/స్వంతం</label>
+
                                                             </div>
                                                             <div class="radio-btnn p-2">
-                                                                <input type="radio" id=" " name="housedetails" value="rent">
+                                                                <input type="radio" id="housedetails " name="housedetails" value="rent" {{ $basic->house_details == "rent" ? 'checked' : '' }}>
                                                                 <label for="rent" class="ms-1">Rented/అద్దె</label>
                                                             </div>
                                                         </div>
@@ -52,14 +54,13 @@
                                                 <div class="col-md-4 mb-4 input-felds">
                                                     <div class="form-group">
                                                         <small class="mb-1"> Type of the House / ఇంటి రకం </small>
-                                                        <select class="form-select" name="housetypes" id="housetypes"  value="">
-                                                            <option value="">-- Select --</option>
+                                                        <select class="form-select" name="housetypes" id="housetypes"  >
 
+                                                            @foreach ($housetypes as $datas)
+                                                            <option value="{{$datas->id}}"{{$basic->housetypes==$datas->id ? "selected" :""}}>{{$datas->type_of_house}}</option>
 
-                                                            <option value="">-- Select --</option>
-                                                            <option value="Slab">Slab / స్లాబ్ </option>
-                                                            <option value="Gunapenka"> Gunapenka / గూనపెంక </option>
-                                                            <option value="Flakes">Flakes / రేకులు </option>
+                                                            @endforeach
+
                                                         </select>
                                                     </div>
                                                 </div>
@@ -67,12 +68,10 @@
                                                     <div class="form-group">
                                                         <small class="mb-1"> Religion / మతం </small>
                                                         <select class="form-select" name="religion" id="religion"  value="{{old('religion')}}">
-                                                            <option value="">-- Select --</option>
-                                                            <option value="Hindu"> Hindu / హిందూ </option>
-                                                            <option value="Muslim"> Muslim / ముస్లిం</option>
-                                                            <option value="Christianity"> Christianity / క్రైస్తవ </option>
-                                                            <option value="Sikhism">Sikhism / సిక్కు</option>
-                                                            <option value="Jainism"> Jainism / జైన </option>
+                                                            @foreach ($religion as $datas)
+                                                            <option value="{{$datas->id}}"{{$basic->religion==$datas->id ? "selected" :""}}>{{$datas->religion}}</option>
+
+                                                            @endforeach
                                                         </select>
                                                     </div>
                                                 </div>
@@ -81,18 +80,17 @@
                                                     <div class="form-group">
                                                         <small class="mb-1"> Caste / కులము </small>
                                                         <select class="form-select" name="caste" id="caste"  value="{{old('caste')}}">
-                                                            <option value="">-- Select --</option>
-                                                            <option value="BC"> BC / బీసీ</option>
-                                                            <option value="OC"> OC / ఓసీ</option>
-                                                            <option value="SC"> SC / ఎస్సీ </option>
-                                                            <option value="ST"> ST/ఎస్సీ </option>
+                                                            @foreach ($caste as $datas)
+                                                            <option value="{{$datas->id}}"{{$basic->caste==$datas->id ? "selected" :""}}>{{$datas->caste}}</option>
+
+                                                            @endforeach
                                                         </select>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-4 mb-4 input-felds">
                                                     <div class="form-group">
                                                         <small class="mb-1">Annual Income / సంవత్సర ఆదాయం</small>
-                                                        <input type="text" class="form-control" id="income" placeholder="" name="income"  value="{{old('income')}}">
+                                                        <input type="text" class="form-control" id="income" placeholder="" name="income"  value="{{$basic->annual_income}}">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-4 mb-4 input-felds">
@@ -100,11 +98,13 @@
                                                         <small class="mb-1" > Ration card / రేషన్ కార్డు</small>
                                                         <div class="d-flex align-items-center ">
                                                             <div class="radio-btnn p-2">
-                                                                <input type="radio" id=" " name="rationcard" value="Yes">
+
+                                                                {{-- {{dd($basic->ration_card);}} --}}
+                                                                <input type="radio" id="rationcard " name="rationcard" value="Yes" {{ $basic->ration_card == "Yes" ? 'checked' : '' }}>
                                                                 <label for="Yes" class="ms-1">Yes</label>
                                                             </div>
                                                             <div class="radio-btnn p-2">
-                                                                <input type="radio" id=" " name="rationcard" value="no">
+                                                                <input type="radio" id="rationcard " name="rationcard" value="no" {{ $basic->ration_card == 'no' ? 'checked' : '' }}>
                                                                 <label for="no" class="ms-1">No</label>
                                                             </div>
                                                         </div>
@@ -115,29 +115,29 @@
                                                     <div class="form-group">
                                                         <small class="mb-1"> Type of Ration card / రేషన్ కార్డు రకం </small>
                                                         <select class="form-select" name="typeofrationcard" id="typeofrationcard"  value="{{old('typeofrationcard')}}">
-                                                            <option value="">-- Select --</option>
-                                                            <option value="Pink"> Pink / గులాబి</option>
-                                                            <option value="White"> White / తెలుపు</option>
+                                                            @foreach ($typeofrationcard as $datas)
+                                                            <option value="{{$datas->id}}"{{$basic->typeofrationcard==$datas->id ? "selected" :""}}>{{$datas->type_of_ration_card}}</option>
+
+                                                            @endforeach
                                                         </select>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-4 mb-4 input-felds">
                                                     <div class="form-group">
                                                         <small class="mb-1"> Enter Ration Card Number/రేషన్ కార్డ్ నంబర్&zwnj;ను నమోదు చేయండి </small>
-                                                        <input type="text" name="rationcardnumber" class="form-control" id="rationcardnumber" placeholder=""  value="{{old('rationcardnumber')}}">
+                                                        <input type="text" name="rationcardnumber" class="form-control" id="rationcardnumber" placeholder=""   value="{{$basic->ration_card_no}}">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-12 mb-2 input-felds">
                                                     <div class="form-group">
                                                         <small class="mb-1"> Address/Street /అడ్రస్ / వీధి </small>
-                                                        <textarea rows="5" name="address" id="address" class="form-control">{{old('address')}}</textarea>
+                                                        <textarea rows="5" name="address" id="address" class="form-control" >{{$basic->address}}</textarea>
                                                     </div>
                                                 </div>
 
                                             </div>
                                             <div class="mt-2">
                                                 <button type="submit" class="btn btn-primary me-2 mb-2">Save changes</button>
-                                                <a href="{{route('wards_house_owner')}}" class="btn btn-outline-secondary mb-2">Add House Owner Details / ఇంటి యజమాని వివరాలను జోడించండి</a>
                                             </div>
                                         </form>
                                     </div>

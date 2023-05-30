@@ -112,7 +112,7 @@
 
                                             <td><a href="{{url('wards_add_member_edit')}}/{{@$data->id}}"><i class="bx bx-edit"></i></a>
                                                 <a href="{{url('wards_house_edit')}}/{{@$data->id}}">house_owner</a>
-                                                <a href="{{ url('wards_reports_edit')}}">basic_details</a>
+                                                <a href="{{ url('wards_basic_edit')}}/{{@$data->id}}">basic_details</a>
 
                                             </td>
 
