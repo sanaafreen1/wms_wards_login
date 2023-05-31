@@ -93,7 +93,6 @@
                                                         <select class="form-select" name="location_of_person" id="location_of_person"
                                                             <option value="">-- Select --</option>
 
-
                                                             <option value="Staying in the state" {{ old('location_of_person') == 'Staying in the state' ? 'selected' : '' }}>Staying in the state / రాష్ట్రంలోనే ఉంటున్నారు</option>
                                                             <option value="Staying out of the state" {{ old('location_of_person') == 'Staying out of the state' ? 'selected' : '' }}>Staying out of the state / రాష్ట్రం వెలుపల ఉంటున్నారు</option>
                                                             <option value="Staying out of the country" {{ old('location_of_person') == 'Staying out of the country' ? 'selected' : '' }}>Staying out of the country / దేశం వెలుపల ఉంటున్నారు</option>
@@ -128,7 +127,7 @@
 
                                                         </select>
                                                     </div>
-                                                </div> 
+                                                </div>
 
                                                 <div class="col-md-4 mb-4 input-felds">
                                                     <div class="form-group">

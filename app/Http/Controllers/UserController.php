@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use  App\Models\{House_owner_details,BasicDetailsModel,CitizenServiceMst,FamilyMemberModel};
+
 
 
 class UserController extends Controller
@@ -12,7 +14,14 @@ class UserController extends Controller
      */
     public function wardshome()
     {
-       return view('wards.home');
+
+
+    $houseCount = BasicDetailsModel::count();
+    $familyMemberCount = FamilyMemberModel::count();
+    $serviceCount = CitizenServiceMst::count();
+
+
+   return view('wards.home',compact('houseCount', 'familyMemberCount', 'serviceCount'));
     }
 
     public function wards_add_member()

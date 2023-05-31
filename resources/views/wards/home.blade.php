@@ -1,4 +1,4 @@
- 
+
 @extends('admin.layouts.main')
 
 
@@ -22,19 +22,19 @@
                             <div class="col-md-4 mb-3">
                                 <div class="bg-primary p-3 text-white" style="border-radius: 8px">
                                     <p>No of Houses Registered /<br>నమోదైన ఇళ్ల సంఖ్య</p>
-                                    <h2 class="text-white m-0">254</h2>
+                                    <h2 class="text-white m-0">{{ $houseCount }}</h2>
                                 </div>
                             </div>
                             <div class="col-md-4 mb-3">
                                 <div class="bg-success p-3 text-white" style="border-radius: 8px">
                                     <p>No Family Members Registered /<br>నమోదు చేయబడిన కుటుంబ సభ్యుల సంఖ్య</p>
-                                    <h2 class="text-white m-0">189</h2>
+                                    <h2 class="text-white m-0">{{$familyMemberCount}}</h2>
                                 </div>
                             </div>
                             <div class="col-md-4 mb-3">
                                 <div class="bg-warning p-3 text-white" style="border-radius: 8px">
                                     <p>No of Services Registered /<br>రిజిస్టర్ చేయబడిన సేవల సంఖ్య </p>
-                                    <h2 class="text-white m-0">254</h2>
+                                    <h2 class="text-white m-0">{{$serviceCount}}</h2>
                                 </div>
                             </div>
                         </div>
@@ -104,5 +104,5 @@
 
 @endsection
 @push('scripts')
-    
+
 @endpush

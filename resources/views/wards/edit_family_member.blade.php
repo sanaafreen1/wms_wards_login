@@ -15,18 +15,12 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <ul class="nav nav-pills flex-column flex-md-row mb-3">
+
+
                                     <li class="nav-item">
-                                        <a class="nav-link" href="{{route('wards_add_member')}}"><i class="bx bx-user me-1"></i> Basic Details</a>
+                                        <a class="nav-link active" href=""><i class="bx bx-group me-1"></i> Family Members Details</a>
                                         </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="{{route('wards_house_owner')}}"><i class="bx bx-home me-1"></i> House Owner Details</a>
-                                        </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link active" href="{{route('wards_family_member')}}"><i class="bx bx-group me-1"></i> Family Members Details</a>
-                                        </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="{{route('wards_enter_service')}}"><i class="bx bx-file me-1"></i> Enter Service Details</a>
-                                        </li>
+
                                 </ul>
                                 <div class="card mb-4">
 
@@ -40,9 +34,14 @@
                                                         <small class="mb-1"> Relation with House Owner / ఇంటి యజమానితో సంబంధం </small>
                                                         <select class="form-select" id="relation_with_houseowner" name="relation_with_houseowner">
                                                             <option value="">-- Select --</option>
+                                                            @if ($family->relation_with_houseowner==1)
+                                                            <option value="1" selected>owner/యజమాని</option>
+                                                            @else
                                                             @foreach ($relation as $relations)
                                                             <option value="{{$relations->id}}" {{$family->relation_with_houseowner==$relations->id ? "selected" :""}}> {{$relations->relation_name}}\{{$relations->telugu}}</option>
                                                             @endforeach
+                                                            @endif
+
 
 
                                                         </select>
@@ -102,10 +101,9 @@
                                                         <small class="mb-1"> Location of the Person / వ్యక్తి యొక్క స్థానం </small>
                                                         <select class="form-select"  name="location_ofthe_person"  id="location_ofthe_person" value="{{$family->location_ofthe_person}}">
                                                             <option value="">-- Select --</option>
-                                                            <option value="Staying in the state"> Staying in the state / రాష్ట్రంలోనే ఉంటున్నారు </option>
-                                                            <option value="Staying out of the state"> Staying out of the state / రాష్ట్రం వెలుపల ఉంటున్నారు </option>
-                                                            <option value="Staying out of the country"> Staying out of the country / దేశం వెలుపల ఉంటున్నారు </option>
-
+                                                            <option value="Staying in the state" {{ old('location_ofthe_person') == 'Staying in the state' ? 'selected' : '' }}>Staying in the state / రాష్ట్రంలోనే ఉంటున్నారు</option>
+                                                            <option value="Staying out of the state" {{ old('location_ofthe_person') == 'Staying out of the state' ? 'selected' : '' }}>Staying out of the state / రాష్ట్రం వెలుపల ఉంటున్నారు</option>
+                                                            <option value="Staying out of the country" {{ old('location_ofthe_person') == 'Staying out of the country' ? 'selected' : '' }}>Staying out of the country / దేశం వెలుపల ఉంటున్నారు</option>
                                                         </select>
                                                     </div>
 

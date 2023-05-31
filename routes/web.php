@@ -117,7 +117,7 @@ Route::get('/wards-enter', [EnterServiceDetailsController::class, 'wards_enter_s
 Route::post('/wards_enter_service/create', [EnterServiceDetailsController::class, 'create'])->name('wards_enter_service.create');
 Route::post('/getsubservice', [EnterServiceDetailsController::class, 'getsubservice'])->name('getsubservice');
 Route::get('/enter_service_edit/{id}', [EnterServiceDetailsController::class, 'edit'])->name('enter_service_edit');
-Route::get('/enter_service/update', [EnterServiceDetailsController::class, 'update'])->name('enter_service.update');
+Route::post('/enter_service/update', [EnterServiceDetailsController::class, 'update'])->name('enter_service.update');
 
 //end service details routes
 // enter reports routes
