@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Auth;
 
 
 class EnterServiceDetailsController extends Controller
-{
+{ 
    public function wards_enter_service()
    {
 
