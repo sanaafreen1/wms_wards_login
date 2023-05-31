@@ -202,7 +202,7 @@ return response()->json(['status' => 'success']);
 
     public function wards_house_edit(Request $request)
     {
-$id=$request->id;
+        $id=$request->id;
         $education=EducationMst::get();
     $details=EducationDetailsMst::get();
     $occupation=OccupationMst::get();
@@ -217,7 +217,9 @@ $id=$request->id;
 
     public function update(Request $request)
 {
-    $basicdetails_id=session()->get('basic_details_id');
+    // $basicdetails_id=session()->get('basic_details_id');
+
+    $id = $request->id;
 
     $owner=$request->owner_name;
     $dob=$request->date_of_birth;
@@ -237,23 +239,29 @@ $id=$request->id;
     $type_pension=$request->type_pension;
 
 
+if($request->hasFile('upload_photo')){
+    $image = $request->file('upload_photo');
 
- $image = $request->file('upload_photo');
+    // Set the target size in bytes (15KB = 15 * 1024 bytes)
+    $targetSize = 15 * 1024;
 
- // Set the target size in bytes (15KB = 15 * 1024 bytes)
- $targetSize = 15 * 1024;
+    // Generate a unique filename
+    $filename = time() . '_' . $image->getClientOriginalName();
 
- // Generate a unique filename
- $filename = time() . '_' . $image->getClientOriginalName();
+    // Move the uploaded file to the public/images directory
+    $image->move(public_path('images'), $filename);
 
- // Move the uploaded file to the public/images directory
- $image->move(public_path('images'), $filename);
+    // Compress the image
+    $compressedFilename = $this->compressImage(public_path('images/' . $filename), $targetSize);
 
- // Compress the image
- $compressedFilename = $this->compressImage(public_path('images/' . $filename), $targetSize);
+    $data= House_owner_details::where('id',$id)->update([
+            'upload_photo'=>$compressedFilename,
+        ]);
+}
 
-    $data= House_owner_details::updateOrCreate([
-        'basic_details_id' =>$basicdetails_id,
+
+    $data= House_owner_details::where('id',$id)->update([
+        // 'basic_details_id' =>$basicdetails_id,
             'owner_name'=>$owner,
             'date_of_birth'=>$dob,
             'mobilenumber'=>$mobilenumber,
@@ -265,20 +273,17 @@ $id=$request->id;
             'occupation'=>$occupation,
             'gender'=>$gender,
             'blood_group'=>$blood_group,
-    'covid_vaccine'=>$covid_vaccine,
+            'covid_vaccine'=>$covid_vaccine,
             'bp'=>$bp,
            'sugar'=>$sugar,
            'pension'=>$pension,
             'blood_group'=>$blood_group,
             'type_of_pension'=>$type_pension,
-            'upload_photo'=>$compressedFilename,
-
 
         ]);
 
 
-
-                 return response()->json(['status'=>'success']);
+  return response()->json(['status'=>'success']);
 
 }
 

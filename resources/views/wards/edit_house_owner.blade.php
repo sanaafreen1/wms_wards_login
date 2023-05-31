@@ -28,6 +28,7 @@
                                     <div class="card-body">
                                         <form  id="housedetails" name="housedetails" enctype="multipart/form-data" method="post">
                                             @csrf
+                                            <input type="hidden" name="id" id="id" value="{{$house->id}}">
                                             <input type="hidden" name="basic_details_id" id="basic_details_id" value="session()->($item)" >
                                             <div class="row">
                                                 <div class="col-md-4 mb-4 input-felds">
@@ -196,8 +197,7 @@
 
                                             </div>
                                             <div class="mt-2">
-                                                <button type="submit" class="btn btn-primary me-2 mb-2"  >Save changes</button>
-                                                <a href="{{ route('wards_family_member')}}" class="btn btn-outline-secondary mb-2">Add Family Member Details/కుటుంబ సభ్యుల వివరాలను జోడించండి </a>
+                                                <button type="submit" class="btn btn-primary me-2 mb-2"  >Update / అప్డేట్ చేయండి</button>
                                             </div>
                                         </form>
                                     </div>
@@ -241,7 +241,7 @@
 
        var formData = new FormData($(this)[0]);
        $.ajax({
-          url : ' {{ route('wards_house_owner.insert') }} ',
+          url : ' {{ route('wards_house.update') }} ',
           type : 'POST',
           data : formData,
           cache : false,
@@ -254,7 +254,8 @@
               // Show toastr message
               toastr.success('Data updated successfully!');
            setTimeout(function(){
-          window.location.href = '{{ route('wards_family_member') }}';}, 3000);
+            location.reload()
+            }, 3000);
           } else {
               toastr.error('Error inserting data!');
 

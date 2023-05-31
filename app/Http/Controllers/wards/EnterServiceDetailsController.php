@@ -69,4 +69,25 @@ class EnterServiceDetailsController extends Controller
 
 }
 
+public function edit($id)
+{
+    $service = CitizenServiceMst::get();
+    // dd($service);
+    $document=DocumentMst::get();
+    $update= EnterServiceDetails::where('id','=',$id)->first();
+    $serv_id = $update->service_id;
+
+    $subservice =CitizenSubServiceMst::where('service_id',$serv_id)->get();
+        // dd($document);
+
+
+
+    return view('wards.enter_service_edit',compact('update','service','document','subservice','serv_id'));
+}
+
+public function update($id){
+
+}
+
+
 }
