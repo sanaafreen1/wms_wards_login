@@ -33,7 +33,7 @@
                                     <select class="form-select" name="service" id="service">
                                         <option value="">Select Service / సేవను ఎంచుకోండి</option>
                                         @foreach ($service as $store )
-                                        <option value="{{$store->service_id}}" {{$update->service_id==$store->service_id ? "selected" :""}}>{{$store->service_name}}</option>
+                                        <option value="{{$store->service_id}}" {{$update[0]->service_id==$store->service_id ? "selected" :""}}>{{$store->service_name}}</option>
                                         {{-- <option value="{{$store->id}}" @if($store->id==$update->service_id) selected @endif>{{$store->service_name}}</option> --}}
                                         </option>
                                         @endforeach
@@ -49,7 +49,7 @@
                                     <select class="form-select" name="subservice" id="subservice">
                                         <option value="">Select Sub Service / సేవను ఎంచుకోండి</option>
                                         @foreach ($subservice as $sub)
-                                        <option value="{{$sub->sub_service_id}}" {{ $sub->sub_service_id == $update->sub_service_id ? 'selected' : '' }}>{{$sub->sub_service_name}}</option>
+                                        <option value="{{$sub->sub_service_id}}" {{ $sub->sub_service_id == $update[0]->sub_service_id ? 'selected' : '' }}>{{$sub->sub_service_name}}</option>
 
                                         @endforeach
                                     </select>
@@ -61,9 +61,14 @@
                                     <small>Select Documents / పత్రాలను ఎంచుకోండి</small>
                                     <ul class="m-0 p-0 s-doc-mobile">
 
+                                        @php
+                                            $docs = $update->pluck('document_id')->toArray();
+                                       
+                                        @endphp
+
                                         @foreach ($document as $val)
                                         <li class="align-items-start d-flex me-3 float-start">
-                                            <span class="p-1"><input type="checkbox" class="largerCheckbox mt-1" name="document[]" id="document" value="{{$val->document_id}}"{{  $update->document ? 'checked' : '' }}></span>
+                                            <span class="p-1"><input type="checkbox" class="largerCheckbox mt-1" name="document[]" id="document" value="{{$val->document_id}}" @if(in_array($val->document_id,$docs)) checked @endif></span>
                                             <span class="p-1">{{$val->document_name}}</span>
                                         </li>
                                         @endforeach
@@ -77,10 +82,10 @@
                                 <small>Status /  పరిస్థితి </small>
                                     <select class="form-select">
                                         <option value="">Select Status / పరిస్థితి ఎంచుకోండి</option>
-                                        <option value=""> </option>
-                                        <option value=""> </option>
-                                        <option value=""> </option>
-                                        <option value=""> </option>
+                                        <option value="1" @if($update[0]->service_status == 1) selected @endif)>Documents are to be collected </option>
+                                        <option value="2" @if($update[0]->service_status == 2) selected @endif>Request to be submitted to the Department </option>
+                                        <option value="3" @if($update[0]->service_status == 3) selected @endif>Requests submitted to the Department  </option>
+                                        <option value="4" @if($update[0]->service_status == 4) selected @endif>Service request completed  </option>
                                     </select>
                             </div>
 
