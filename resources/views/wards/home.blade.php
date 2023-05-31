@@ -1,4 +1,4 @@
- 
+
 @extends('admin.layouts.main')
 
 
@@ -22,19 +22,22 @@
                             <div class="col-md-4 mb-3">
                                 <div class="bg-primary p-3 text-white" style="border-radius: 8px">
                                     <p>No of Houses Registered /<br>నమోదైన ఇళ్ల సంఖ్య</p>
-                                    <h2 class="text-white m-0">254</h2>
+                                    <h2 class="text-white m-0">{{$Houses}}</h2>
                                 </div>
                             </div>
                             <div class="col-md-4 mb-3">
                                 <div class="bg-success p-3 text-white" style="border-radius: 8px">
                                     <p>No Family Members Registered /<br>నమోదు చేయబడిన కుటుంబ సభ్యుల సంఖ్య</p>
-                                    <h2 class="text-white m-0">189</h2>
+                                    <h2 class="text-white m-0">{{$families}}</h2>
                                 </div>
                             </div>
                             <div class="col-md-4 mb-3">
                                 <div class="bg-warning p-3 text-white" style="border-radius: 8px">
                                     <p>No of Services Registered /<br>రిజిస్టర్ చేయబడిన సేవల సంఖ్య </p>
-                                    <h2 class="text-white m-0">254</h2>
+
+                                        <h2 class="text-white m-0">{{$services}}</h2>
+
+
                                 </div>
                             </div>
                         </div>
@@ -51,7 +54,7 @@
                                 <div class="card">
                                     <div class="card-body">
                                         <p>No Documents are to be collected</p>
-                                        <h2 class="m-0">154</h2>
+                                        <h2 class="m-0">{{$count1}}</h2>
                                     </div>
                                 </div>
                             </div>
@@ -59,7 +62,7 @@
                                 <div class="card">
                                     <div class="card-body">
                                         <p>No Requests are to be submitted to the Department</p>
-                                        <h2 class="m-0">154</h2>
+                                        <h2 class="m-0">{{$count2}}</h2>
                                     </div>
                                 </div>
                             </div>
@@ -67,7 +70,7 @@
                                 <div class="card">
                                     <div class="card-body">
                                         <p>No Requests are to be Submitted to the Department</p>
-                                        <h2 class="m-0">154</h2>
+                                        <h2 class="m-0">{{$count3}}</h2>
                                     </div>
                                 </div>
                             </div>
@@ -75,7 +78,7 @@
                                 <div class="card">
                                     <div class="card-body">
                                         <p>No Service requests completed</p>
-                                        <h2 class="m-0">154</h2>
+                                        <h2 class="m-0">{{$count4}}</h2>
                                     </div>
                                 </div>
                             </div>
@@ -104,5 +107,5 @@
 
 @endsection
 @push('scripts')
-    
+
 @endpush
