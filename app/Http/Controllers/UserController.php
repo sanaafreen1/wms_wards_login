@@ -1,12 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-
-
-
 use App\Models\DocumentMst;
 use App\Models\EnterServiceDetails;
-
 use Illuminate\Http\Request;
 use  App\Models\{House_owner_details,BasicDetailsModel,CitizenServiceMst,FamilyMemberModel};
 
