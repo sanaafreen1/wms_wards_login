@@ -46,7 +46,7 @@
 
                                             <td>{{$i++}}</td>
                                             <td>{{$store->member_name}}</td>
-                                            <td>{{$store->relations->relation_name}}</td>
+                                            <td>{{$store->relation_name}}</td>
                                             <td>{{$store->gender}}</td>
 
                                                 @php

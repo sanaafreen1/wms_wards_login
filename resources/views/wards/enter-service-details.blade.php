@@ -75,7 +75,7 @@
 
                             <div class="col-md-6">
                                 <small>Status /  పరిస్థితి </small>
-                                    <select class="form-select">
+                                    <select class="form-select" ">
                                         <option value="">Select Status / పరిస్థితి ఎంచుకోండి</option>
                                         <option value="1">Documents are to be collected </option>
                                         <option value="2">Request to be submitted to the Department </option>
