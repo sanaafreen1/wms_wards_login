@@ -27,7 +27,7 @@
                             <div class="col-md-6 mb-3">
                                 <form action="" id="service_details" name="service_details" method="POST">
                               @csrf
-                              <input type="hidden" name="id" id="id"value="">
+                              <input type="hidden" name="id" id="id"value="{{$update[0]->id}}">
                                     <div class="form-group">
                                     <small>Select Service / సేవను ఎంచుకోండి</small>
                                     <select class="form-select" name="service" id="service">
@@ -62,8 +62,8 @@
                                     <ul class="m-0 p-0 s-doc-mobile">
 
                                         @php
-                                            $docs = $update->pluck('document_id')->toArray();
-                                       
+                                            $docs = $insert_document->pluck('document_id')->toArray();
+
                                         @endphp
 
                                         @foreach ($document as $val)
@@ -80,7 +80,7 @@
 
                             <div class="col-md-6">
                                 <small>Status /  పరిస్థితి </small>
-                                    <select class="form-select">
+                                    <select class="form-select" name="service_status" id="service_status">
                                         <option value="">Select Status / పరిస్థితి ఎంచుకోండి</option>
                                         <option value="1" @if($update[0]->service_status == 1) selected @endif)>Documents are to be collected </option>
                                         <option value="2" @if($update[0]->service_status == 2) selected @endif>Request to be submitted to the Department </option>
@@ -133,6 +133,31 @@
 <script>
     $('#service').on(5674);
 </script>
+{{-- <script>
+    $('#service').on('change', function() {
+          var id = this.value;
+          // alert(company_id);
+
+          $("#subservice").html('');
+          $.ajax({
+          url:"{{route('getsubservice')}}",
+          type: "POST",
+          data: {
+          id: id,
+          _token: '{{csrf_token()}}'
+          },
+          dataType : 'json',
+          success: function(result){
+              //alert(result.model);
+          $('#subservice').html('<option value="">Select Sub Service / సేవను ఎంచుకోండి</option>');
+          $.each(result.subservice,function(key,value){
+          $("#subservice").append('<option value="'+value.sub_service_id+'">'+value.sub_service_name+'</option>');
+          //  alert(value.id);
+          });
+          }
+          });
+          });
+</script> --}}
 
 <script>
     $(document).ready(function() {
@@ -141,7 +166,7 @@
           // alert('hi');
        var formData = new FormData($(this)[0]);
        $.ajax({
-          url : ' {{ route('wards_enter_service.create') }} ',
+          url : ' {{ route('enter_service.update') }} ',
           type : 'POST',
           data : formData,
           cache : false,
@@ -152,9 +177,9 @@
           // Check if operation was successful
           if (response.status === 'success') {
               // Show toastr message
-              toastr.success('Data inserted successfully!');
+              toastr.success('Data updated successfully!');
            setTimeout(function(){
-          window.location.href = '{{ route('wards_enter_service') }}';}, 3000);
+            location.reload()}, 3000);
           } else {
               toastr.error('Error inserting data!');
           }
