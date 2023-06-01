@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\BasicDetailsModel;
-use App\Models\CitizenServiceMst;
+
+
 use App\Models\DocumentMst;
 use App\Models\EnterServiceDetails;
-use App\Models\FamilyMemberModel;
+
 use Illuminate\Http\Request;
 use  App\Models\{House_owner_details,BasicDetailsModel,CitizenServiceMst,FamilyMemberModel};
 
